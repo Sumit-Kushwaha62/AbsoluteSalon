@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Production output
+dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Deployment and tool state
+.netlify/
+.vercel/
+.vite/
+coverage/
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local research, raw source media, and generated audit artifacts
+scratch/
+instagram-data/
+engagmentimage.jpg
+*_AUDIT.md
+*_REPORT.md
+ROUTING_SETUP.md
+

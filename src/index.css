@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Backgrounds & Surfaces */
+    --color-bg-base: #070707;
+    --color-bg-alt: #0B0B0B;
+    --color-bg-card: #0E0E0E;
+    --color-bg-elevated: #141414;
+    --color-surface-glass: rgba(15, 15, 15, 0.78);
+    --color-header-glass: rgba(7, 7, 7, 0.85);
+    --color-footer-bg: #070707;
+
+    /* Text Hierarchy */
+    --color-text-primary: #F5F0E7;
+    --color-text-secondary: #EEE7DB;
+    --color-text-muted: #9C978F;
+    --color-text-inverse: #070707;
+
+    /* Champagne Gold Brand Accents */
+    --color-gold-light: #E2C978;
+    --color-gold-mid: #CDA647;
+    --color-gold-deep: #B88A2F;
+    --color-gold-accent: #D6B45C;
+
+    /* Borders & Dividers */
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+    --color-border-medium: rgba(255, 255, 255, 0.12);
+    --color-border-gold: rgba(214, 180, 92, 0.25);
+
+    /* Shadows */
+    --shadow-editorial: 0 18px 60px rgba(0, 0, 0, 0.45);
+    --shadow-floating: 0 10px 40px rgba(0, 0, 0, 0.65);
+
+    /* Inputs & Forms */
+    --color-input-bg: #0E0E0E;
+    --color-input-border: rgba(255, 255, 255, 0.12);
+
+    /* Scrollbars & Selection */
+    --color-scrollbar-track: #070707;
+    --color-scrollbar-thumb: #1C1C1E;
+    --color-selection-bg: #CDA647;
+    --color-selection-text: #070707;
+
+    /* Card Gradient Surface */
+    --card-surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+    
+    /* Noise Background Radial */
+    --noise-overlay: radial-gradient(circle at top left, rgba(214, 180, 92, 0.05), transparent 35%);
+  }
+
+  [data-theme="light"] {
+    color-scheme: light;
+
+    /* Backgrounds & Surfaces (Warm Ivory Luxury Palette) */
+    --color-bg-base: #F7F3EC;
+    --color-bg-alt: #F2ECE2;
+    --color-bg-card: #FFFDF8;
+    --color-bg-elevated: #F8F2E8;
+    --color-surface-glass: rgba(247, 243, 236, 0.85);
+    --color-header-glass: rgba(247, 243, 236, 0.90);
+    --color-footer-bg: #EFE9DE;
+
+    /* Text Hierarchy (Deep Espresso / Charcoal) */
+    --color-text-primary: #1A1713;
+    --color-text-secondary: #4A443C;
+    --color-text-muted: #746B60;
+    --color-text-inverse: #FFFDF8;
+
+    /* Champagne Gold Brand Accents */
+    --color-gold-light: #C79E45;
+    --color-gold-mid: #B88A2F;
+    --color-gold-deep: #966F21;
+    --color-gold-accent: #B88A2F;
+
+    /* Borders & Dividers */
+    --color-border-subtle: rgba(38, 31, 23, 0.08);
+    --color-border-medium: rgba(38, 31, 23, 0.14);
+    --color-border-gold: rgba(184, 138, 47, 0.35);
+
+    /* Shadows */
+    --shadow-editorial: 0 12px 40px rgba(38, 31, 23, 0.08);
+    --shadow-floating: 0 10px 30px rgba(38, 31, 23, 0.12);
+
+    /* Inputs & Forms */
+    --color-input-bg: #FFFDF8;
+    --color-input-border: rgba(38, 31, 23, 0.18);
+
+    /* Scrollbars & Selection */
+    --color-scrollbar-track: #F7F3EC;
+    --color-scrollbar-thumb: #D3C7B6;
+    --color-selection-bg: #B88A2F;
+    --color-selection-text: #FFFDF8;
+
+    /* Card Gradient Surface */
+    --card-surface-gradient: linear-gradient(180deg, rgba(255, 253, 248, 0.95) 0%, rgba(248, 242, 232, 0.85) 100%);
+
+    /* Noise Background Radial */
+    --noise-overlay: radial-gradient(circle at top left, rgba(184, 138, 47, 0.08), transparent 35%);
+  }
+
+  html {
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      transition: none !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  }
+}
+
+/* Luxury Champagne Text Gradient */
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-gold-light) 50%, var(--color-gold-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic Champagne Button Gradient */
+.btn-champagne-primary {
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-mid) 55%, var(--color-gold-deep) 100%);
+  color: #070707;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(184, 138, 47, 0.25);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-champagne-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(184, 138, 47, 0.38);
+  filter: brightness(1.05);
+}
+
+.btn-champagne-secondary {
+  background: var(--color-border-subtle);
+  border: 1px solid var(--color-border-medium);
+  color: var(--color-text-primary);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-champagne-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-gold);
+  background: var(--color-border-medium);
+  color: var(--color-gold-accent);
+}
+
+/* Editorial Glass & Card Surface Tokens */
+.card-editorial {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 24px;
+  box-shadow: var(--shadow-editorial);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-editorial:hover {
+  border-color: var(--color-border-gold);
+  transform: translateY(-2px);
+}
+
+/* Floating Glass Floating Bar */
+.floating-glass {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--color-border-medium);
+  box-shadow: var(--shadow-floating);
+}
+
+/* Global Noise Overlay */
+.bg-noise-overlay {
+  background-image: var(--noise-overlay);
+}
+
+/* Custom Theme-Aware Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-mid);
+}
+
+::selection {
+  background: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
