@@ -17,6 +17,14 @@ export const ServicePriceRow = ({
   const { cleanTitle, variant } = extractRowVariant(label, rawVariant);
   const displayTitle = cleanTitle || label;
 
+  // Suppress variant if it duplicates the display title
+  const isDuplicateVariant =
+    variant &&
+    displayTitle &&
+    displayTitle.trim().toLowerCase() === variant.trim().toLowerCase();
+
+  const showVariant = variant && !isDuplicateVariant;
+
   return (
     <div className="py-2 px-2.5 sm:px-3 border-b border-[var(--color-border-subtle)] last:border-b-0 group transition-colors hover:bg-[var(--color-bg-elevated)]/40 rounded-md">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:gap-5">
@@ -39,7 +47,7 @@ export const ServicePriceRow = ({
 
         {/* Right Column: Compact Inline Flex Group (Variant + Price as ONE unit) */}
         <div className="inline-flex items-center justify-end gap-1.5 sm:gap-2 shrink-0 whitespace-nowrap">
-          {variant && (
+          {showVariant && (
             <span className="text-xs text-[var(--color-text-muted)] font-medium">
               {variant}
             </span>

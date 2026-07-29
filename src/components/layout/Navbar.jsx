@@ -75,7 +75,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 sm:gap-3 focus:outline-none min-w-0 flex-shrink-0"
           >
             <img
-              src="/brand/absolute-salon-logo.webp"
+              src="/brand/absolute-salon-logo.webp?v=2.0"
               alt="Absolute Salon Logo"
               width="512"
               height="512"

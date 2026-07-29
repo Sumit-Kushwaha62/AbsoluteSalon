@@ -22,7 +22,7 @@ export const Footer = () => {
           <div className="md:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="/brand/absolute-salon-logo.webp"
+                src="/brand/absolute-salon-logo.webp?v=2.0"
                 alt="Absolute Salon Logo"
                 width="512"
                 height="512"
