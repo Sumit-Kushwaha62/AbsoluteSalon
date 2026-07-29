@@ -24,6 +24,7 @@ Thumbs.db
 
 # Local research, raw source media, and generated audit artifacts
 scratch/
+source-assets/
 instagram-data/
 engagmentimage.jpg
 *_AUDIT.md

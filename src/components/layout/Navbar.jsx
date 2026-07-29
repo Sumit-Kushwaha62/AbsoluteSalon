@@ -77,10 +77,12 @@ export const Navbar = () => {
             className="flex items-center gap-3 focus:outline-none min-w-0 flex-shrink-0"
           >
             <img
-              src="/brand/absolute-salon-logo-transparent.png"
-              onError={(e) => { e.target.src = '/brand/absolute-salon-logo.jpg'; }}
+              src="/brand/absolute-salon-logo.webp"
               alt="Absolute Salon Logo"
-              className="h-10 sm:h-11 w-auto object-contain"
+              width="512"
+              height="512"
+              decoding="async"
+              className="h-11 w-11 sm:h-12 sm:w-12 object-contain"
             />
             <div className="hidden sm:flex flex-col">
               <span className="font-serif-display text-base md:text-lg font-semibold tracking-wider text-[var(--color-text-primary)]">

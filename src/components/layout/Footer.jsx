@@ -22,10 +22,13 @@ export const Footer = () => {
           <div className="md:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="/brand/absolute-salon-logo-transparent.png"
-                onError={(e) => { e.target.src = '/brand/absolute-salon-logo.jpg'; }}
+                src="/brand/absolute-salon-logo.webp"
                 alt="Absolute Salon Logo"
-                className="h-12 w-auto object-contain"
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+                className="h-14 w-14 object-contain"
               />
               <div>
                 <span className="font-serif-display text-2xl font-semibold tracking-wider text-[var(--color-text-primary)] block">

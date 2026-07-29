@@ -22,8 +22,8 @@ export const SocialReels = () => {
   };
 
   return (
-    <section id="reels" className="py-20 md:py-32 bg-[var(--color-bg-alt)] border-t border-[var(--color-border-medium)] relative transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="reels" className="py-16 sm:py-20 md:py-32 bg-[var(--color-bg-alt)] border-t border-[var(--color-border-medium)] relative transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
@@ -40,7 +40,7 @@ export const SocialReels = () => {
         </div>
 
         {/* Reels Responsive Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:grid-cols-3 gap-6 pb-6 md:pb-0 scrollbar-none mb-12">
+        <div className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:grid-cols-3 gap-4 sm:gap-6 pb-5 md:pb-0 scrollbar-none mb-10 sm:mb-12 scroll-px-4">
           {MEDIA_ASSETS.reels.map((reel, idx) => (
             <motion.div
               key={reel.id}
@@ -48,7 +48,7 @@ export const SocialReels = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="min-w-[260px] sm:min-w-[300px] md:min-w-0 flex-shrink-0 md:flex-shrink snap-center relative group rounded-[24px] overflow-hidden card-editorial aspect-[9/16]"
+              className="w-[82vw] max-w-[310px] sm:w-auto sm:min-w-[300px] sm:max-w-none md:min-w-0 flex-shrink-0 md:flex-shrink snap-start sm:snap-center relative group rounded-[20px] sm:rounded-[24px] overflow-hidden card-editorial aspect-[4/5] sm:aspect-[3/4] md:aspect-[9/16]"
             >
               {!videoErrors[reel.id] ? (
                 <SmartVideo
@@ -56,7 +56,7 @@ export const SocialReels = () => {
                   poster={reel.poster}
                   muted={mutedStates[reel.id]}
                   onError={() => handleVideoError(reel.id)}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center scale-[1.08] sm:scale-105 md:scale-100 transition-transform duration-500"
                 />
               ) : (
                 <SmartImage
@@ -68,7 +68,7 @@ export const SocialReels = () => {
               )}
 
               {/* Reel Dark Overlay Controls */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity p-5 flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity p-4 sm:p-5 flex flex-col justify-between">
                 
                 {/* Top Header info */}
                 <div className="flex items-center justify-between z-10">
@@ -95,7 +95,7 @@ export const SocialReels = () => {
 
                 {/* Bottom Details */}
                 <div className="z-10">
-                  <h4 className="font-serif-display text-xl text-white mb-2">
+                  <h4 className="font-serif-display text-lg sm:text-xl text-white mb-2 leading-snug">
                     {reel.title}
                   </h4>
                   <a
