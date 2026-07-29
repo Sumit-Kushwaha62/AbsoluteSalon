@@ -20,14 +20,14 @@ export const FloatingWhatsApp = () => {
         </a>
       </div>
 
-      {/* Mobile Conversion Floating Action Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 navbar-glass-strip p-3 grid grid-cols-3 gap-2 border-t border-[var(--color-border-medium)]">
+      {/* Mobile Floating Action Buttons (No Rectangle Box Background, Pure Floating Buttons) */}
+      <div className="md:hidden fixed bottom-4 left-3 right-3 z-50 pointer-events-none pb-[env(safe-area-inset-bottom,0px)] grid grid-cols-3 gap-2.5 transform-gpu">
         <Link
           to="/services?category=skin"
           aria-label="View Skin Care & Aesthetics Services"
-          className="flex flex-col items-center justify-center py-2.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-[14px] text-center transition-transform active:scale-95"
+          className="pointer-events-auto flex flex-col items-center justify-center py-2.5 px-1.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-2xl text-center shadow-[0_8px_25px_rgba(0,0,0,0.35)] transition-transform active:scale-95"
         >
-          <Sparkles className="w-4 h-4 text-[var(--color-gold-accent)] mb-1" />
+          <Sparkles className="w-4 h-4 text-[var(--color-gold-accent)] mb-0.5" />
           <span className="text-[9px] uppercase tracking-wider font-semibold whitespace-nowrap">Our Services</span>
         </Link>
 
@@ -36,22 +36,24 @@ export const FloatingWhatsApp = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Book an appointment on WhatsApp"
-          className="flex flex-col items-center justify-center py-2.5 btn-champagne-primary rounded-[14px] text-center font-bold transition-transform active:scale-95"
+          className="pointer-events-auto flex flex-col items-center justify-center py-2.5 px-1.5 btn-champagne-primary rounded-2xl text-center font-bold shadow-[0_8px_25px_rgba(184,138,47,0.35)] transition-transform active:scale-95"
         >
-          <FaWhatsapp className="w-4 h-4 text-[#070707] mb-1" />
+          <FaWhatsapp className="w-4 h-4 text-[#070707] mb-0.5" />
           <span className="text-[9px] uppercase tracking-wider font-bold">WhatsApp</span>
         </a>
 
         <a
           href={`tel:${BUSINESS_INFO.phone.raw}`}
           aria-label="Call Absolute Salon"
-          className="flex flex-col items-center justify-center py-2.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-[14px] text-center transition-transform active:scale-95"
+          className="pointer-events-auto flex flex-col items-center justify-center py-2.5 px-1.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-2xl text-center shadow-[0_8px_25px_rgba(0,0,0,0.35)] transition-transform active:scale-95"
         >
-          <Phone className="w-4 h-4 text-[var(--color-gold-accent)] mb-1" />
+          <Phone className="w-4 h-4 text-[var(--color-gold-accent)] mb-0.5" />
           <span className="text-[9px] uppercase tracking-wider font-semibold">Call</span>
         </a>
       </div>
     </>
   );
 };
+
+
 

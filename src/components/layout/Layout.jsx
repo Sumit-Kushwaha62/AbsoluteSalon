@@ -15,7 +15,7 @@ export const Layout = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-base)] text-[var(--color-text-primary)] transition-colors duration-300 flex flex-col justify-between">
+    <div className="min-h-screen bg-[var(--color-bg-base)] text-[var(--color-text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-hidden max-w-full relative">
       <ScrollToTop />
       <Navbar />
 

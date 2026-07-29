@@ -107,8 +107,17 @@
     --noise-overlay: radial-gradient(circle at top left, rgba(184, 138, 47, 0.08), transparent 35%);
   }
 
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
   html {
     transition: background-color 0.25s ease, color 0.25s ease;
+    touch-action: manipulation;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -121,7 +130,6 @@
     background-color: var(--color-bg-base);
     color: var(--color-text-primary);
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
