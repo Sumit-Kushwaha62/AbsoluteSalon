@@ -7,86 +7,106 @@ export const SERVICE_CATEGORIES = [
     "items": [
       {
         "id": "hd-bridal-party-makeup",
-        "name": "HD & Senior Artist Makeup",
+        "name": "HD Makeup",
         "shortDescription": "PAC, Character, and MAC high-definition makeup for Side, Haldi, Mehendi, and Engagement.",
         "startingPrice": "₹3,000",
         "sourceUrl": "https://www.cvsalon.com/services",
-        "priceRows": [
+        "priceGroups": [
           {
-            "label": "HD Makeup — By Senior Artist — Standard (P.A.C, Shopaarel etc.)",
-            "price": "₹3,000"
+            "title": "Standard",
+            "description": "P.A.C, Shopaarel etc.",
+            "rows": [
+              {
+                "label": "Side / Haldi / Mehendi",
+                "price": "₹3,000"
+              },
+              {
+                "label": "Sangeet / Engagement",
+                "price": "₹6,000"
+              },
+              {
+                "label": "Bridal / Reception",
+                "price": "₹8,000"
+              }
+            ]
           },
           {
-            "label": "HD Makeup — By Senior Artist — Standard (P.A.C, Shopaarel etc.)",
-            "price": "₹6,000"
+            "title": "Premium",
+            "description": "MAC, Character etc.",
+            "rows": [
+              {
+                "label": "Side / Haldi / Mehendi",
+                "price": "₹5,000"
+              },
+              {
+                "label": "Sangeet / Engagement",
+                "price": "₹8,000"
+              },
+              {
+                "label": "Bridal / Reception",
+                "price": "₹10,000"
+              }
+            ]
           },
           {
-            "label": "HD Makeup — By Senior Artist — Standard (P.A.C, Shopaarel etc.)",
-            "price": "₹8,000"
-          },
-          {
-            "label": "HD Makeup — By Senior Artist — Premium (MAC, Character etc.)",
-            "price": "₹5,000"
-          },
-          {
-            "label": "HD Makeup — By Senior Artist — Premium (MAC, Character etc.)",
-            "price": "₹8,000"
-          },
-          {
-            "label": "HD Makeup — By Senior Artist — Premium (MAC, Character etc.)",
-            "price": "₹10,000"
-          },
-          {
-            "label": "HD Makeup — By Owners (Chinnie & Vinnie) (Morphe, Shopaarel, Smashbox etc.)",
-            "price": "₹6,000"
-          },
-          {
-            "label": "HD Makeup — By Owners (Chinnie & Vinnie) (Morphe, Shopaarel, Smashbox etc.)",
-            "price": "₹10,000"
-          },
-          {
-            "label": "HD Makeup — By Owners (Chinnie & Vinnie) (Morphe, Shopaarel, Smashbox etc.)",
-            "price": "₹15,000"
+            "title": "Signature HD Makeup",
+            "description": "Morphe, Shopaarel, Smashbox etc.",
+            "rows": [
+              {
+                "label": "Side / Haldi / Mehendi",
+                "price": "₹6,000"
+              },
+              {
+                "label": "Sangeet / Engagement",
+                "price": "₹10,000"
+              },
+              {
+                "label": "Bridal / Reception",
+                "price": "₹15,000"
+              }
+            ]
           }
         ]
       },
       {
         "id": "ultra-hd-crystal-makeup",
-        "name": "Ultra HD & Owners Signature Makeup",
-        "shortDescription": "Couture bridal transformations by Chinnie, Vinnie & Krati Khatri using Dior, NARS, Huda Beauty & Charlotte Tilbury.",
+        "name": "Ultra HD & Signature Makeup",
+        "shortDescription": "Couture bridal transformations using Dior, NARS, Huda Beauty & Charlotte Tilbury.",
         "startingPrice": "₹9,000",
         "sourceUrl": "https://www.cvsalon.com/services",
         "priceGroups": [
           {
-            "title": "Ultra HD Makeup (Huda Beauty, Smashbox, Too-Faced)",
+            "title": "Ultra HD Makeup",
+            "description": "Huda Beauty, Smashbox, Too-Faced etc.",
             "rows": [
               {
-                "label": "Ultra HD Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Huda Beauty, Smashbox, Too-Faced etc.)",
+                "label": "Side / Haldi / Mehendi",
                 "price": "₹9,000"
               },
               {
-                "label": "Ultra HD Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Huda Beauty, Smashbox, Too-Faced etc.)",
+                "label": "Sangeet / Engagement",
                 "price": "₹13,000"
               },
               {
-                "label": "Ultra HD Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Huda Beauty, Smashbox, Too-Faced etc.)",
+                "label": "Bridal / Reception",
                 "price": "₹18,000"
               }
             ]
           },
           {
-            "title": "Crystal Glam Makeup (Dior, NARS, Estée Lauder, Charlotte Tilbury)",
+            "title": "Crystal Glam Makeup",
+            "description": "Dior, NARS, Estée Lauder, Charlotte Tilbury etc.",
             "rows": [
               {
-                "label": "Crystal (Glam) Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Dior, NARS, Estee Lauder, Charlotte Tilbury etc.)",
+                "label": "Side / Haldi / Mehendi",
                 "price": "₹12,000"
               },
               {
-                "label": "Crystal (Glam) Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Dior, NARS, Estee Lauder, Charlotte Tilbury etc.)",
+                "label": "Sangeet / Engagement",
                 "price": "₹16,000"
               },
               {
-                "label": "Crystal (Glam) Makeup — By Owners (Chinnie, Vinnie & Krati Khatri) (Dior, NARS, Estee Lauder, Charlotte Tilbury etc.)",
+                "label": "Bridal / Reception",
                 "price": "₹24,000"
               }
             ]
@@ -174,11 +194,11 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹250"
               },
               {
-                "label": "Head Massage 10 min (Head Massage 10 min)",
+                "label": "Head Massage 10 min",
                 "price": "₹300"
               },
               {
-                "label": "Head Massage 20 min (Head Massage 20 min)",
+                "label": "Head Massage 20 min",
                 "price": "₹400"
               },
               {
@@ -296,15 +316,15 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹1,300"
               },
               {
-                "label": "Add-on Serum — Raaga - Raaga",
+                "label": "Add-on Serum — Raaga",
                 "price": "₹300"
               },
               {
-                "label": "Add-on Serum — Loreal - Loreal",
+                "label": "Add-on Serum — Loreal",
                 "price": "₹400"
               },
               {
-                "label": "Add-on Serum — Schwarzkopf - Schwarzkopf",
+                "label": "Add-on Serum — Schwarzkopf",
                 "price": "₹400"
               }
             ]
@@ -761,11 +781,13 @@ export const SERVICE_CATEGORIES = [
         "priceRows": [
           {
             "label": "Eyebrows",
-            "price": "₹35"
+            "price": "₹35",
+            "description": "Precision shaping for clean, defined brows"
           },
           {
             "label": "Upper Lip",
-            "price": "₹15"
+            "price": "₹15",
+            "description": "Quick, clean hair removal"
           },
           {
             "label": "Forehead",
@@ -1306,162 +1328,65 @@ export const SERVICE_CATEGORIES = [
         "shortDescription": "Normal Cream, Chocolate, Rica Liposoluble, and Flavoured wax options.",
         "startingPrice": "₹60",
         "sourceUrl": "https://www.cvsalon.com/services",
-        "priceRows": [
+        "priceGroups": [
           {
-            "label": "Full Hand - Normal Cream",
-            "price": "₹130"
+            "title": "Normal Cream Wax",
+            "rows": [
+              { "label": "Full Hand", "price": "₹130" },
+              { "label": "Underarm", "price": "₹60" },
+              { "label": "Half Leg", "price": "₹170" },
+              { "label": "Full Leg", "price": "₹320" },
+              { "label": "Half Front", "price": "₹180" },
+              { "label": "Full Front", "price": "₹360" },
+              { "label": "Half Back", "price": "₹180" },
+              { "label": "Full Back", "price": "₹360" },
+              { "label": "Full Body", "price": "₹1,200" }
+            ]
           },
           {
-            "label": "Underarm - Normal Cream",
-            "price": "₹60"
+            "title": "Flavoured Cream Wax",
+            "rows": [
+              { "label": "Full Hand", "price": "₹210" },
+              { "label": "Underarm", "price": "₹80" },
+              { "label": "Half Leg", "price": "₹260" },
+              { "label": "Full Leg", "price": "₹490" },
+              { "label": "Half Front", "price": "₹240" },
+              { "label": "Full Front", "price": "₹480" },
+              { "label": "Half Back", "price": "₹240" },
+              { "label": "Full Back", "price": "₹480" },
+              { "label": "Bikini Wax (Brazilian)", "price": "₹890" },
+              { "label": "Full Body", "price": "₹1,700" }
+            ]
           },
           {
-            "label": "Half Leg - Normal Cream",
-            "price": "₹170"
+            "title": "Raaga Wax",
+            "rows": [
+              { "label": "Full Hand", "price": "₹330" },
+              { "label": "Underarm", "price": "₹150" },
+              { "label": "Half Leg", "price": "₹350" },
+              { "label": "Full Leg", "price": "₹650" },
+              { "label": "Half Front", "price": "₹350" },
+              { "label": "Full Front", "price": "₹600" },
+              { "label": "Half Back", "price": "₹350" },
+              { "label": "Full Back", "price": "₹600" },
+              { "label": "Bikini Wax (Brazilian)", "price": "₹1,200" },
+              { "label": "Full Body", "price": "₹2,330" }
+            ]
           },
           {
-            "label": "Full Leg - Normal Cream",
-            "price": "₹320"
-          },
-          {
-            "label": "Half Front - Normal Cream",
-            "price": "₹180"
-          },
-          {
-            "label": "Full Front - Normal Cream",
-            "price": "₹360"
-          },
-          {
-            "label": "Half Back - Normal Cream",
-            "price": "₹180"
-          },
-          {
-            "label": "Full Back - Normal Cream",
-            "price": "₹360"
-          },
-          {
-            "label": "Full Body - Normal Cream",
-            "price": "₹1,200"
-          },
-          {
-            "label": "Full Hand - Cream Wax",
-            "price": "₹210"
-          },
-          {
-            "label": "Underarm - Cream Wax",
-            "price": "₹80"
-          },
-          {
-            "label": "Half Leg - Cream Wax",
-            "price": "₹260"
-          },
-          {
-            "label": "Full Leg - Cream Wax",
-            "price": "₹490"
-          },
-          {
-            "label": "Half Front - Cream Wax",
-            "price": "₹240"
-          },
-          {
-            "label": "Full Front - Cream Wax",
-            "price": "₹480"
-          },
-          {
-            "label": "Half Back - Cream Wax",
-            "price": "₹240"
-          },
-          {
-            "label": "Full Back - Cream Wax",
-            "price": "₹480"
-          },
-          {
-            "label": "Bikini Wax (Brazilian) - Cream Wax",
-            "price": "₹890"
-          },
-          {
-            "label": "Full Body - Cream Wax",
-            "price": "₹1,700"
-          },
-          {
-            "label": "Full Hand - Raaga",
-            "price": "₹330"
-          },
-          {
-            "label": "Underarm - Raaga",
-            "price": "₹150"
-          },
-          {
-            "label": "Half Leg - Raaga",
-            "price": "₹350"
-          },
-          {
-            "label": "Full Leg - Raaga",
-            "price": "₹650"
-          },
-          {
-            "label": "Half Front - Raaga",
-            "price": "₹350"
-          },
-          {
-            "label": "Full Front - Raaga",
-            "price": "₹600"
-          },
-          {
-            "label": "Half Back - Raaga",
-            "price": "₹350"
-          },
-          {
-            "label": "Full Back - Raaga",
-            "price": "₹600"
-          },
-          {
-            "label": "Bikini Wax (Brazilian) - Raaga",
-            "price": "₹1,200"
-          },
-          {
-            "label": "Full Body - Raaga",
-            "price": "₹2,330"
-          },
-          {
-            "label": "Full Hand - Rica Wax",
-            "price": "₹450"
-          },
-          {
-            "label": "Underarm - Rica Wax",
-            "price": "₹180"
-          },
-          {
-            "label": "Half Leg - Rica Wax",
-            "price": "₹450"
-          },
-          {
-            "label": "Full Leg - Rica Wax",
-            "price": "₹850"
-          },
-          {
-            "label": "Half Front - Rica Wax",
-            "price": "₹410"
-          },
-          {
-            "label": "Full Front - Rica Wax",
-            "price": "₹820"
-          },
-          {
-            "label": "Half Back - Rica Wax",
-            "price": "₹410"
-          },
-          {
-            "label": "Full Back - Rica Wax",
-            "price": "₹820"
-          },
-          {
-            "label": "Bikini Wax (Brazilian) - Rica Wax",
-            "price": "₹1,500"
-          },
-          {
-            "label": "Full Body - Rica Wax",
-            "price": "₹3,100"
+            "title": "Rica Liposoluble Wax",
+            "rows": [
+              { "label": "Full Hand", "price": "₹450" },
+              { "label": "Underarm", "price": "₹180" },
+              { "label": "Half Leg", "price": "₹450" },
+              { "label": "Full Leg", "price": "₹850" },
+              { "label": "Half Front", "price": "₹410" },
+              { "label": "Full Front", "price": "₹820" },
+              { "label": "Half Back", "price": "₹410" },
+              { "label": "Full Back", "price": "₹820" },
+              { "label": "Bikini Wax (Brazilian)", "price": "₹1,500" },
+              { "label": "Full Body", "price": "₹3,100" }
+            ]
           }
         ]
       },

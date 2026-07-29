@@ -6,23 +6,19 @@ import { LuxuryButton } from '../ui/LuxuryButton';
 import { ServiceCategoryTabs } from '../services/ServiceCategoryTabs';
 import { ServiceSearch } from '../services/ServiceSearch';
 import { ServicePriceCatalogue } from '../services/ServicePriceCatalogue';
+import { sanitizePricingLabel } from '../../utils/pricingFormatter';
 
 export const Services = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Read selected category from URL parameter ?category=... (default to first category 'skin' or 'bridal-makeup')
+  // Read selected category from URL parameter ?category=... (default to 'skin' / Skin Care & Aesthetics)
   const activeCategoryId = useMemo(() => {
     const paramCategory = searchParams.get('category');
     if (paramCategory && SERVICE_CATEGORIES.some((cat) => cat.id === paramCategory)) {
       return paramCategory;
     }
-    return SERVICE_CATEGORIES[0].id;
-  }, [searchParams]);
-
-  // Read selected subcategory from URL parameter ?subcategory=...
-  const activeSubcategoryId = useMemo(() => {
-    return searchParams.get('subcategory') || 'all';
+    return 'skin';
   }, [searchParams]);
 
   // Handler to update category in URL
@@ -36,54 +32,84 @@ export const Services = () => {
     });
   };
 
-  // Handler to update subcategory in URL
-  const handleSelectSubcategory = (subId) => {
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      if (subId && subId !== 'all') {
-        next.set('subcategory', subId);
-      } else {
-        next.delete('subcategory');
-      }
-      return next;
-    });
-  };
-
   const selectedCategory = useMemo(() => {
     return SERVICE_CATEGORIES.find((cat) => cat.id === activeCategoryId) || SERVICE_CATEGORIES[0];
   }, [activeCategoryId]);
 
-  // Filter search results across all categories and service rows
+  // Flatten and search across all categories and service price rows
   const searchResults = useMemo(() => {
     if (!searchQuery || searchQuery.trim() === '') return [];
 
     const query = searchQuery.toLowerCase().trim();
-    const matches = [];
+    const rowsMatch = [];
 
     SERVICE_CATEGORIES.forEach((cat) => {
       cat.items.forEach((item) => {
-        const nameMatch = item.name.toLowerCase().includes(query);
-        const descMatch = item.shortDescription && item.shortDescription.toLowerCase().includes(query);
-        const catMatch = cat.name.toLowerCase().includes(query);
+        const catName = cat.name;
+        const itemName = sanitizePricingLabel(item.name);
+        const itemDesc = sanitizePricingLabel(item.shortDescription || '');
 
-        let rowMatch = false;
+        const itemMatchesQuery =
+          catName.toLowerCase().includes(query) ||
+          itemName.toLowerCase().includes(query) ||
+          itemDesc.toLowerCase().includes(query);
+
         if (item.priceRows) {
-          rowMatch = item.priceRows.some(
-            (r) => r.label.toLowerCase().includes(query) || r.price.toLowerCase().includes(query)
-          );
-        } else if (item.priceGroups) {
-          rowMatch = item.priceGroups.some((g) =>
-            g.rows.some((r) => r.label.toLowerCase().includes(query) || r.price.toLowerCase().includes(query))
-          );
-        }
+          item.priceRows.forEach((row) => {
+            const rowLabel = sanitizePricingLabel(row.label || '');
+            const rowPrice = row.price || '';
+            const rowDesc = sanitizePricingLabel(row.description || '');
+            const rowMatchesQuery =
+              itemMatchesQuery ||
+              rowLabel.toLowerCase().includes(query) ||
+              rowPrice.toLowerCase().includes(query) ||
+              rowDesc.toLowerCase().includes(query);
 
-        if (nameMatch || descMatch || catMatch || rowMatch) {
-          matches.push({ ...item, categoryName: cat.name, categoryId: cat.id });
+            if (rowMatchesQuery) {
+              rowsMatch.push({
+                label: rowLabel || itemName,
+                price: rowPrice,
+                variant: row.variant || '',
+                description: rowDesc || (rowLabel !== itemName ? itemDesc : ''),
+                context: `${catName} • ${itemName}`
+              });
+            }
+          });
+        } else if (item.priceGroups) {
+          item.priceGroups.forEach((group) => {
+            const groupTitle = sanitizePricingLabel(group.title || '');
+            const groupDesc = sanitizePricingLabel(group.description || '');
+            const groupMatchesQuery =
+              itemMatchesQuery ||
+              groupTitle.toLowerCase().includes(query) ||
+              groupDesc.toLowerCase().includes(query);
+
+            group.rows.forEach((row) => {
+              const rowLabel = sanitizePricingLabel(row.label || '');
+              const rowPrice = row.price || '';
+              const rowDesc = sanitizePricingLabel(row.description || '');
+              const rowMatchesQuery =
+                groupMatchesQuery ||
+                rowLabel.toLowerCase().includes(query) ||
+                rowPrice.toLowerCase().includes(query) ||
+                rowDesc.toLowerCase().includes(query);
+
+              if (rowMatchesQuery) {
+                rowsMatch.push({
+                  label: rowLabel || groupTitle || itemName,
+                  price: rowPrice,
+                  variant: row.variant || '',
+                  description: rowDesc,
+                  context: `${catName} • ${groupTitle || itemName}`
+                });
+              }
+            });
+          });
         }
       });
     });
 
-    return matches;
+    return rowsMatch;
   }, [searchQuery]);
 
   // Structured Data JSON-LD for SEO
@@ -112,7 +138,7 @@ export const Services = () => {
   };
 
   return (
-    <section id="services" className="py-12 sm:py-16 bg-[var(--color-bg-base)] relative min-h-screen transition-colors duration-300">
+    <section id="services" className="py-8 sm:py-12 bg-[var(--color-bg-base)] relative min-h-screen transition-colors duration-300">
       {/* Structured Data Script */}
       <script
         type="application/ld+json"
@@ -126,7 +152,7 @@ export const Services = () => {
         onClearSearch={() => setSearchQuery('')}
       />
 
-      {/* Category Navigation Tabs (Sticky) */}
+      {/* Category Navigation Tabs (Single Row) */}
       {!searchQuery && (
         <ServiceCategoryTabs
           categories={SERVICE_CATEGORIES}
@@ -136,19 +162,17 @@ export const Services = () => {
       )}
 
       {/* Main Catalogue Container */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <ServicePriceCatalogue
           category={selectedCategory}
-          activeSubcategory={activeSubcategoryId}
-          onSelectSubcategory={handleSelectSubcategory}
           searchResults={searchResults}
           searchQuery={searchQuery}
         />
 
         {/* Bespoke Consultation Action Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between p-8 card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-[28px] gap-4 mt-12 shadow-[var(--shadow-editorial)]">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between p-6 sm:p-8 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl gap-4 mt-8 shadow-sm">
           <div>
-            <h5 className="font-serif-display text-2xl text-[var(--color-text-primary)]">
+            <h5 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)]">
               Bespoke Beauty Consultations
             </h5>
             <p className="text-xs text-[var(--color-text-muted)] mt-1">
@@ -169,3 +193,4 @@ export const Services = () => {
     </section>
   );
 };
+

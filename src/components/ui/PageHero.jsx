@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
  */
 export const PageHero = ({ eyebrow = "ABSOLUTE SALON JABALPUR", title, description, children }) => {
   return (
-    <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 bg-[var(--color-bg-base)] border-b border-[var(--color-border-medium)] overflow-hidden transition-colors duration-300">
+    <section className="relative pt-28 sm:pt-36 pb-10 sm:pb-12 bg-[var(--color-bg-base)] border-b border-[var(--color-border-medium)] overflow-hidden transition-colors duration-300">
       {/* Background Subtle Gradient & Radial Overlay */}
       <div className="absolute inset-0 bg-noise-overlay opacity-60 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--color-gold-accent)]/5 blur-[120px] rounded-full pointer-events-none" />

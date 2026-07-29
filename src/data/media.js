@@ -1,7 +1,7 @@
 export const MEDIA_ASSETS = {
   bridal: {
     gallery: [
-      { id: "b1", title: "Royal Indian Bridal Look", category: "Wedding Look", src: "/media/instagram/gallery/gallaryimage1.webp" },
+      { id: "b1", title: "Royal Indian Bridal Look", category: "Wedding Look", src: "/media/bridal/bridal-royal-image.webp" },
       { id: "b2", title: "Porcelain Engagement Glow", category: "Engagement", src: "/media/instagram/gallery/gallaryimage2.webp" },
       { id: "b3", title: "Celebrity High-Fashion Reception Glam", category: "Reception", src: "/media/instagram/bridal/bridal_reception.webp" },
       { id: "b4", title: "Signature Bridal Makeup & Draping", category: "Wedding Look", src: "/media/instagram/gallery/gallaryimage4.webp" }

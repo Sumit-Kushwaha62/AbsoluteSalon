@@ -1,29 +1,28 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ServicePriceRow } from './ServicePriceRow';
+import { sanitizePricingLabel } from '../../utils/pricingFormatter';
 
 /**
  * ServicePriceCatalogue Component
- * Premium salon menu catalogue rendering service rows in a clean, scan-friendly table layout.
- * Supports second-level subcategory filters and search results.
+ * Premium salon menu catalogue rendering visual package groups, static headings,
+ * package descriptions, and clean direct pricing rows.
  */
 export const ServicePriceCatalogue = ({
   category,
-  activeSubcategory,
-  onSelectSubcategory,
   searchResults,
   searchQuery
 }) => {
-  // If search query is active, render filtered search results across categories
+  // 1. Search Mode: Render matching price rows directly
   if (searchQuery && searchQuery.trim() !== '') {
     return (
-      <div className="card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 shadow-[var(--shadow-editorial)] transition-colors duration-300">
-        <div className="pb-6 border-b border-[var(--color-border-medium)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-colors duration-300 max-w-[820px] mx-auto">
+        <div className="pb-4 sm:pb-6 border-b border-[var(--color-border-medium)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--color-gold-accent)] font-semibold">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold">
               SEARCH RESULTS
             </span>
-            <h3 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] mt-1 font-normal">
+            <h3 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] mt-0.5 font-normal">
               Matches for &ldquo;{searchQuery}&rdquo;
             </h3>
           </div>
@@ -33,16 +32,25 @@ export const ServicePriceCatalogue = ({
         </div>
 
         {searchResults.length > 0 ? (
-          <div className="mt-6 divide-y divide-[var(--color-border-subtle)]">
-            {searchResults.map((item) => (
-              <ServicePriceRow key={`${item.categoryId}-${item.id}`} service={item} />
+          <div className="mt-4 sm:mt-6 divide-y divide-[var(--color-border-subtle)]">
+            {searchResults.map((row, idx) => (
+              <ServicePriceRow
+                key={`${row.context}-${row.label}-${idx}`}
+                label={row.label}
+                price={row.price}
+                variant={row.variant}
+                description={row.description}
+                context={row.context}
+              />
             ))}
           </div>
         ) : (
-          <div className="py-16 text-center text-[var(--color-text-muted)] space-y-3">
-            <p className="font-serif-display text-2xl text-[var(--color-text-primary)]">No matching services found</p>
+          <div className="py-12 sm:py-16 text-center text-[var(--color-text-muted)] space-y-2">
+            <p className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)]">
+              No matching services found
+            </p>
             <p className="text-xs max-w-sm mx-auto">
-              Try adjusting your search terms or browse our category menu above.
+              Try adjusting your search terms or select a category tab above.
             </p>
           </div>
         )}
@@ -52,83 +60,100 @@ export const ServicePriceCatalogue = ({
 
   if (!category) return null;
 
-  // Filter items by subcategory if selected
-  const itemsToDisplay = activeSubcategory && activeSubcategory !== 'all'
-    ? category.items.filter((item) => item.id === activeSubcategory)
-    : category.items;
-
+  // 2. Normal Category Mode: Package headers & clean price rows
   return (
-    <div className="card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 shadow-[var(--shadow-editorial)] transition-colors duration-300">
+    <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-colors duration-300 max-w-[820px] mx-auto">
       {/* Category Header */}
-      <div className="pb-8 border-b border-[var(--color-border-medium)]">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--color-gold-accent)] font-semibold block mb-1">
+      <div className="pb-6 sm:pb-8 border-b border-[var(--color-border-medium)]">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold block mb-1">
           CATALOGUE MENU
         </span>
-        <h3 className="font-serif-display text-3xl sm:text-4xl text-[var(--color-text-primary)] font-normal leading-tight">
+        <h2 className="font-serif-display text-2xl sm:text-4xl text-[var(--color-text-primary)] font-normal leading-tight">
           {category.name}
-        </h3>
+        </h2>
         {category.description && (
           <p className="mt-2 text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed max-w-2xl">
             {category.description}
           </p>
         )}
-
-        {/* Optional Second-Level Subcategory Filter Pills */}
-        {category.items && category.items.length > 1 && (
-          <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] flex items-center gap-2 overflow-x-auto scrollbar-none py-1">
-            <button
-              type="button"
-              onClick={() => onSelectSubcategory('all')}
-              className={`px-3.5 py-1.5 rounded-full text-[11px] uppercase tracking-wider transition-all whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-[#D6B45C] ${
-                !activeSubcategory || activeSubcategory === 'all'
-                  ? 'bg-[var(--color-gold-accent)]/20 text-[var(--color-gold-accent)] font-semibold border border-[var(--color-gold-accent)]/40'
-                  : 'bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] border border-transparent'
-              }`}
-            >
-              All {category.name}
-            </button>
-
-            {category.items.map((subItem) => (
-              <button
-                key={subItem.id}
-                type="button"
-                onClick={() => onSelectSubcategory(subItem.id)}
-                className={`px-3.5 py-1.5 rounded-full text-[11px] uppercase tracking-wider transition-all whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-[#D6B45C] ${
-                  activeSubcategory === subItem.id
-                    ? 'bg-[var(--color-gold-accent)]/20 text-[var(--color-gold-accent)] font-semibold border border-[var(--color-gold-accent)]/40'
-                    : 'bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] border border-transparent'
-                }`}
-              >
-                {subItem.name}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
 
-      {/* Services List */}
+      {/* Services List with Static Section Headings and Package Cards */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={`${category.id}-${activeSubcategory || 'all'}`}
-          initial={{ opacity: 0, y: 10 }}
+          key={category.id}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.25 }}
-          className="mt-6"
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="mt-6 sm:mt-8 space-y-8 sm:space-y-10"
         >
-          {itemsToDisplay.map((subGroup) => (
-            <div key={subGroup.id || subGroup.name} className="mb-8 last:mb-0">
-              {/* Subgroup Heading */}
-              {itemsToDisplay.length > 1 && (
-                <div className="pt-4 pb-2 mb-2 border-b border-[var(--color-gold-accent)]/20">
-                  <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold">
-                    {subGroup.name}
-                  </h4>
-                </div>
-              )}
+          {category.items.map((item) => (
+            <div key={item.id || item.name} className="space-y-4">
+              {/* Item Heading */}
+              <div className="pt-2 pb-1 border-b border-[var(--color-gold-accent)]/25 mb-4">
+                <h3 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)] font-normal tracking-wide">
+                  {sanitizePricingLabel(item.name)}
+                </h3>
+                {item.shortDescription && (
+                  <p className="text-xs text-[var(--color-text-muted)] mt-1">
+                    {sanitizePricingLabel(item.shortDescription)}
+                  </p>
+                )}
+              </div>
 
-              {/* Service Row */}
-              <ServicePriceRow service={subGroup} />
+              {/* Package Groups */}
+              {item.priceGroups && item.priceGroups.length > 0 ? (
+                item.priceGroups.map((group, gIdx) => (
+                  <div
+                    key={group.title || gIdx}
+                    className="bg-[var(--color-bg-elevated)]/50 border border-[var(--color-border-subtle)] rounded-xl p-4 sm:p-5 mb-5 last:mb-0 shadow-xs"
+                  >
+                    {/* Group/Package Header */}
+                    <div className="pb-2.5 mb-2.5 border-b border-[var(--color-border-subtle)]">
+                      <h4 className="font-medium text-sm sm:text-base text-[var(--color-text-primary)]">
+                        {sanitizePricingLabel(group.title)}
+                      </h4>
+                      {group.description && (
+                        <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                          {sanitizePricingLabel(group.description)}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Group Price Rows */}
+                    <div className="divide-y divide-[var(--color-border-subtle)]">
+                      {group.rows.map((row, rIdx) => (
+                        <ServicePriceRow
+                          key={`${group.title}-${rIdx}`}
+                          label={row.label}
+                          price={row.price}
+                          variant={row.variant}
+                          description={row.description || ''}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : item.priceRows && item.priceRows.length > 0 ? (
+                /* Flat Price Rows Container */
+                <div className="bg-[var(--color-bg-elevated)]/30 border border-[var(--color-border-subtle)] rounded-xl p-4 sm:p-5 mb-5">
+                  <div className="divide-y divide-[var(--color-border-subtle)]">
+                    {item.priceRows.map((row, rIdx) => (
+                      <ServicePriceRow
+                        key={`${item.id}-${rIdx}`}
+                        label={row.label || item.name}
+                        price={row.price}
+                        variant={row.variant}
+                        description={
+                          row.description ||
+                          (item.priceRows.length === 1 ? item.shortDescription : '')
+                        }
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           ))}
         </motion.div>
@@ -136,3 +161,5 @@ export const ServicePriceCatalogue = ({
     </div>
   );
 };
+
+

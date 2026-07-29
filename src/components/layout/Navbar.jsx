@@ -63,18 +63,16 @@ export const Navbar = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 pointer-events-none">
         <div
-          className={`w-[calc(100%-32px)] max-w-[1500px] mx-auto transition-all duration-500 pointer-events-auto rounded-[20px] px-4 sm:px-6 py-3 flex items-center justify-between min-w-0 ${
-            isScrolled
-              ? 'floating-glass'
-              : 'bg-[var(--color-surface-glass)] backdrop-blur-md border border-[var(--color-border-subtle)] shadow-sm'
+          className={`w-[calc(100%-32px)] max-w-[1500px] mx-auto transition-all duration-500 pointer-events-auto rounded-[22px] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between min-w-0 navbar-glass-strip ${
+            isScrolled ? 'shadow-xl' : ''
           }`}
         >
-          {/* Logo - Left Aligned */}
+          {/* Logo & Brand Branding - Left Aligned */}
           <Link
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Absolute Salon Home"
-            className="flex items-center gap-3 focus:outline-none min-w-0 flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none min-w-0 flex-shrink-0"
           >
             <img
               src="/brand/absolute-salon-logo.webp"
@@ -82,13 +80,13 @@ export const Navbar = () => {
               width="512"
               height="512"
               decoding="async"
-              className="h-11 w-11 sm:h-12 sm:w-12 object-contain"
+              className="h-8 w-8 xs:h-9 xs:w-9 sm:h-11 sm:w-11 object-contain shrink-0 bg-transparent"
             />
-            <div className="hidden sm:flex flex-col">
-              <span className="font-serif-display text-base md:text-lg font-semibold tracking-wider text-[var(--color-text-primary)]">
+            <div className="flex flex-col min-w-0">
+              <span className="font-serif-display text-xs xs:text-sm sm:text-base md:text-lg font-semibold tracking-wide text-[var(--color-text-primary)] whitespace-nowrap">
                 ABSOLUTE SALON
               </span>
-              <span className="text-[8px] tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-semibold">
+              <span className="text-[7px] xs:text-[8px] sm:text-[9px] tracking-[0.14em] sm:tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-semibold whitespace-nowrap">
                 JABALPUR • EST. 15+ YRS
               </span>
             </div>

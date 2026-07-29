@@ -10,7 +10,10 @@
     --color-bg-alt: #0B0B0B;
     --color-bg-card: #0E0E0E;
     --color-bg-elevated: #141414;
-    --color-surface-glass: rgba(15, 15, 15, 0.78);
+    /* Glassmorphism & Surface Tokens */
+    --color-surface-glass: rgba(14, 14, 14, 0.68);
+    --color-border-gold-glass: rgba(214, 180, 92, 0.22);
+    --shadow-navbar-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 12px 36px rgba(0, 0, 0, 0.5);
     --color-header-glass: rgba(7, 7, 7, 0.85);
     --color-footer-bg: #070707;
 
@@ -60,7 +63,9 @@
     --color-bg-alt: #F2ECE2;
     --color-bg-card: #FFFDF8;
     --color-bg-elevated: #F8F2E8;
-    --color-surface-glass: rgba(247, 243, 236, 0.85);
+    --color-surface-glass: rgba(247, 243, 236, 0.72);
+    --color-border-gold-glass: rgba(184, 138, 47, 0.28);
+    --shadow-navbar-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.85), 0 10px 30px rgba(38, 31, 23, 0.08);
     --color-header-glass: rgba(247, 243, 236, 0.90);
     --color-footer-bg: #EFE9DE;
 
@@ -180,13 +185,14 @@
   transform: translateY(-2px);
 }
 
-/* Floating Glass Floating Bar */
-.floating-glass {
+/* Floating Glass Bar & Glassmorphism Navbar Strip */
+.floating-glass,
+.navbar-glass-strip {
   background: var(--color-surface-glass);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--color-border-medium);
-  box-shadow: var(--shadow-floating);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border-gold-glass);
+  box-shadow: var(--shadow-navbar-glass);
 }
 
 /* Global Noise Overlay */
