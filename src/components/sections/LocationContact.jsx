@@ -36,7 +36,7 @@ export const LocationContact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-8 card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] p-8 sm:p-10 rounded-[28px]"
+            className="lg:col-span-6 space-y-8 card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] p-6 sm:p-10 rounded-[28px]"
           >
             <div>
               <h3 className="font-serif-display text-3xl text-[var(--color-text-primary)] mb-1">
@@ -52,7 +52,7 @@ export const LocationContact = () => {
               <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
                   Salon Address
                 </h4>
@@ -69,13 +69,13 @@ export const LocationContact = () => {
               <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
                   Phone Appointments
                 </h4>
                 <a
                   href={`tel:${BUSINESS_INFO.phone.raw}`}
-                  className="text-base text-[var(--color-gold-accent)] font-semibold hover:underline"
+                  className="text-base text-[var(--color-gold-accent)] font-semibold hover:underline block truncate"
                 >
                   {BUSINESS_INFO.phone.display}
                 </a>
@@ -87,13 +87,13 @@ export const LocationContact = () => {
               <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1 overflow-hidden">
                 <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
                   Email Contact
                 </h4>
                 <a
                   href={BUSINESS_INFO.email.mailto}
-                  className="text-base text-[var(--color-text-primary)] font-medium hover:text-[var(--color-gold-accent)] transition-colors"
+                  className="text-sm sm:text-base text-[var(--color-text-primary)] font-medium hover:text-[var(--color-gold-accent)] transition-colors break-all sm:break-normal block"
                 >
                   {BUSINESS_INFO.email.address}
                 </a>

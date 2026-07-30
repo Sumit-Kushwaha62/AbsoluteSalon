@@ -79,7 +79,7 @@ export const Footer = () => {
             <p className="text-xs text-[var(--color-gold-accent)] font-semibold">
               Phone: {BUSINESS_INFO.phone.display}
             </p>
-            <p className="text-xs text-[var(--color-text-primary)]">
+            <p className="text-xs text-[var(--color-text-primary)] break-all">
               Email: <a href={BUSINESS_INFO.email.mailto} className="hover:text-[var(--color-gold-accent)] transition-colors">{BUSINESS_INFO.email.address}</a>
             </p>
 
