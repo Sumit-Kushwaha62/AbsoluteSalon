@@ -41,9 +41,6 @@ export const Transformations = () => {
                 <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold">
                   {item.category}
                 </span>
-                <h4 className="font-serif-display text-2xl text-[var(--color-text-primary)] mt-0.5">
-                  {item.title}
-                </h4>
               </div>
 
               <BeforeAfterSlider

@@ -93,11 +93,8 @@ export const SocialReels = () => {
                   )}
                 </div>
 
-                {/* Bottom Details */}
+                {/* Bottom Details (Clean — No Mismatched Title Text) */}
                 <div className="z-10">
-                  <h4 className="font-serif-display text-lg sm:text-xl text-white mb-2 leading-snug">
-                    {reel.title}
-                  </h4>
                   <a
                     href={BUSINESS_INFO.socials.instagram.url}
                     target="_blank"

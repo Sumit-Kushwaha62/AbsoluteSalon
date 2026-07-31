@@ -1,8 +1,11 @@
-import React from 'react';
-import { MessageCircle, Calendar } from 'lucide-react';
+import React, { useState } from 'react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { BUSINESS_INFO } from '../../data/business';
+import { BranchCallModal } from '../ui/BranchCallModal';
 
 export const BookingCTA = () => {
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+
   return (
     <section className="py-20 bg-[var(--color-bg-alt)] border-t border-[var(--color-border-gold)] relative overflow-hidden transition-colors duration-300">
       {/* Background Decorative Radial */}
@@ -32,15 +35,21 @@ export const BookingCTA = () => {
             Book via WhatsApp
           </a>
 
-          <a
-            href={`tel:${BUSINESS_INFO.phone.raw}`}
-            className="w-full sm:w-auto px-10 py-5 btn-champagne-secondary text-xs uppercase tracking-[0.25em] font-medium flex items-center justify-center gap-3"
+          <button
+            type="button"
+            onClick={() => setIsCallModalOpen(true)}
+            className="w-full sm:w-auto px-10 py-5 btn-champagne-secondary text-xs uppercase tracking-[0.25em] font-medium flex items-center justify-center gap-3 cursor-pointer"
           >
-            <Calendar className="w-4 h-4 text-[var(--color-gold-accent)]" />
-            Call {BUSINESS_INFO.phone.display}
-          </a>
+            <Phone className="w-4 h-4 text-[var(--color-gold-accent)]" />
+            Call Our Branches
+          </button>
         </div>
       </div>
+
+      <BranchCallModal
+        isOpen={isCallModalOpen}
+        onClose={() => setIsCallModalOpen(false)}
+      />
     </section>
   );
 };

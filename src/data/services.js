@@ -7,32 +7,57 @@ export const SERVICE_CATEGORIES = [
     "items": [
       {
         "id": "hd-bridal-party-makeup",
-        "name": "HD Makeup",
-        "shortDescription": "PAC, Character, and MAC high-definition makeup for Side, Haldi, Mehendi, and Engagement.",
-        "startingPrice": "₹3,000",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "HD Makeup (By Senior Artist)",
+        "shortDescription": "High-definition bridal and occasion makeup for Side, Haldi, Mehendi, Sangeet & Reception.",
+        "startingPrice": "₹2,000",
         "priceGroups": [
           {
-            "title": "Standard",
-            "description": "P.A.C, Shopaarel etc.",
+            "title": "HD Makeup — Standard",
+            "description": "P.A.C, Character, Shopaarel etc.",
             "rows": [
               {
                 "label": "Side / Haldi / Mehendi",
-                "price": "₹3,000"
+                "price": "₹2,000"
               },
               {
                 "label": "Sangeet / Engagement",
-                "price": "₹6,000"
+                "price": "₹5,000"
+              },
+              {
+                "label": "Bridal / Reception",
+                "price": "₹7,000"
+              }
+            ]
+          },
+          {
+            "title": "HD Makeup — Premium",
+            "description": "MAC, Character etc.",
+            "rows": [
+              {
+                "label": "Side / Haldi / Mehendi",
+                "price": "₹3,500"
+              },
+              {
+                "label": "Sangeet / Engagement",
+                "price": "₹7,000"
               },
               {
                 "label": "Bridal / Reception",
                 "price": "₹8,000"
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "signature-owner-makeup",
+        "name": "Signature & Luxury Makeup (By Owners)",
+        "shortDescription": "Couture transformations by salon founders using Dior, NARS, Huda Beauty & Charlotte Tilbury.",
+        "startingPrice": "₹5,000",
+        "priceGroups": [
           {
-            "title": "Premium",
-            "description": "MAC, Character etc.",
+            "title": "HD Makeup (By Owners)",
+            "description": "Exclusive HD makeup by senior owners",
             "rows": [
               {
                 "label": "Side / Haldi / Mehendi",
@@ -49,65 +74,38 @@ export const SERVICE_CATEGORIES = [
             ]
           },
           {
-            "title": "Signature HD Makeup",
-            "description": "Morphe, Shopaarel, Smashbox etc.",
+            "title": "Ultra HD Makeup (By Owners)",
+            "description": "Huda Beauty, Smashbox, Too-Faced etc.",
             "rows": [
               {
                 "label": "Side / Haldi / Mehendi",
-                "price": "₹6,000"
+                "price": "₹8,000"
               },
               {
                 "label": "Sangeet / Engagement",
-                "price": "₹10,000"
+                "price": "₹12,000"
               },
               {
                 "label": "Bridal / Reception",
                 "price": "₹15,000"
               }
             ]
-          }
-        ]
-      },
-      {
-        "id": "ultra-hd-crystal-makeup",
-        "name": "Ultra HD & Signature Makeup",
-        "shortDescription": "Couture bridal transformations using Dior, NARS, Huda Beauty & Charlotte Tilbury.",
-        "startingPrice": "₹9,000",
-        "sourceUrl": "https://www.cvsalon.com/services",
-        "priceGroups": [
-          {
-            "title": "Ultra HD Makeup",
-            "description": "Huda Beauty, Smashbox, Too-Faced etc.",
-            "rows": [
-              {
-                "label": "Side / Haldi / Mehendi",
-                "price": "₹9,000"
-              },
-              {
-                "label": "Sangeet / Engagement",
-                "price": "₹13,000"
-              },
-              {
-                "label": "Bridal / Reception",
-                "price": "₹18,000"
-              }
-            ]
           },
           {
-            "title": "Crystal Glam Makeup",
+            "title": "Crystal Glam Makeup (By Owners)",
             "description": "Dior, NARS, Estée Lauder, Charlotte Tilbury etc.",
             "rows": [
               {
                 "label": "Side / Haldi / Mehendi",
-                "price": "₹12,000"
+                "price": "₹10,000"
               },
               {
                 "label": "Sangeet / Engagement",
-                "price": "₹16,000"
+                "price": "₹15,000"
               },
               {
                 "label": "Bridal / Reception",
-                "price": "₹24,000"
+                "price": "₹20,000"
               }
             ]
           }
@@ -125,27 +123,26 @@ export const SERVICE_CATEGORIES = [
         "id": "hair-cut-styling",
         "name": "Haircuts & Styling",
         "shortDescription": "Precision haircuts, flicks, blow dry straight, curls, and blast dry.",
-        "startingPrice": "₹80",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "startingPrice": "₹100",
         "priceGroups": [
           {
             "title": "Precision Haircuts",
             "rows": [
               {
                 "label": "Flicks Cut",
-                "price": "₹80"
+                "price": "₹100"
               },
               {
                 "label": "Hair Cut + Blowdry Add-On",
-                "price": "₹200"
+                "price": "₹250"
               },
               {
                 "label": "Basic Cut (Straight / U Cut)",
-                "price": "₹200"
+                "price": "₹250"
               },
               {
                 "label": "Kids Hair Cut (up to 6 years)",
-                "price": "₹250"
+                "price": "₹200"
               },
               {
                 "label": "Advanced Cut (Bob / Lob / Pixie / Undercut)",
@@ -158,19 +155,51 @@ export const SERVICE_CATEGORIES = [
             ]
           },
           {
-            "title": "Blow Dry & Styling",
+            "title": "Blow Dry & Temporary Styling",
             "rows": [
               {
                 "label": "Blow Dry Straight (Paddle Dry)",
                 "price": "₹200"
               },
               {
-                "label": "Temporary Straightening",
+                "label": "Temporary Straightening (Short)",
+                "price": "₹350"
+              },
+              {
+                "label": "Temporary Straightening (Medium)",
+                "price": "₹500"
+              },
+              {
+                "label": "Temporary Straightening (Long)",
                 "price": "₹600"
               },
               {
-                "label": "Temporary Curling / Crimping",
+                "label": "Temporary Straightening (Very Long)",
+                "price": "₹700"
+              },
+              {
+                "label": "Temporary Straightening (XX Long)",
+                "price": "₹1,000"
+              },
+              {
+                "label": "Temporary Curling / Crimping (Short)",
+                "price": "₹350"
+              },
+              {
+                "label": "Temporary Curling / Crimping (Medium)",
+                "price": "₹500"
+              },
+              {
+                "label": "Temporary Curling / Crimping (Long)",
                 "price": "₹600"
+              },
+              {
+                "label": "Temporary Curling / Crimping (Very Long)",
+                "price": "₹700"
+              },
+              {
+                "label": "Temporary Curling / Crimping (XX Long)",
+                "price": "₹1,000"
               },
               {
                 "label": "Blow Dry Curls / Wavy",
@@ -182,63 +211,63 @@ export const SERVICE_CATEGORIES = [
             "title": "Hair Wash & Conditioning",
             "rows": [
               {
-                "label": "Hair Wash + Blast Dry (Raaga) (Medium)",
+                "label": "Hair Wash + Blast Dry (Raaga) — Medium",
                 "price": "₹150"
               },
               {
-                "label": "Hair Wash + Blast Dry (Raaga) (Long)",
+                "label": "Hair Wash + Blast Dry (Raaga) — Long",
                 "price": "₹200"
               },
               {
-                "label": "Hair Wash + Blast Dry (Raaga) (Very Long)",
+                "label": "Hair Wash + Blast Dry (Raaga) — Very Long",
                 "price": "₹250"
               },
               {
-                "label": "Head Massage 10 min",
+                "label": "Head Massage (10 min)",
+                "price": "₹200"
+              },
+              {
+                "label": "Head Massage (20 min)",
                 "price": "₹300"
               },
               {
-                "label": "Head Massage 20 min",
-                "price": "₹400"
-              },
-              {
-                "label": "Split Ends Removal (Long)",
-                "price": "₹650"
-              },
-              {
-                "label": "Split Ends Removal (Short)",
+                "label": "Split Ends Removal — Short",
                 "price": "₹450"
               },
               {
-                "label": "Split Ends Removal (Medium)",
+                "label": "Split Ends Removal — Medium",
                 "price": "₹550"
               },
               {
-                "label": "Split Ends Removal (Very Long)",
+                "label": "Split Ends Removal — Long",
+                "price": "₹650"
+              },
+              {
+                "label": "Split Ends Removal — Very Long",
                 "price": "₹750"
               },
               {
-                "label": "Split Ends Removal (XX Long)",
+                "label": "Split Ends Removal — XX Long",
                 "price": "₹850"
               },
               {
-                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) (Medium)",
+                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) — Medium",
                 "price": "₹350"
               },
               {
-                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) (Long)",
+                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) — Long",
                 "price": "₹400"
               },
               {
-                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) (Very Long)",
+                "label": "Hair Wash + Blast Dry (Loreal / Schwarzkopf) — Very Long",
                 "price": "₹450"
               },
               {
-                "label": "Shampoo & Masque (Shea Butter / Nanoplastia) (Medium)",
+                "label": "Shampoo & Masque (Shea Butter / Nanoplastia) — Medium",
                 "price": "₹400"
               },
               {
-                "label": "Shampoo & Masque (Shea Butter / Nanoplastia) (Long)",
+                "label": "Shampoo & Masque (Shea Butter / Nanoplastia) — Long",
                 "price": "₹450"
               }
             ]
@@ -248,73 +277,108 @@ export const SERVICE_CATEGORIES = [
       {
         "id": "hair-spa-rituals",
         "name": "Hair Spa & Scalp Therapy",
-        "shortDescription": "L'Oréal, Keune, Schwarzkopf Anti-Dandruff, and Shea Butter Retention Therapy across hair lengths.",
-        "startingPrice": "₹1,000",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "shortDescription": "Deep conditioning, power masque, L'Oréal & Schwarzkopf hair spa, and therapeutic scalp care.",
+        "startingPrice": "₹350",
         "priceGroups": [
           {
-            "title": "Hair Spa (Length-based Pricing)",
+            "title": "Express Hair Conditioning & Basic Spa",
+            "description": "Essential nourishment and quick hydration therapy",
             "rows": [
               {
-                "label": "Hair Spa — Loreal - Short",
+                "label": "Deep Conditioning",
+                "price": "₹350",
+                "description": "Intense moisture replenishment for smooth hair"
+              },
+              {
+                "label": "Power Mask",
+                "price": "₹500",
+                "description": "Concentrated nourishing hair masque treatment"
+              },
+              {
+                "label": "Basic Spa",
+                "price": "₹700",
+                "description": "Classic hair spa for scalp & strand revitalisation"
+              }
+            ]
+          },
+          {
+            "title": "L'Oréal Hair Spa (Length-based)",
+            "rows": [
+              {
+                "label": "Hair Spa — Loreal (Short)",
                 "price": "₹1,000"
               },
               {
-                "label": "Hair Spa — Loreal - Medium",
+                "label": "Hair Spa — Loreal (Medium)",
                 "price": "₹1,150"
               },
               {
-                "label": "Hair Spa — Loreal - Long",
+                "label": "Hair Spa — Loreal (Long)",
                 "price": "₹1,300"
               },
               {
-                "label": "Hair Spa — Loreal - Very Long",
+                "label": "Hair Spa — Loreal (Very Long)",
                 "price": "₹1,450"
               },
               {
-                "label": "Hair Spa — Loreal - XX Long",
+                "label": "Hair Spa — Loreal (XX Long)",
                 "price": "₹1,700"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Schwarzkopf Hair Spa (Length-based)",
+            "rows": [
               {
-                "label": "Hair Spa — Schwarzkopf - Short",
+                "label": "Hair Spa — Schwarzkopf (Short)",
                 "price": "₹1,000"
               },
               {
-                "label": "Hair Spa — Schwarzkopf - Medium",
+                "label": "Hair Spa — Schwarzkopf (Medium)",
                 "price": "₹1,150"
               },
               {
-                "label": "Hair Spa — Schwarzkopf - Long",
+                "label": "Hair Spa — Schwarzkopf (Long)",
                 "price": "₹1,300"
               },
               {
-                "label": "Hair Spa — Schwarzkopf - Very Long",
+                "label": "Hair Spa — Schwarzkopf (Very Long)",
                 "price": "₹1,450"
               },
               {
-                "label": "Hair Spa — Schwarzkopf - XX Long",
+                "label": "Hair Spa — Schwarzkopf (XX Long)",
                 "price": "₹1,700"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Raaga Hair Spa (Length-based)",
+            "rows": [
               {
-                "label": "Hair Spa — Raaga - Short",
+                "label": "Hair Spa — Raaga (Short)",
                 "price": "₹650"
               },
               {
-                "label": "Hair Spa — Raaga - Medium",
+                "label": "Hair Spa — Raaga (Medium)",
                 "price": "₹800"
               },
               {
-                "label": "Hair Spa — Raaga - Long",
+                "label": "Hair Spa — Raaga (Long)",
                 "price": "₹950"
               },
               {
-                "label": "Hair Spa — Raaga - Very Long",
+                "label": "Hair Spa — Raaga (Very Long)",
                 "price": "₹1,050"
               },
               {
-                "label": "Hair Spa — Raaga - XX Long",
+                "label": "Hair Spa — Raaga (XX Long)",
                 "price": "₹1,300"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Spa Add-on Serums",
+            "rows": [
               {
                 "label": "Add-on Serum — Raaga",
                 "price": "₹300"
@@ -330,127 +394,127 @@ export const SERVICE_CATEGORIES = [
             ]
           },
           {
-            "title": "Scalp Care",
+            "title": "Scalp Care & Anti-Dandruff Treatments",
             "rows": [
               {
-                "label": "Schwarzkopf - Anti Dandruff",
+                "label": "Schwarzkopf — Anti Dandruff",
                 "price": "₹1,200"
               },
               {
-                "label": "Schwarzkopf - Scalp Soothing",
+                "label": "Schwarzkopf — Scalp Soothing",
                 "price": "₹1,200"
               },
               {
-                "label": "Schwarzkopf - Root Activating / Anti Hairfall",
+                "label": "Schwarzkopf — Root Activating / Anti Hairfall",
                 "price": "₹1,500"
               },
               {
-                "label": "Beauty Garage - Oil Out Treatment",
+                "label": "Beauty Garage — Oil Out Treatment",
                 "price": "₹1,200"
               },
               {
-                "label": "Beauty Garage - Hydra Soothe",
+                "label": "Beauty Garage — Hydra Soothe",
                 "price": "₹1,200"
               },
               {
-                "label": "Beauty Garage - Dandruff Defence",
+                "label": "Beauty Garage — Dandruff Defence",
                 "price": "₹1,200"
               },
               {
-                "label": "Beauty Garage - Anti Hairfall",
+                "label": "Beauty Garage — Anti Hairfall",
                 "price": "₹1,200"
               }
             ]
           },
           {
-            "title": "Nourishing Hair Rituals",
+            "title": "Advanced Hair Rituals & Bond Repair",
             "rows": [
               {
-                "label": "Shea Butter Retention Therapy - Short",
+                "label": "Shea Butter Retention Therapy (Short)",
                 "price": "₹2,300"
               },
               {
-                "label": "Shea Butter Retention Therapy - Medium",
+                "label": "Shea Butter Retention Therapy (Medium)",
                 "price": "₹2,600"
               },
               {
-                "label": "Shea Butter Retention Therapy - Long",
+                "label": "Shea Butter Retention Therapy (Long)",
                 "price": "₹2,900"
               },
               {
-                "label": "Shea Butter Retention Therapy - Very Long",
+                "label": "Shea Butter Retention Therapy (Very Long)",
                 "price": "₹3,200"
               },
               {
-                "label": "Shea Butter Retention Therapy - XX Long",
+                "label": "Shea Butter Retention Therapy (XX Long)",
                 "price": "₹3,500"
               },
               {
-                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) - Short",
+                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Short",
                 "price": "₹2,800"
               },
               {
-                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) - Medium",
+                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Medium",
                 "price": "₹3,100"
               },
               {
-                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) - Long",
+                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Long",
                 "price": "₹3,500"
               },
               {
-                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) - Very Long",
+                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Very Long",
                 "price": "₹3,900"
               },
               {
-                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) - XX Long",
+                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — XX Long",
                 "price": "₹4,500"
               },
               {
-                "label": "Schwarzkopf Fibre Clinix - Short",
+                "label": "Schwarzkopf Fibre Clinix (Short)",
                 "price": "₹2,400"
               },
               {
-                "label": "Schwarzkopf Fibre Clinix - Medium",
+                "label": "Schwarzkopf Fibre Clinix (Medium)",
                 "price": "₹2,700"
               },
               {
-                "label": "Schwarzkopf Fibre Clinix - Long",
+                "label": "Schwarzkopf Fibre Clinix (Long)",
                 "price": "₹3,000"
               },
               {
-                "label": "Schwarzkopf Fibre Clinix - Very Long",
+                "label": "Schwarzkopf Fibre Clinix (Very Long)",
                 "price": "₹3,300"
               },
               {
-                "label": "Schwarzkopf Fibre Clinix - XX Long",
+                "label": "Schwarzkopf Fibre Clinix (XX Long)",
                 "price": "₹3,600"
               },
               {
-                "label": "Strand Rescue - Loreal Absolute Repair Molecular - Short",
+                "label": "Strand Rescue — Loreal Absolute Repair Molecular (Short)",
                 "price": "₹2,200"
               },
               {
-                "label": "Strand Rescue - Loreal Absolute Repair Molecular - Medium",
+                "label": "Strand Rescue — Loreal Absolute Repair Molecular (Medium)",
                 "price": "₹2,500"
               },
               {
-                "label": "Strand Rescue - Loreal Absolute Repair Molecular - Long",
+                "label": "Strand Rescue — Loreal Absolute Repair Molecular (Long)",
                 "price": "₹2,800"
               },
               {
-                "label": "Strand Rescue - Loreal Absolute Repair Molecular - Very Long",
+                "label": "Strand Rescue — Loreal Absolute Repair Molecular (Very Long)",
                 "price": "₹3,200"
               },
               {
-                "label": "Strand Rescue - Loreal Absolute Repair Molecular - XX Long",
+                "label": "Strand Rescue — Loreal Absolute Repair Molecular (XX Long)",
                 "price": "₹3,600"
               },
               {
-                "label": "Olaplex Standalone Treatment - Olaplex Standalone Treatment",
+                "label": "Olaplex Standalone Treatment",
                 "price": "₹1,800"
               },
               {
-                "label": "K18 Standalone Treatment - K18 Standalone Treatment",
+                "label": "K18 Standalone Treatment",
                 "price": "₹3,200"
               }
             ]
@@ -459,98 +523,107 @@ export const SERVICE_CATEGORIES = [
       },
       {
         "id": "hair-colour-highlights",
-        "name": "Global Colour & Balayage",
-        "shortDescription": "L'Oréal, Schwarzkopf, Keune root touch ups, global hair colour, and pre-lightened balayage.",
+        "name": "Hair Colouring & Highlights",
+        "shortDescription": "Root touch-ups, ammonia-free global colours, balayage, and 3D dimensional highlights.",
         "startingPrice": "₹200",
-        "sourceUrl": "https://www.cvsalon.com/services",
         "priceGroups": [
           {
-            "title": "Root Touch Up",
+            "title": "Root Touch Up (Loreal / Schwarzkopf / Keune)",
             "rows": [
               {
-                "label": "Half Crown (Loreal / Schwarzkopf / Keune)",
+                "label": "Half Crown",
                 "price": "₹500"
               },
               {
-                "label": "1&quot; Root Touch Up (Loreal / Schwarzkopf / Keune)",
+                "label": "1\" Root Touch Up",
                 "price": "₹600"
               },
               {
-                "label": "2&quot; Root Touch Up (Loreal / Schwarzkopf / Keune)",
+                "label": "2\" Root Touch Up",
                 "price": "₹800"
               },
               {
-                "label": "4&quot; Root Touch Up (Loreal / Schwarzkopf / Keune)",
+                "label": "4\" Root Touch Up",
                 "price": "₹1,600"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Root Touch Up (Majirel / Inoa / Igora / Zero AMM)",
+            "rows": [
               {
-                "label": "Half Crown (Majirel / Inoa / Igora / Zero AMM)",
+                "label": "Half Crown",
                 "price": "₹600"
               },
               {
-                "label": "1&quot; Root Touch Up (Majirel / Inoa / Igora / Zero AMM)",
+                "label": "1\" Root Touch Up",
                 "price": "₹700"
               },
               {
-                "label": "2&quot; Root Touch Up (Majirel / Inoa / Igora / Zero AMM)",
+                "label": "2\" Root Touch Up",
                 "price": "₹950"
               },
               {
-                "label": "4&quot; Root Touch Up (Majirel / Inoa / Igora / Zero AMM)",
+                "label": "4\" Root Touch Up",
                 "price": "₹1,750"
               }
             ]
           },
           {
-            "title": "Global Hair Colour",
+            "title": "Global Hair Colour (Loreal / Schwarzkopf / Keune)",
             "rows": [
               {
-                "label": "Loreal / Schwarzkopf / Keune - Short",
+                "label": "Short",
                 "price": "₹2,300"
               },
               {
-                "label": "Loreal / Schwarzkopf / Keune - Medium",
+                "label": "Medium",
                 "price": "₹2,600"
               },
               {
-                "label": "Loreal / Schwarzkopf / Keune - Long",
+                "label": "Long",
                 "price": "₹3,000"
               },
               {
-                "label": "Loreal / Schwarzkopf / Keune - Very Long",
+                "label": "Very Long",
                 "price": "₹3,400"
               },
               {
-                "label": "Loreal / Schwarzkopf / Keune - XX Long",
+                "label": "XX Long",
                 "price": "₹3,800"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Global Hair Colour — Ammonia Free (Majirel / Inoa / Igora / Zero AMM)",
+            "rows": [
               {
-                "label": "Majirel / Inoa / Igora / Zero AMM (Ammonia Free) - Short",
+                "label": "Short",
                 "price": "₹2,700"
               },
               {
-                "label": "Majirel / Inoa / Igora / Zero AMM (Ammonia Free) - Medium",
+                "label": "Medium",
                 "price": "₹2,950"
               },
               {
-                "label": "Majirel / Inoa / Igora / Zero AMM (Ammonia Free) - Long",
+                "label": "Long",
                 "price": "₹3,400"
               },
               {
-                "label": "Majirel / Inoa / Igora / Zero AMM (Ammonia Free) - Very Long",
+                "label": "Very Long",
                 "price": "₹4,000"
               },
               {
-                "label": "Majirel / Inoa / Igora / Zero AMM (Ammonia Free) - XX Long",
+                "label": "XX Long",
                 "price": "₹4,500"
               }
             ]
           },
           {
-            "title": "Hair Highlights & Balayage",
+            "title": "Balayage, Ombre & Highlights",
             "rows": [
               {
-                "label": "1 Layer/Strand (without pre-light) (Loreal / Schwarzkopf / Keune)",
+                "label": "1 Layer/Strand (without pre-light)",
                 "price": "₹200"
               },
               {
@@ -587,177 +660,206 @@ export const SERVICE_CATEGORIES = [
       },
       {
         "id": "protein-nanoplastia-botox",
-        "name": "Botoliss, Nanoplastia & Hair Botox",
-        "shortDescription": "Advanced biotin smoothening, QOD Tanino Nanoplastia, Hair Botox, and L'Oréal Glatt.",
-        "startingPrice": "₹4,000",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "Smoothening, Botox & Nanoplastia",
+        "shortDescription": "Frizz-control smoothening, botoplexx repair, biotin smoothening, and organic nanoplasty.",
+        "startingPrice": "₹3,000",
         "priceGroups": [
           {
-            "title": "Hair Smoothening & Straightening",
+            "title": "Smoothening / Straightening — Loreal / Schwarzkopf Glatt",
             "rows": [
               {
-                "label": "Loreal / Schwarzkopf Glatt - Short",
+                "label": "Short",
                 "price": "₹4,500"
               },
               {
-                "label": "Loreal / Schwarzkopf Glatt - Medium",
+                "label": "Medium",
                 "price": "₹5,000"
               },
               {
-                "label": "Loreal / Schwarzkopf Glatt - Long",
+                "label": "Long",
                 "price": "₹5,500"
               },
               {
-                "label": "Loreal / Schwarzkopf Glatt - Very Long",
+                "label": "Very Long",
                 "price": "₹6,000"
               },
               {
-                "label": "Loreal / Schwarzkopf Glatt - XX Long",
+                "label": "XX Long",
                 "price": "₹6,500"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Smoothening / Straightening — Schwarzkopf Strait Gloss Therapy",
+            "rows": [
               {
-                "label": "Schwarzkopf Strait Gloss Therapy - Short",
+                "label": "Short",
                 "price": "₹5,500"
               },
               {
-                "label": "Schwarzkopf Strait Gloss Therapy - Medium",
+                "label": "Medium",
                 "price": "₹6,000"
               },
               {
-                "label": "Schwarzkopf Strait Gloss Therapy - Long",
+                "label": "Long",
                 "price": "₹6,500"
               },
               {
-                "label": "Schwarzkopf Strait Gloss Therapy - Very Long",
+                "label": "Very Long",
                 "price": "₹7,000"
               },
               {
-                "label": "Schwarzkopf Strait Gloss Therapy - XX Long",
+                "label": "XX Long",
                 "price": "₹7,500"
               }
             ]
           },
           {
-            "title": "Protein Treatments & Botox",
+            "title": "Protein Treatments — Kabco",
             "rows": [
               {
-                "label": "Kabco (40-50% straight, 3-4 months) - Short",
+                "label": "Short",
+                "price": "₹3,000"
+              },
+              {
+                "label": "Medium",
+                "price": "₹3,500"
+              },
+              {
+                "label": "Long",
                 "price": "₹4,000"
               },
               {
-                "label": "Kabco (40-50% straight, 3-4 months) - Medium",
-                "price": "₹4,500"
-              },
-              {
-                "label": "Kabco (40-50% straight, 3-4 months) - Long",
+                "label": "Very Long",
                 "price": "₹5,000"
               },
               {
-                "label": "Kabco (40-50% straight, 3-4 months) - Very Long",
+                "label": "XX Long",
                 "price": "₹5,500"
+              }
+            ]
+          },
+          {
+            "title": "Protein Treatments — Hair Botox",
+            "rows": [
+              {
+                "label": "Short",
+                "price": "₹4,000"
               },
               {
-                "label": "Kabco (40-50% straight, 3-4 months) - XX Long",
-                "price": "₹6,000"
-              },
-              {
-                "label": "Botox (60-70% straight, 3.5-4.5 months) - Short",
+                "label": "Medium",
                 "price": "₹4,500"
               },
               {
-                "label": "Botox (60-70% straight, 3.5-4.5 months) - Medium",
+                "label": "Long",
                 "price": "₹5,000"
               },
               {
-                "label": "Botox (60-70% straight, 3.5-4.5 months) - Long",
+                "label": "Very Long",
                 "price": "₹5,500"
               },
               {
-                "label": "Botox (60-70% straight, 3.5-4.5 months) - Very Long",
+                "label": "XX Long",
                 "price": "₹6,000"
+              }
+            ]
+          },
+          {
+            "title": "Protein Treatments — Botoplexx (Bond Building Repair)",
+            "rows": [
+              {
+                "label": "Short",
+                "price": "₹5,000"
               },
               {
-                "label": "Botox (60-70% straight, 3.5-4.5 months) - XX Long",
-                "price": "₹6,500"
-              },
-              {
-                "label": "Botoplexx (Bond-Building Repair Ritual) - Short",
+                "label": "Medium",
                 "price": "₹5,500"
               },
               {
-                "label": "Botoplexx (Bond-Building Repair Ritual) - Medium",
+                "label": "Long",
                 "price": "₹6,000"
               },
               {
-                "label": "Botoplexx (Bond-Building Repair Ritual) - Long",
+                "label": "Very Long",
                 "price": "₹6,500"
               },
               {
-                "label": "Botoplexx (Bond-Building Repair Ritual) - Very Long",
+                "label": "XX Long",
                 "price": "₹7,000"
+              }
+            ]
+          },
+          {
+            "title": "Protein Treatments — Nanoplasty / Signature Healing",
+            "rows": [
+              {
+                "label": "Short",
+                "price": "₹6,000"
               },
               {
-                "label": "Botoplexx (Bond-Building Repair Ritual) - XX Long",
-                "price": "₹7,500"
-              },
-              {
-                "label": "Nanoplasty / Signature Healing (70-80% straight, 5-6 months) - Short",
+                "label": "Medium",
                 "price": "₹6,500"
               },
               {
-                "label": "Nanoplasty / Signature Healing (70-80% straight, 5-6 months) - Medium",
+                "label": "Long",
                 "price": "₹7,000"
               },
               {
-                "label": "Nanoplasty / Signature Healing (70-80% straight, 5-6 months) - Long",
+                "label": "Very Long",
                 "price": "₹7,500"
               },
               {
-                "label": "Nanoplasty / Signature Healing (70-80% straight, 5-6 months) - Very Long",
+                "label": "XX Long",
                 "price": "₹8,000"
+              }
+            ]
+          },
+          {
+            "title": "Protein Treatments — Botoliss Biotin Smoothening",
+            "rows": [
+              {
+                "label": "Short",
+                "price": "₹7,000"
               },
               {
-                "label": "Nanoplasty / Signature Healing (70-80% straight, 5-6 months) - XX Long",
-                "price": "₹8,500"
-              },
-              {
-                "label": "Botoliss — Biotin Smoothening (85-95% straight, 8-9 months) - Short",
+                "label": "Medium",
                 "price": "₹7,500"
               },
               {
-                "label": "Botoliss — Biotin Smoothening (85-95% straight, 8-9 months) - Medium",
+                "label": "Long",
                 "price": "₹8,000"
               },
               {
-                "label": "Botoliss — Biotin Smoothening (85-95% straight, 8-9 months) - Long",
+                "label": "Very Long",
                 "price": "₹8,500"
               },
               {
-                "label": "Botoliss — Biotin Smoothening (85-95% straight, 8-9 months) - Very Long",
+                "label": "XX Long",
                 "price": "₹9,000"
-              },
+              }
+            ]
+          },
+          {
+            "title": "Protein Treatments — QOD Tanino / Copacabana Nanoplastia",
+            "rows": [
               {
-                "label": "Botoliss — Biotin Smoothening (85-95% straight, 8-9 months) - XX Long",
-                "price": "₹9,500"
-              },
-              {
-                "label": "QOD Tanino / Copacabana Nanoplastia (80-85% straight, 6-7 months) - Short",
+                "label": "Short",
                 "price": "₹7,000"
               },
               {
-                "label": "QOD Tanino / Copacabana Nanoplastia (80-85% straight, 6-7 months) - Medium",
+                "label": "Medium",
                 "price": "₹7,500"
               },
               {
-                "label": "QOD Tanino / Copacabana Nanoplastia (80-85% straight, 6-7 months) - Long",
+                "label": "Long",
                 "price": "₹8,000"
               },
               {
-                "label": "QOD Tanino / Copacabana Nanoplastia (80-85% straight, 6-7 months) - Very Long",
+                "label": "Very Long",
                 "price": "₹8,500"
               },
               {
-                "label": "QOD Tanino / Copacabana Nanoplastia (80-85% straight, 6-7 months) - XX Long",
+                "label": "XX Long",
                 "price": "₹9,000"
               }
             ]
@@ -769,49 +871,47 @@ export const SERVICE_CATEGORIES = [
   {
     "id": "skin",
     "name": "Skin Care & Aesthetics",
-    "description": "Rejuvenating dermal facials, organic glowing skin therapy, and smooth waxing care.",
+    "description": "Organic facials, Korean glass skin rituals, D-tan therapies, Richfeel Derma, and Medi-Facial treatments.",
     "featuredImage": "/media/skin/skin-main.jpg",
     "items": [
       {
         "id": "threading",
         "name": "Eyebrow & Facial Threading",
         "shortDescription": "Precision brow shaping and delicate facial hair removal.",
-        "startingPrice": "₹15",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "startingPrice": "₹20",
         "priceRows": [
           {
             "label": "Eyebrows",
-            "price": "₹35",
+            "price": "₹30",
             "description": "Precision shaping for clean, defined brows"
           },
           {
             "label": "Upper Lip",
-            "price": "₹15",
-            "description": "Quick, clean hair removal"
+            "price": "₹20"
           },
           {
             "label": "Forehead",
-            "price": "₹15"
+            "price": "₹20"
           },
           {
             "label": "Lower Lip",
-            "price": "₹15"
+            "price": "₹20"
           },
           {
             "label": "Nose",
-            "price": "₹15"
+            "price": "₹20"
           },
           {
             "label": "Chin",
-            "price": "₹15"
+            "price": "₹20"
           },
           {
             "label": "Cheeks",
-            "price": "₹40"
+            "price": "₹30"
           },
           {
             "label": "Side Locks",
-            "price": "₹40"
+            "price": "₹30"
           },
           {
             "label": "Face Thread",
@@ -821,42 +921,41 @@ export const SERVICE_CATEGORIES = [
       },
       {
         "id": "face-waxing",
-        "name": "Gentle Face Waxing",
-        "shortDescription": "Cream wax treatments for upper lip, forehead, cheeks, and full face.",
-        "startingPrice": "₹80",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "Gentle Face Waxing (Peel-Off Wax)",
+        "shortDescription": "Peel-off wax treatments for upper lip, forehead, cheeks, and full face.",
+        "startingPrice": "₹70",
         "priceRows": [
           {
-            "label": "Upper Lip (Cream Wax)",
-            "price": "₹80"
+            "label": "Upper Lip (Peel Off Wax)",
+            "price": "₹70"
           },
           {
-            "label": "Forehead (Cream Wax)",
-            "price": "₹80"
+            "label": "Forehead (Peel Off Wax)",
+            "price": "₹70"
           },
           {
-            "label": "Lower Lip (Cream Wax)",
-            "price": "₹80"
+            "label": "Lower Lip (Peel Off Wax)",
+            "price": "₹70"
           },
           {
-            "label": "Nose (Cream Wax)",
-            "price": "₹80"
+            "label": "Nose (Peel Off Wax)",
+            "price": "₹70"
           },
           {
-            "label": "Chin (Cream Wax)",
-            "price": "₹80"
+            "label": "Chin (Peel Off Wax)",
+            "price": "₹70"
           },
           {
-            "label": "Cheeks (Cream Wax)",
-            "price": "₹150"
+            "label": "Cheeks (Peel Off Wax)",
+            "price": "₹140"
           },
           {
-            "label": "Side Locks (Cream Wax)",
-            "price": "₹150"
+            "label": "Side Locks (Peel Off Wax)",
+            "price": "₹140"
           },
           {
-            "label": "Full Face (Cream Wax)",
-            "price": "₹700"
+            "label": "Full Face (Peel Off Wax)",
+            "price": "₹550"
           }
         ]
       },
@@ -864,19 +963,18 @@ export const SERVICE_CATEGORIES = [
         "id": "bleaching",
         "name": "Bleaching & Skin Brightening",
         "shortDescription": "Fruit and premium Ozone Gold/Diamond skin bleaching for face and body.",
-        "startingPrice": "₹90",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "startingPrice": "₹80",
         "priceGroups": [
           {
-            "title": "Fruit Bleach",
+            "title": "Bleaching — Fruit Bleach",
             "rows": [
               {
                 "label": "Face",
-                "price": "₹90"
+                "price": "₹80"
               },
               {
                 "label": "Half Hand",
-                "price": "₹90"
+                "price": "₹80"
               },
               {
                 "label": "Full Hand",
@@ -884,23 +982,415 @@ export const SERVICE_CATEGORIES = [
               },
               {
                 "label": "Half Front",
-                "price": "₹90"
+                "price": "₹80"
               },
               {
                 "label": "Full Front",
-                "price": "₹180"
+                "price": "₹160"
               },
               {
                 "label": "Half Back",
-                "price": "₹90"
+                "price": "₹80"
               },
               {
                 "label": "Full Back",
-                "price": "₹180"
+                "price": "₹160"
               },
               {
                 "label": "Half Leg",
-                "price": "₹180"
+                "price": "₹160"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹250"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹800"
+              }
+            ]
+          },
+          {
+            "title": "Bleaching — Ozone Glow / Gold / Diamond / Raaga",
+            "rows": [
+              {
+                "label": "Face",
+                "price": "₹200"
+              },
+              {
+                "label": "Half Hand",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹350"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹350"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹400"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹300"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹500"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹1,800"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "richfeel-derma-new",
+        "name": "Richfeel Derma Facial & Clean-Up Range (New)",
+        "shortDescription": "New trichology & dermal clinical skin treatments for whitening, acne control, gold glow & bridal care.",
+        "startingPrice": "₹800",
+        "priceGroups": [
+          {
+            "title": "Richfeel Facial Range (New)",
+            "description": "Specialized targeted facial therapies",
+            "rows": [
+              {
+                "label": "Richfeel Wine Facial",
+                "price": "₹1,500",
+                "description": "Anti-ageing antioxidant wine glow"
+              },
+              {
+                "label": "Richfeel Vitamin - C Facial",
+                "price": "₹1,500",
+                "description": "Radiance boosting & hyperpigmentation repair"
+              },
+              {
+                "label": "Richfeel Acne Pro Facial",
+                "price": "₹1,500",
+                "description": "Clinical acne control & pore clarifying"
+              },
+              {
+                "label": "Richfeel Whitening Facial",
+                "price": "₹1,800",
+                "description": "Dermal brightening & even skin tone"
+              },
+              {
+                "label": "Richfeel Gold Facial",
+                "price": "₹1,800",
+                "description": "24K gold glow & cell renewal"
+              },
+              {
+                "label": "Richfeel Parle Facial",
+                "price": "₹1,800",
+                "description": "Pearl extract luminous skin therapy"
+              },
+              {
+                "label": "Richfeel Bridal Facial",
+                "price": "₹2,500",
+                "description": "Signature bridal glow & radiance package"
+              }
+            ]
+          },
+          {
+            "title": "Richfeel Clean-Up Range (New)",
+            "description": "Quick dermal cleansing & detox treatments",
+            "rows": [
+              {
+                "label": "Richfeel Wine Clean-Up",
+                "price": "₹800"
+              },
+              {
+                "label": "Richfeel Vitamin - C Clean-Up",
+                "price": "₹800"
+              },
+              {
+                "label": "Richfeel Acne Pro Clean-Up",
+                "price": "₹800"
+              },
+              {
+                "label": "Richfeel Whitening Clean-Up",
+                "price": "₹1,000"
+              },
+              {
+                "label": "Richfeel Gold Clean-Up",
+                "price": "₹1,000"
+              },
+              {
+                "label": "Richfeel Parle Clean-Up",
+                "price": "₹1,000"
+              },
+              {
+                "label": "Richfeel Bridal Clean-Up",
+                "price": "₹1,500"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "medi-facials-oxy-ozone-hydra",
+        "name": "Oxy, Ozone & Hydra Medi-Facial & Clean-Up Range (New)",
+        "shortDescription": "Advanced machine-assisted dermal oxygenation, ozone purifying & hydra-dermabrasion pore therapy.",
+        "startingPrice": "₹700",
+        "priceGroups": [
+          {
+            "title": "New Medi-Facial Section (Ranged Pricing)",
+            "description": "Starting prices shown clearly to give customers entry-level pricing visibility",
+            "rows": [
+              {
+                "label": "Oxy Facial",
+                "price": "₹1,000 – ₹2,500",
+                "description": "Starting @ ₹1,000 (Up to ₹2,500 depending on oxygenation protocol)"
+              },
+              {
+                "label": "Ozone Facial",
+                "price": "₹1,200 – ₹3,000",
+                "description": "Starting @ ₹1,200 (Up to ₹3,000 depending on skin treatment)"
+              },
+              {
+                "label": "Hydra Facial",
+                "price": "₹2,000 – ₹7,000",
+                "description": "Starting @ ₹2,000 (Up to ₹7,000 depending on multi-step machine serum tips)"
+              }
+            ]
+          },
+          {
+            "title": "New Medi Clean-Up Section (Ranged Pricing)",
+            "description": "Deep action express pore cleaning therapies",
+            "rows": [
+              {
+                "label": "Oxy Clean-Up",
+                "price": "₹700 – ₹1,500",
+                "description": "Starting @ ₹700 (Up to ₹1,500 depending on clean-up intensity)"
+              },
+              {
+                "label": "Ozone Clean-Up",
+                "price": "₹800 – ₹2,000",
+                "description": "Starting @ ₹800 (Up to ₹2,000 depending on anti-bacterial protocol)"
+              },
+              {
+                "label": "Hydra Clean-Up",
+                "price": "₹1,000 – ₹3,500",
+                "description": "Starting @ ₹1,000 (Up to ₹3,500 depending on aqua peel tip)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "basic-luxe-facials",
+        "name": "Facials & Skin Glow Rituals",
+        "shortDescription": "Organic Fruit, Natures Care, Raaga, O3+, and Korean glass skin rituals.",
+        "startingPrice": "₹400",
+        "priceGroups": [
+          {
+            "title": "Basic Facials",
+            "rows": [
+              {
+                "label": "Natures Care — Gentle Fruit / Papaya",
+                "price": "₹400"
+              },
+              {
+                "label": "Natures Facial",
+                "price": "₹450"
+              },
+              {
+                "label": "Natures Care — Brightening Diamond / Glowing Gold / Whitening Pearl",
+                "price": "₹450"
+              }
+            ]
+          },
+          {
+            "title": "Luxe Facials",
+            "rows": [
+              {
+                "label": "Raaga (Fairness / Gold / Platinum)",
+                "price": "₹700"
+              },
+              {
+                "label": "O3+ (Whitening / Sea White)",
+                "price": "₹1,000"
+              },
+              {
+                "label": "Raaga Stemcell (5 variants)",
+                "price": "₹1,200"
+              },
+              {
+                "label": "O3+ (Whitening with Mask / Shine and Glow)",
+                "price": "₹1,500"
+              },
+              {
+                "label": "Blossom Kochhar (Vita-C / Mocha)",
+                "price": "₹1,800"
+              },
+              {
+                "label": "Gwang Glow Korean (24K / Frutzo Pulp)",
+                "price": "₹1,800"
+              }
+            ]
+          },
+          {
+            "title": "Advanced & Elite Derma Facials",
+            "rows": [
+              {
+                "label": "O3+ (Brightening / Anti-Ageing / Hydrating)",
+                "price": "₹1,800"
+              },
+              {
+                "label": "O3+ (Radiance D / Oxygenating O / Vitamin C A)",
+                "price": "₹2,200"
+              },
+              {
+                "label": "Raaga Bridal Facial",
+                "price": "₹2,500"
+              },
+              {
+                "label": "O3+ Korean Range (Pine CICA / Rice Water / Birch Tree Sap)",
+                "price": "₹2,800"
+              },
+              {
+                "label": "Skinora (Radiant Glow / Hydra Therapy / Age Defying)",
+                "price": "₹2,800"
+              },
+              {
+                "label": "Kanpeki Blanch",
+                "price": "₹3,500"
+              },
+              {
+                "label": "Skinora (5 Luxury Variants)",
+                "price": "₹3,500"
+              },
+              {
+                "label": "O3+ Agelock Elite (4 variants)",
+                "price": "₹4,000"
+              },
+              {
+                "label": "Casmara (6 variants)",
+                "price": "₹4,500"
+              },
+              {
+                "label": "Kanpeki Save The Date (Bridal)",
+                "price": "₹4,500"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "clean-up-rituals",
+        "name": "Clean-Up Rituals",
+        "shortDescription": "Express pore cleansing, Lotus 4-step hydravital, and O3+ Power Mask cleanups.",
+        "startingPrice": "₹350",
+        "priceGroups": [
+          {
+            "title": "Classic & Organic Clean-Ups",
+            "rows": [
+              {
+                "label": "Natures — Rose Radiance / Express",
+                "price": "₹350"
+              },
+              {
+                "label": "Natures — Gentle Fruit / Papaya",
+                "price": "₹350"
+              },
+              {
+                "label": "Natures — Anti Tan",
+                "price": "₹400"
+              },
+              {
+                "label": "Lotus — Hydravital (4 Steps)",
+                "price": "₹600"
+              },
+              {
+                "label": "Lotus — Puravital (4 Steps)",
+                "price": "₹600"
+              },
+              {
+                "label": "Kanpeki — Kou You Anti Tan",
+                "price": "₹800"
+              }
+            ]
+          },
+          {
+            "title": "O3+ Power Mask Clean-Ups",
+            "rows": [
+              {
+                "label": "O3+ — Whitening (with Power Mask)",
+                "price": "₹1,200"
+              },
+              {
+                "label": "O3+ — Gold Infusion (with Power Mask)",
+                "price": "₹1,200"
+              },
+              {
+                "label": "O3+ — D-Tan (with Power Mask)",
+                "price": "₹1,400"
+              },
+              {
+                "label": "O3+ — Vitamin C (with Power Mask)",
+                "price": "₹1,500"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "d-tan-treatments",
+        "name": "D-Tan Treatments",
+        "shortDescription": "Instant sun tan removal for face, arms, legs, and full body with Natures, Raaga & O3+.",
+        "startingPrice": "₹100",
+        "priceGroups": [
+          {
+            "title": "D-Tan — Natures",
+            "rows": [
+              {
+                "label": "Face",
+                "price": "₹100"
+              },
+              {
+                "label": "Underarms",
+                "price": "₹100"
+              },
+              {
+                "label": "Half Hand",
+                "price": "₹150"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹250"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹100"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹200"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹100"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹200"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹150"
               },
               {
                 "label": "Full Leg",
@@ -908,24 +1398,126 @@ export const SERVICE_CATEGORIES = [
               },
               {
                 "label": "Full Body",
-                "price": "₹950"
+                "price": "₹1,200"
               }
             ]
           },
           {
-            "title": "Ozone Glow / Gold / Diamond / Raaga Bleach",
+            "title": "D-Tan — Raaga",
             "rows": [
               {
                 "label": "Face",
-                "price": "₹220"
+                "price": "₹150"
+              },
+              {
+                "label": "Underarms",
+                "price": "₹160"
               },
               {
                 "label": "Half Hand",
-                "price": "₹220"
+                "price": "₹160"
               },
               {
                 "label": "Full Hand",
-                "price": "₹420"
+                "price": "₹300"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹120"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹250"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹120"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹250"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹400"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹1,500"
+              }
+            ]
+          },
+          {
+            "title": "D-Tan — O3+",
+            "rows": [
+              {
+                "label": "Face",
+                "price": "₹350"
+              },
+              {
+                "label": "Underarms",
+                "price": "₹350"
+              },
+              {
+                "label": "Half Hand",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹400"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹250"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹500"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹250"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹500"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹350"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹650"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹2,200"
+              }
+            ]
+          },
+          {
+            "title": "D-Tan — Raaga Charcoal",
+            "rows": [
+              {
+                "label": "Face",
+                "price": "₹350"
+              },
+              {
+                "label": "Underarms",
+                "price": "₹350"
+              },
+              {
+                "label": "Half Hand",
+                "price": "₹250"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹500"
               },
               {
                 "label": "Half Front",
@@ -953,370 +1545,7 @@ export const SERVICE_CATEGORIES = [
               },
               {
                 "label": "Full Body",
-                "price": "₹2,050"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "basic-luxe-facials",
-        "name": "Basic & Luxe Facials",
-        "shortDescription": "Natures, Raaga, O3+ Whitening, and Blossom Kocchar hydration facials.",
-        "startingPrice": "₹395",
-        "sourceUrl": "https://www.cvsalon.com/services",
-        "priceGroups": [
-          {
-            "title": "Basic Facials",
-            "rows": [
-              {
-                "label": "Natures",
-                "price": "₹495"
-              },
-              {
-                "label": "Natures - Care (Brightening Diamond / Glowing Gold / Whitening Pearl)",
-                "price": "₹495"
-              },
-              {
-                "label": "Natures - Care (Gentle Fruit / Papaya)",
-                "price": "₹395"
-              }
-            ]
-          },
-          {
-            "title": "Luxe Facials",
-            "rows": [
-              {
-                "label": "Raaga (Fairness / Gold / Platinum)",
-                "price": "₹795"
-              },
-              {
-                "label": "O3+ (Whitening / Sea White)",
-                "price": "₹1,100"
-              },
-              {
-                "label": "Raaga Stemcell (5 variants)",
-                "price": "₹1,300"
-              },
-              {
-                "label": "O3+ (Whitening with Mask / Shine and Glow)",
-                "price": "₹1,580"
-              },
-              {
-                "label": "Blossom Kocchar (Vita-C / Mocha)",
-                "price": "₹2,050"
-              },
-              {
-                "label": "Gwang Glow Korean (24K / Frutzo Pulp)",
-                "price": "₹2,050"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "advanced-elite-facials",
-        "name": "Advanced & Elite Dermal Facials",
-        "shortDescription": "O3+ Agelock, Casmara 6-variant luxury masks, Kanpeki Save The Date, and Skinora.",
-        "startingPrice": "₹2,150",
-        "sourceUrl": "https://www.cvsalon.com/services",
-        "priceGroups": [
-          {
-            "title": "Advanced Facials",
-            "rows": [
-              {
-                "label": "O3+ (Brightening / Anti-Ageing / Hydrating)",
-                "price": "₹2,150"
-              },
-              {
-                "label": "O3+ (Radiance D / Oxygenating O / Vitamin C A)",
-                "price": "₹2,500"
-              },
-              {
-                "label": "Raaga Bridal",
-                "price": "₹2,600"
-              },
-              {
-                "label": "O3+ Korean Range (Pine CICA / Rice Water / Birch Tree Sap)",
-                "price": "₹3,000"
-              },
-              {
-                "label": "Skinora (Radiant Glow / Hydra Therapy / Age Defying)",
-                "price": "₹2,900"
-              }
-            ]
-          },
-          {
-            "title": "Elite & Dermal Facials",
-            "rows": [
-              {
-                "label": "Kanpeki Blanch",
-                "price": "₹4,000"
-              },
-              {
-                "label": "O3+ Agelock Elite (4 variants)",
-                "price": "₹4,500"
-              },
-              {
-                "label": "Casmara (6 variants)",
-                "price": "₹5,000"
-              },
-              {
-                "label": "Kanpeki Save The Date (Bridal)",
-                "price": "₹5,000"
-              },
-              {
-                "label": "Skinora (5 variants)",
-                "price": "₹4,000"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "clean-up-rituals",
-        "name": "Express & Deep Clean-Up",
-        "shortDescription": "Natures Rose Radiance, Lotus Hydravital, Kanpeki Kou You, and O3+ Gold Power Mask.",
-        "startingPrice": "₹345",
-        "sourceUrl": "https://www.cvsalon.com/services",
-        "priceRows": [
-          {
-            "label": "Natures - Rose Radiance / Express",
-            "price": "₹345"
-          },
-          {
-            "label": "Natures - Gentle Fruit / Papaya",
-            "price": "₹375"
-          },
-          {
-            "label": "Natures - Anti Tan",
-            "price": "₹450"
-          },
-          {
-            "label": "Lotus - Hydravital (4 Steps)",
-            "price": "₹650"
-          },
-          {
-            "label": "Lotus - Puravital (4 Steps)",
-            "price": "₹650"
-          },
-          {
-            "label": "Kanpeki - Kou You Anti Tan",
-            "price": "₹1,000"
-          },
-          {
-            "label": "O3+ - Whitening (with Power Mask)",
-            "price": "₹1,350"
-          },
-          {
-            "label": "O3+ - Gold Infusion (with Power Mask)",
-            "price": "₹1,350"
-          },
-          {
-            "label": "O3+ - D-Tan (with Power Mask)",
-            "price": "₹1,550"
-          },
-          {
-            "label": "O3+ - Vitamin C (with Power Mask)",
-            "price": "₹1,750"
-          }
-        ]
-      },
-      {
-        "id": "d-tan-treatments",
-        "name": "D-Tan Sun Removal Therapy",
-        "shortDescription": "Natures, Raaga, and O3+ Agelock D-Tan care for face, limbs, and full body.",
-        "startingPrice": "₹110",
-        "sourceUrl": "https://www.cvsalon.com/services",
-        "priceGroups": [
-          {
-            "title": "Natures D-Tan",
-            "rows": [
-              {
-                "label": "Face",
-                "price": "₹120"
-              },
-              {
-                "label": "Underarms",
-                "price": "₹120"
-              },
-              {
-                "label": "Half Hand",
-                "price": "₹180"
-              },
-              {
-                "label": "Full Hand",
-                "price": "₹300"
-              },
-              {
-                "label": "Half Front",
-                "price": "₹110"
-              },
-              {
-                "label": "Full Front",
-                "price": "₹210"
-              },
-              {
-                "label": "Half Back",
-                "price": "₹110"
-              },
-              {
-                "label": "Full Back",
-                "price": "₹210"
-              },
-              {
-                "label": "Half Leg",
-                "price": "₹180"
-              },
-              {
-                "label": "Full Leg",
-                "price": "₹360"
-              },
-              {
-                "label": "Full Body",
-                "price": "₹1,350"
-              }
-            ]
-          },
-          {
-            "title": "Raaga D-Tan",
-            "rows": [
-              {
-                "label": "Face",
-                "price": "₹160"
-              },
-              {
-                "label": "Underarms",
-                "price": "₹190"
-              },
-              {
-                "label": "Half Hand",
-                "price": "₹180"
-              },
-              {
-                "label": "Full Hand",
-                "price": "₹360"
-              },
-              {
-                "label": "Half Front",
-                "price": "₹130"
-              },
-              {
-                "label": "Full Front",
-                "price": "₹260"
-              },
-              {
-                "label": "Half Back",
-                "price": "₹130"
-              },
-              {
-                "label": "Full Back",
-                "price": "₹260"
-              },
-              {
-                "label": "Half Leg",
-                "price": "₹240"
-              },
-              {
-                "label": "Full Leg",
-                "price": "₹480"
-              },
-              {
-                "label": "Full Body",
-                "price": "₹1,700"
-              }
-            ]
-          },
-          {
-            "title": "O3+ & Specialty D-Tan",
-            "rows": [
-              {
-                "label": "Face (O3+)",
-                "price": "₹300"
-              },
-              {
-                "label": "Underarms (O3+)",
-                "price": "₹300"
-              },
-              {
-                "label": "Half Hand (O3+)",
-                "price": "₹230"
-              },
-              {
-                "label": "Full Hand (O3+)",
-                "price": "₹450"
-              },
-              {
-                "label": "Half Front (O3+)",
-                "price": "₹180"
-              },
-              {
-                "label": "Full Front (O3+)",
-                "price": "₹360"
-              },
-              {
-                "label": "Half Back (O3+)",
-                "price": "₹180"
-              },
-              {
-                "label": "Full Back (O3+)",
-                "price": "₹360"
-              },
-              {
-                "label": "Half Leg (O3+)",
-                "price": "₹290"
-              },
-              {
-                "label": "Full Leg (O3+)",
-                "price": "₹570"
-              },
-              {
-                "label": "Full Body (O3+)",
-                "price": "₹2,350"
-              },
-              {
-                "label": "Face (Raaga Charcoal)",
-                "price": "₹360"
-              },
-              {
-                "label": "Underarms (Raaga Charcoal)",
-                "price": "₹360"
-              },
-              {
-                "label": "Half Hand (Raaga Charcoal)",
-                "price": "₹250"
-              },
-              {
-                "label": "Full Hand (Raaga Charcoal)",
-                "price": "₹500"
-              },
-              {
-                "label": "Half Front (Raaga Charcoal)",
-                "price": "₹200"
-              },
-              {
-                "label": "Full Front (Raaga Charcoal)",
-                "price": "₹400"
-              },
-              {
-                "label": "Half Back (Raaga Charcoal)",
-                "price": "₹200"
-              },
-              {
-                "label": "Full Back (Raaga Charcoal)",
-                "price": "₹400"
-              },
-              {
-                "label": "Half Leg (Raaga Charcoal)",
-                "price": "₹310"
-              },
-              {
-                "label": "Full Leg (Raaga Charcoal)",
-                "price": "₹620"
-              },
-              {
-                "label": "Full Body (Raaga Charcoal)",
-                "price": "₹2,650"
+                "price": "₹2,000"
               }
             ]
           }
@@ -1324,85 +1553,200 @@ export const SERVICE_CATEGORIES = [
       },
       {
         "id": "body-waxing",
-        "name": "Full Body Waxing",
-        "shortDescription": "Normal Cream, Chocolate, Rica Liposoluble, and Flavoured wax options.",
-        "startingPrice": "₹60",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "Body Waxing (Honey, Cream, Raaga & Rica)",
+        "shortDescription": "Gentle hair removal with Honey, Cream Wax, Raaga, and Italian Liposoluble Rica wax.",
+        "startingPrice": "₹70",
         "priceGroups": [
           {
-            "title": "Normal Cream Wax",
+            "title": "Waxing — Normal Honey Wax",
             "rows": [
-              { "label": "Full Hand", "price": "₹130" },
-              { "label": "Underarm", "price": "₹60" },
-              { "label": "Half Leg", "price": "₹170" },
-              { "label": "Full Leg", "price": "₹320" },
-              { "label": "Half Front", "price": "₹180" },
-              { "label": "Full Front", "price": "₹360" },
-              { "label": "Half Back", "price": "₹180" },
-              { "label": "Full Back", "price": "₹360" },
-              { "label": "Full Body", "price": "₹1,200" }
+              {
+                "label": "Underarm",
+                "price": "₹70"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹150"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹150"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹250"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹150"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹300"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹150"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹300"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹1,000"
+              }
             ]
           },
           {
-            "title": "Flavoured Cream Wax",
+            "title": "Waxing — Cream Wax",
             "rows": [
-              { "label": "Full Hand", "price": "₹210" },
-              { "label": "Underarm", "price": "₹80" },
-              { "label": "Half Leg", "price": "₹260" },
-              { "label": "Full Leg", "price": "₹490" },
-              { "label": "Half Front", "price": "₹240" },
-              { "label": "Full Front", "price": "₹480" },
-              { "label": "Half Back", "price": "₹240" },
-              { "label": "Full Back", "price": "₹480" },
-              { "label": "Bikini Wax (Brazilian)", "price": "₹890" },
-              { "label": "Full Body", "price": "₹1,700" }
+              {
+                "label": "Underarm",
+                "price": "₹100"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹200"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹250"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹450"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹400"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹400"
+              },
+              {
+                "label": "Bikini Wax (Brazilian)",
+                "price": "₹800"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹1,800"
+              }
             ]
           },
           {
-            "title": "Raaga Wax",
+            "title": "Waxing — Raaga Wax",
             "rows": [
-              { "label": "Full Hand", "price": "₹330" },
-              { "label": "Underarm", "price": "₹150" },
-              { "label": "Half Leg", "price": "₹350" },
-              { "label": "Full Leg", "price": "₹650" },
-              { "label": "Half Front", "price": "₹350" },
-              { "label": "Full Front", "price": "₹600" },
-              { "label": "Half Back", "price": "₹350" },
-              { "label": "Full Back", "price": "₹600" },
-              { "label": "Bikini Wax (Brazilian)", "price": "₹1,200" },
-              { "label": "Full Body", "price": "₹2,330" }
+              {
+                "label": "Underarm",
+                "price": "₹150"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹300"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹350"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹650"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹350"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹600"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹350"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹600"
+              },
+              {
+                "label": "Bikini Wax (Brazilian)",
+                "price": "₹1,200"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹2,000"
+              }
             ]
           },
           {
-            "title": "Rica Liposoluble Wax",
+            "title": "Waxing — Rica Wax (Italian Liposoluble)",
             "rows": [
-              { "label": "Full Hand", "price": "₹450" },
-              { "label": "Underarm", "price": "₹180" },
-              { "label": "Half Leg", "price": "₹450" },
-              { "label": "Full Leg", "price": "₹850" },
-              { "label": "Half Front", "price": "₹410" },
-              { "label": "Full Front", "price": "₹820" },
-              { "label": "Half Back", "price": "₹410" },
-              { "label": "Full Back", "price": "₹820" },
-              { "label": "Bikini Wax (Brazilian)", "price": "₹1,500" },
-              { "label": "Full Body", "price": "₹3,100" }
+              {
+                "label": "Underarm",
+                "price": "₹200"
+              },
+              {
+                "label": "Full Hand",
+                "price": "₹400"
+              },
+              {
+                "label": "Half Leg",
+                "price": "₹400"
+              },
+              {
+                "label": "Full Leg",
+                "price": "₹600"
+              },
+              {
+                "label": "Half Front",
+                "price": "₹400"
+              },
+              {
+                "label": "Full Front",
+                "price": "₹600"
+              },
+              {
+                "label": "Half Back",
+                "price": "₹400"
+              },
+              {
+                "label": "Full Back",
+                "price": "₹600"
+              },
+              {
+                "label": "Bikini Wax (Brazilian)",
+                "price": "₹1,500"
+              },
+              {
+                "label": "Full Body",
+                "price": "₹2,200"
+              }
             ]
           }
         ]
       },
       {
         "id": "body-spa-polishing",
-        "name": "Body Spa & Luxury Polishing",
-        "shortDescription": "Ice Cream / Donut polishing, AVL Marine mineral care, Cafe Mocha, and Bombini rituals.",
-        "startingPrice": "₹2,350",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "Body Spa & Polishing",
+        "shortDescription": "Relaxing spa therapies, Cafe Mocha polishing, and Panchtattva bridal glow rituals.",
+        "startingPrice": "₹2,200",
         "priceGroups": [
           {
-            "title": "Body Spa",
+            "title": "Body Spa Therapies",
             "rows": [
               {
                 "label": "Gentle Fruit Spa",
-                "price": "₹2,350"
+                "price": "₹2,200"
               },
               {
                 "label": "Chocolate Spa",
@@ -1411,27 +1755,27 @@ export const SERVICE_CATEGORIES = [
             ]
           },
           {
-            "title": "Body Polishing Rituals",
+            "title": "Body Polishing & Exfoliation",
             "rows": [
               {
                 "label": "Ozone Body Polishing",
                 "price": "₹3,000"
               },
               {
-                "label": "Cafe Mocha",
-                "price": "₹4,150"
+                "label": "Cafe Mocha Body Polishing",
+                "price": "₹4,000"
               },
               {
                 "label": "AVL Marine Body Polishing",
-                "price": "₹4,500"
+                "price": "₹4,200"
               },
               {
                 "label": "Ice Cream / Donut Body Polishing",
-                "price": "₹4,700"
+                "price": "₹4,500"
               },
               {
                 "label": "Bridal Glow / Panchtattva",
-                "price": "₹5,300"
+                "price": "₹5,000"
               }
             ]
           }
@@ -1441,73 +1785,60 @@ export const SERVICE_CATEGORIES = [
   },
   {
     "id": "nails",
-    "name": "Nail Care & Spa",
-    "description": "Nourishing manicures and pedicures for elegant hands & feet.",
-    "featuredImage": "/media/salon/interior-1.jpg",
+    "name": "Nails & Hand-Foot Care",
+    "description": "Gel extensions, acrylic nails, artistic nail combos, and luxury spa manicures & pedicures.",
+    "featuredImage": "/media/nails/nails-main.jpg",
     "items": [
       {
         "id": "nail-extensions-art",
         "name": "Nail Extensions & Artistry",
-        "shortDescription": "Gel polish, acrylic/gel extensions, French tips, Chrome, Ombre, and 3D nail art.",
-        "startingPrice": "₹60",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "shortDescription": "7-day nails, Gel, Acrylic extensions, 3D art, French tips, and Chrome designs.",
+        "startingPrice": "₹20",
         "priceGroups": [
           {
             "title": "Gel Polish",
             "rows": [
               {
-                "label": "Gel Polish - Hand",
+                "label": "Gel Polish — Hand",
                 "price": "₹300"
               },
               {
-                "label": "Gel Polish - Foot",
+                "label": "Gel Polish — Foot",
                 "price": "₹300"
               }
             ]
           },
           {
-            "title": "Nail Extensions",
+            "title": "Nail Extensions + Gel Polish",
             "rows": [
               {
-                "label": "7 Day Nail",
+                "label": "7 Day Nail — Both Hands",
                 "price": "₹800"
               },
               {
-                "label": "7 Day Nail (Both Hands)",
-                "price": "₹800"
-              },
-              {
-                "label": "7 Day Nail (Single Hand)",
+                "label": "7 Day Nail — Single Hand",
                 "price": "₹400"
               },
               {
-                "label": "Gel Nail",
+                "label": "Gel Nail — Both Hands",
                 "price": "₹1,400"
               },
               {
-                "label": "Gel Nail (Both Hands)",
-                "price": "₹1,400"
-              },
-              {
-                "label": "Gel Nail (Single Hand)",
+                "label": "Gel Nail — Single Hand",
                 "price": "₹800"
               },
               {
-                "label": "Acrylic Nail",
+                "label": "Acrylic Nail — Both Hands",
                 "price": "₹1,800"
               },
               {
-                "label": "Acrylic Nail (Both Hands)",
-                "price": "₹1,800"
-              },
-              {
-                "label": "Acrylic Nail (Single Hand)",
+                "label": "Acrylic Nail — Single Hand",
                 "price": "₹1,000"
               }
             ]
           },
           {
-            "title": "Nail Art Combos & Accents",
+            "title": "Nail Art Combos",
             "rows": [
               {
                 "label": "6 Finger Combo",
@@ -1516,10 +1847,19 @@ export const SERVICE_CATEGORIES = [
               {
                 "label": "10 Finger Combo",
                 "price": "₹650"
+              }
+            ]
+          },
+          {
+            "title": "Nail Art (Per Finger)",
+            "rows": [
+              {
+                "label": "Line Art",
+                "price": "₹20"
               },
               {
-                "label": "French",
-                "price": "₹60"
+                "label": "Dotting Art",
+                "price": "₹20"
               },
               {
                 "label": "Paint Art",
@@ -1530,20 +1870,12 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹40"
               },
               {
-                "label": "Line Art",
-                "price": "₹20"
-              },
-              {
-                "label": "Dotting Art",
-                "price": "₹20"
+                "label": "Marble Art",
+                "price": "₹40"
               },
               {
                 "label": "Ombre Nails",
                 "price": "₹50"
-              },
-              {
-                "label": "Butterfly",
-                "price": "₹60"
               },
               {
                 "label": "Milers",
@@ -1554,20 +1886,24 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹50"
               },
               {
+                "label": "Ghibli Art",
+                "price": "₹50"
+              },
+              {
+                "label": "French",
+                "price": "₹60"
+              },
+              {
+                "label": "Butterfly",
+                "price": "₹60"
+              },
+              {
                 "label": "Chrome Art",
                 "price": "₹60"
               },
               {
-                "label": "Marble Art",
-                "price": "₹40"
-              },
-              {
                 "label": "3D Art",
                 "price": "₹80"
-              },
-              {
-                "label": "Ghibli Art",
-                "price": "₹50"
               },
               {
                 "label": "Animal Prints",
@@ -1580,22 +1916,22 @@ export const SERVICE_CATEGORIES = [
             ]
           },
           {
-            "title": "Nail Removals",
+            "title": "Nail & Extension Removals",
             "rows": [
               {
-                "label": "Gel Polish Removal - Hand",
+                "label": "Gel Polish Removal — Hand",
                 "price": "₹80"
               },
               {
-                "label": "Gel Polish Removal - Foot",
+                "label": "Gel Polish Removal — Foot",
                 "price": "₹150"
               },
               {
-                "label": "Extensions Removal - Hand",
+                "label": "Extensions Removal — Hand",
                 "price": "₹150"
               },
               {
-                "label": "Extensions Removal - Foot",
+                "label": "Extensions Removal — Foot",
                 "price": "₹300"
               }
             ]
@@ -1604,48 +1940,56 @@ export const SERVICE_CATEGORIES = [
       },
       {
         "id": "manicure-pedicure-spa",
-        "name": "Deluxe & Luxe Mani-Pedi Spa",
-        "shortDescription": "Sea Marine, O3+ Bridal Bomb, and Mermaid's Touch hand and foot pampering.",
-        "startingPrice": "₹590",
-        "sourceUrl": "https://www.cvsalon.com/services",
+        "name": "Manicure & Pedicure Spa",
+        "shortDescription": "Deluxe Sea Marine, Cafe Mocha, Bombini Ice Cream & O3+ Bridal Bomb hand & foot care.",
+        "startingPrice": "₹450",
         "priceGroups": [
           {
-            "title": "Manicure Rituals",
+            "title": "Deluxe Manicure",
             "rows": [
               {
-                "label": "Sea Marine",
-                "price": "₹590"
+                "label": "Apple Bliss / Musk Melon / Blue Lotus / Lavender Calm / Guava Glow",
+                "price": "₹450"
               },
               {
-                "label": "Apple Bliss / Musk Melon / Blue Lotus / Lavender Calm / Guava Glow",
+                "label": "Sea Marine Manicure",
                 "price": "₹500"
               },
               {
-                "label": "Cafe Mocha",
-                "price": "₹650"
+                "label": "Cafe Mocha Manicure",
+                "price": "₹600"
               },
               {
-                "label": "Custard",
-                "price": "₹700"
-              },
-              {
-                "label": "O3+ Bridal Bomb",
-                "price": "₹1,400"
-              },
-              {
-                "label": "Bombini Ice Cream",
-                "price": "₹1,600"
-              },
-              {
-                "label": "Bombini Lush / Donut",
-                "price": "₹1,600"
-              },
+                "label": "Custard Manicure",
+                "price": "₹750"
+              }
+            ]
+          },
+          {
+            "title": "Luxe & Elite Manicure Rituals",
+            "rows": [
               {
                 "label": "Crystal Rose / Strawberry / Aloe Vera / Chocolate",
                 "price": "₹900"
               },
               {
-                "label": "Mermaid's Touch",
+                "label": "O3+ Bridal Bomb Manicure",
+                "price": "₹1,200"
+              },
+              {
+                "label": "Bombini Ice Cream Manicure",
+                "price": "₹1,500"
+              },
+              {
+                "label": "Bombini Lush / Donut Manicure",
+                "price": "₹1,500"
+              },
+              {
+                "label": "Earth Luxury / Zest Luxury",
+                "price": "₹1,800"
+              },
+              {
+                "label": "Mermaid's Touch Manicure",
                 "price": "₹2,000"
               },
               {
@@ -1653,53 +1997,50 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹2,000"
               },
               {
-                "label": "Box the Tox – Intense Detox",
+                "label": "Box the Tox — Intense Detox Manicure",
                 "price": "₹2,200"
-              },
-              {
-                "label": "Earth Luxury",
-                "price": "₹1,800"
-              },
-              {
-                "label": "Zest Luxury",
-                "price": "₹1,800"
               }
             ]
           },
           {
-            "title": "Pedicure Rituals",
+            "title": "Deluxe Pedicure",
             "rows": [
               {
-                "label": "Sea Marine",
-                "price": "₹710"
-              },
-              {
                 "label": "Apple Bliss / Musk Melon / Blue Lotus / Lavender Calm / Guava Glow",
-                "price": "₹600"
+                "price": "₹550"
               },
               {
-                "label": "Cafe Mocha",
-                "price": "₹770"
+                "label": "Sea Marine Pedicure",
+                "price": "₹700"
               },
               {
-                "label": "Custard",
+                "label": "Cafe Mocha Pedicure",
+                "price": "₹700"
+              },
+              {
+                "label": "Custard Pedicure",
                 "price": "₹800"
+              }
+            ]
+          },
+          {
+            "title": "Luxe Pedicure Rituals",
+            "rows": [
+              {
+                "label": "Crystal Rose / Strawberry / Aloe Vera / Chocolate",
+                "price": "₹1,000"
               },
               {
-                "label": "O3+ Bridal Bomb",
+                "label": "O3+ Bridal Bomb Pedicure",
                 "price": "₹1,500"
               },
               {
-                "label": "Bombini Ice Cream",
+                "label": "Bombini Ice Cream Pedicure",
                 "price": "₹1,700"
               },
               {
-                "label": "Bombini Lush / Donut",
+                "label": "Bombini Lush / Donut Pedicure",
                 "price": "₹1,700"
-              },
-              {
-                "label": "Crystal Rose / Strawberry / Aloe Vera / Chocolate",
-                "price": "₹1,100"
               }
             ]
           }

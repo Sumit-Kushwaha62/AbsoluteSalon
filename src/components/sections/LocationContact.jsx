@@ -1,131 +1,225 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Sparkles } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/business';
+import { MapPin, Phone, Mail, Sparkles, Navigation, Clock, Star, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { BRANCHES, BUSINESS_INFO } from '../../data/business';
 import { SocialLinks } from '../ui/SocialLinks';
 import { useTheme } from '../../context/ThemeContext';
 
 export const LocationContact = () => {
   const { theme } = useTheme();
+  const [activeTab, setActiveTab] = useState('all'); // 'all', 'vijay-nagar', or 'shastri-nagar'
+
+  const displayedBranches = activeTab === 'all' 
+    ? BRANCHES 
+    : BRANCHES.filter(b => b.id === activeTab);
 
   return (
-    <section id="contact" className="py-24 bg-[var(--color-bg-base)] border-t border-[var(--color-border-medium)] relative transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="contact" className="py-20 sm:py-24 bg-[var(--color-bg-base)] border-t border-[var(--color-border-medium)] relative transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
           <span className="text-[11px] uppercase tracking-[0.25em] text-[var(--color-gold-accent)] font-semibold mb-3 flex items-center gap-2">
-            <Sparkles className="w-4 h-4" /> Visit & Connect
+            <Sparkles className="w-4 h-4" /> 2 Locations in Jabalpur
           </span>
-          <h2 className="font-serif-display text-4xl sm:text-5xl md:text-6xl text-[var(--color-text-primary)] font-normal">
-            Location & Social Connect
+          <h2 className="font-serif-display text-3xl sm:text-5xl md:text-6xl text-[var(--color-text-primary)] font-normal leading-tight">
+            Our Salon Branches & Maps
           </h2>
-          <div className="w-12 h-[1px] bg-[var(--color-gold-accent)]/40 mt-6" />
+          <p className="mt-3 text-xs sm:text-sm text-[var(--color-text-muted)] max-w-xl">
+            Visit us at your nearest branch in Vijay Nagar or Shastri Nagar for world-class beauty, hair, and bridal services.
+          </p>
+          <div className="w-12 h-[1px] bg-[var(--color-gold-accent)]/40 mt-5" />
         </div>
 
         {/* Polished Social Cards Strip */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <SocialLinks variant="cards" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Details Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-8 card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] p-6 sm:p-10 rounded-[28px]"
+        {/* Branch Filter Switcher Tabs for Mobile & Desktop */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-10 overflow-x-auto pb-2 scrollbar-none">
+          <button
+            type="button"
+            onClick={() => setActiveTab('all')}
+            className={`px-4 sm:px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${
+              activeTab === 'all'
+                ? 'bg-[var(--color-gold-accent)] text-[#070707] shadow-lg shadow-[var(--color-gold-accent)]/20'
+                : 'bg-[var(--color-bg-card)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] border border-[var(--color-border-medium)]'
+            }`}
           >
-            <div>
-              <h3 className="font-serif-display text-3xl text-[var(--color-text-primary)] mb-1">
-                Absolute Salon
-              </h3>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold">
-                Vijay Nagar • Jabalpur
-              </p>
-            </div>
+            Both Branches (2 Maps)
+          </button>
+          {BRANCHES.map((branch) => (
+            <button
+              key={branch.id}
+              type="button"
+              onClick={() => setActiveTab(branch.id)}
+              className={`px-4 sm:px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap flex items-center gap-2 ${
+                activeTab === branch.id
+                  ? 'bg-[var(--color-gold-accent)] text-[#070707] shadow-lg shadow-[var(--color-gold-accent)]/20'
+                  : 'bg-[var(--color-bg-card)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] border border-[var(--color-border-medium)]'
+              }`}
+            >
+              <span>{branch.shortName}</span>
+              <span className="text-[10px] opacity-75">({branch.rating.score} ★)</span>
+            </button>
+          ))}
+        </div>
 
-            {/* Address */}
-            <div className="flex items-start gap-4 border-t border-[var(--color-border-subtle)] pt-6">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
-                <MapPin className="w-5 h-5" />
+        {/* Branches Grid Section */}
+        <div className="space-y-12 sm:space-y-16">
+          {displayedBranches.map((branch, index) => (
+            <motion.div
+              key={branch.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden"
+            >
+              {/* Branch Badge Decorative */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold bg-[var(--color-bg-elevated)] border border-[var(--color-border-gold)] text-[var(--color-gold-accent)]">
+                  <Sparkles className="w-3 h-3" /> {branch.badge}
+                </span>
               </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
-                  Salon Address
-                </h4>
-                <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">
-                  {BUSINESS_INFO.address.street},<br />
-                  {BUSINESS_INFO.address.area}, {BUSINESS_INFO.address.city},<br />
-                  {BUSINESS_INFO.address.state} {BUSINESS_INFO.address.pincode}, {BUSINESS_INFO.address.country}
-                </p>
-              </div>
-            </div>
 
-            {/* Phone */}
-            <div className="flex items-start gap-4 border-t border-[var(--color-border-subtle)] pt-6">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
-                <Phone className="w-5 h-5" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
-                  Phone Appointments
-                </h4>
-                <a
-                  href={`tel:${BUSINESS_INFO.phone.raw}`}
-                  className="text-base text-[var(--color-gold-accent)] font-semibold hover:underline block truncate"
-                >
-                  {BUSINESS_INFO.phone.display}
-                </a>
-              </div>
-            </div>
+              {/* Branch Details Column (Left on Desktop) */}
+              <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)]">
+                      {branch.name}
+                    </h3>
+                  </div>
 
-            {/* Email */}
-            <div className="flex items-start gap-4 border-t border-[var(--color-border-subtle)] pt-6">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] flex-shrink-0">
-                <Mail className="w-5 h-5" />
-              </div>
-              <div className="min-w-0 flex-1 overflow-hidden">
-                <h4 className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">
-                  Email Contact
-                </h4>
-                <a
-                  href={BUSINESS_INFO.email.mailto}
-                  className="text-sm sm:text-base text-[var(--color-text-primary)] font-medium hover:text-[var(--color-gold-accent)] transition-colors break-all sm:break-normal block"
-                >
-                  {BUSINESS_INFO.email.address}
-                </a>
-              </div>
-            </div>
-          </motion.div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-accent)] font-semibold mb-3">
+                    {branch.tagline}
+                  </p>
 
-          {/* Interactive Google Maps Frame */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-6 w-full h-full min-h-[400px] border border-[var(--color-border-medium)] rounded-[28px] overflow-hidden"
-          >
-            <iframe
-              title="Absolute Salon Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.653456789012!2d79.8987654!3d23.1765432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981ae1234567890%3A0x1234567890abcdef!2sVijay%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482002!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{
-                border: 0,
-                minHeight: '400px',
-                filter: theme === 'dark' ? 'grayscale(0.8) contrast(1.2) invert(0.9)' : 'grayscale(0.2) contrast(1.05)'
-              }}
-              allowFullScreen=""
-              loading="lazy"
-            />
-          </motion.div>
+                  {/* Rating Tag */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] text-xs text-[var(--color-gold-accent)] font-medium mb-6">
+                    <Star className="w-4 h-4 fill-[var(--color-gold-accent)] text-[var(--color-gold-accent)]" />
+                    <span>{branch.rating.displayText}</span>
+                  </div>
 
+                  {/* Info List */}
+                  <div className="space-y-5 border-t border-[var(--color-border-subtle)] pt-5">
+                    {/* Address */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] shrink-0 mt-0.5">
+                        <MapPin className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium mb-0.5">
+                          Address
+                        </h4>
+                        <p className="text-xs sm:text-sm text-[var(--color-text-primary)] leading-relaxed font-medium">
+                          {branch.address.street},<br />
+                          {branch.address.area}, {branch.address.city}, {branch.address.state} {branch.address.pincode}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] shrink-0 mt-0.5">
+                        <Phone className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium mb-0.5">
+                          Phone Appointments
+                        </h4>
+                        <a
+                          href={`tel:${branch.phone.raw}`}
+                          className="text-sm sm:text-base text-[var(--color-gold-accent)] font-semibold hover:underline inline-block"
+                        >
+                          {branch.phone.display}
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Opening Hours */}
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] flex items-center justify-center text-[var(--color-gold-accent)] shrink-0 mt-0.5">
+                        <Clock className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium mb-0.5">
+                          Working Hours
+                        </h4>
+                        <p className="text-xs sm:text-sm text-[var(--color-text-primary)] font-medium">
+                          {branch.hours}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Popular Services Highlights */}
+                    {branch.popularServices && (
+                      <div className="pt-2">
+                        <h4 className="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium mb-2">
+                          Available Services & Specialties
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {branch.popularServices.map((srv) => (
+                            <span
+                              key={srv}
+                              className="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] text-[var(--color-text-muted)]"
+                            >
+                              <CheckCircle2 className="w-3 h-3 text-[var(--color-gold-accent)]" />
+                              {srv}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Call to Action Buttons */}
+                <div className="pt-6 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <a
+                    href={branch.googleMaps.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-champagne-primary py-3 px-5 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 text-center rounded-xl"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    Get Directions (Google Maps)
+                    <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                  </a>
+
+                  <a
+                    href={`tel:${branch.phone.raw}`}
+                    className="btn-champagne-secondary py-3 px-5 text-xs font-medium uppercase tracking-wider flex items-center justify-center gap-2 text-center rounded-xl"
+                  >
+                    <Phone className="w-4 h-4 text-[var(--color-gold-accent)]" />
+                    Call Branch
+                  </a>
+                </div>
+              </div>
+
+              {/* Interactive Google Map Frame (Right on Desktop) */}
+              <div className="lg:col-span-6 w-full h-[320px] sm:h-[380px] lg:h-auto min-h-[300px] lg:min-h-[420px] border border-[var(--color-border-medium)] rounded-[20px] sm:rounded-[24px] overflow-hidden relative shadow-inner">
+                <iframe
+                  title={`${branch.name} Map`}
+                  src={branch.googleMaps.embedUrl}
+                  width="100%"
+                  height="100%"
+                  className="w-full h-full border-0 min-h-[300px]"
+                  style={{
+                    filter: theme === 'dark' ? 'grayscale(0.8) contrast(1.2) invert(0.9)' : 'grayscale(0.2) contrast(1.05)'
+                  }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
+

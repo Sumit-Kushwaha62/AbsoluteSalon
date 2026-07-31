@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Sparkles } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { BUSINESS_INFO } from '../../data/business';
+import { BranchCallModal } from './BranchCallModal';
 
 export const FloatingWhatsApp = () => {
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+
   return (
     <>
       {/* Desktop Floating Right Circular Icon Only */}
@@ -42,18 +45,26 @@ export const FloatingWhatsApp = () => {
           <span className="text-[9px] uppercase tracking-wider font-bold">WhatsApp</span>
         </a>
 
-        <a
-          href={`tel:${BUSINESS_INFO.phone.raw}`}
-          aria-label="Call Absolute Salon"
-          className="pointer-events-auto flex flex-col items-center justify-center py-2.5 px-1.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-2xl text-center shadow-[0_8px_25px_rgba(0,0,0,0.35)] transition-transform active:scale-95"
+        <button
+          type="button"
+          onClick={() => setIsCallModalOpen(true)}
+          aria-label="Call Absolute Salon Branch"
+          className="pointer-events-auto flex flex-col items-center justify-center py-2.5 px-1.5 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] text-[var(--color-text-primary)] rounded-2xl text-center shadow-[0_8px_25px_rgba(0,0,0,0.35)] transition-transform active:scale-95 cursor-pointer"
         >
           <Phone className="w-4 h-4 text-[var(--color-gold-accent)] mb-0.5" />
           <span className="text-[9px] uppercase tracking-wider font-semibold">Call</span>
-        </a>
+        </button>
       </div>
+
+      {/* Branch Call Selector Modal */}
+      <BranchCallModal
+        isOpen={isCallModalOpen}
+        onClose={() => setIsCallModalOpen(false)}
+      />
     </>
   );
 };
+
 
 
 

@@ -70,20 +70,40 @@ export const Footer = () => {
           {/* Address, Phone & Email */}
           <div className="md:col-span-4 space-y-4">
             <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-semibold mb-4">
-              Contact & Socials
+              Our Locations & Contact
             </h4>
-            <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
-              Ekta Chowk, Plot No. 53, Opp. Mahalaxmi Jewellers,<br />
-              Vijay Nagar, Jabalpur, MP 482002
-            </p>
-            <p className="text-xs text-[var(--color-gold-accent)] font-semibold">
-              Phone: {BUSINESS_INFO.phone.display}
-            </p>
+            
+            <div className="space-y-3 border-b border-[var(--color-border-subtle)] pb-3">
+              <div>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-gold-accent)] block">
+                  Vijay Nagar Branch (Main)
+                </span>
+                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                  Ekta Chowk, Plot No. 53, Opp. Mahalaxmi Jewellers, Jabalpur 482002
+                </p>
+                <a href="tel:+917000420649" className="text-xs text-[var(--color-gold-accent)] font-semibold hover:underline">
+                  Ph: +91 70004 20649
+                </a>
+              </div>
+
+              <div>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-gold-accent)] block">
+                  Shastri Nagar Branch (New)
+                </span>
+                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                  Plot No. 32/2, Behind Khushi Mobile, New Shastri Nagar, Jabalpur 482003
+                </p>
+                <a href="tel:+919111310012" className="text-xs text-[var(--color-gold-accent)] font-semibold hover:underline">
+                  Ph: +91 91113 10012
+                </a>
+              </div>
+            </div>
+
             <p className="text-xs text-[var(--color-text-primary)] break-all">
               Email: <a href={BUSINESS_INFO.email.mailto} className="hover:text-[var(--color-gold-accent)] transition-colors">{BUSINESS_INFO.email.address}</a>
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <SocialLinks variant="inline" />
             </div>
           </div>

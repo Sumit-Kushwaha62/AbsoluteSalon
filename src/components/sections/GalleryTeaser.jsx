@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Eye } from 'lucide-react';
 import { GALLERY_ITEMS } from '../../data/gallery';
 import { SmartImage } from '../ui/SmartImage';
 
@@ -74,13 +74,13 @@ export const GalleryTeaser = () => {
                   </div>
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-300 p-5 flex flex-col justify-end">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold mb-1">
                     {item.category}
                   </span>
-                  <h4 className="font-serif-display text-xl text-white leading-snug">
-                    {item.title}
-                  </h4>
+                  <div className="flex items-center gap-1.5 text-xs text-white font-medium group-hover:text-[var(--color-gold-accent)] transition-colors">
+                    <Eye className="w-3.5 h-3.5" /> View Photo
+                  </div>
                 </div>
               </motion.div>
             );

@@ -9,13 +9,13 @@ export const ContactPage = () => {
   return (
     <>
       <PageMeta
-        title="Contact & Book Appointment | Absolute Salon Jabalpur"
-        description="Book your salon appointment or consultation with Absolute Salon in Vijay Nagar, Jabalpur. Phone: +91 70004 20649."
+        title="Branches & Contact | Absolute Salon Jabalpur (Vijay Nagar & Shastri Nagar)"
+        description="Visit Absolute Salon at our 2 premium Jabalpur branches: Vijay Nagar (Ekta Chowk) and Shastri Nagar (New Branch). Contact: +91 70004 20649 or +91 91113 10012."
       />
       <PageHero
-        eyebrow="GET IN TOUCH"
+        eyebrow="OUR LOCATIONS"
         title="Visit Absolute Salon"
-        description="Located opposite Mahalaxmi Jewellers in Vijay Nagar, Jabalpur. Reach out for consultations, inquiries, and appointments."
+        description="Serving you at 2 premium locations in Jabalpur: Vijay Nagar Branch & Shastri Nagar Branch. Reach out for appointments and consultations."
       />
       <LocationContact />
       <Reviews />
