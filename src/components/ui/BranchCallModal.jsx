@@ -62,11 +62,11 @@ export const BranchCallModal = ({ isOpen, onClose }) => {
               >
                 <div className="flex items-center justify-between">
                   <div className="space-y-1 min-w-0 pr-3">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-serif-display text-base sm:text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-gold-accent)] transition-colors font-medium">
                         {branch.name}
                       </span>
-                      <span className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-gold-accent)]/10 text-[var(--color-gold-accent)] font-bold border border-[var(--color-gold-accent)]/20 whitespace-nowrap">
+                      <span className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-gold-accent)]/10 text-[var(--color-gold-accent)] font-bold border border-[var(--color-gold-accent)]/20 shrink-0 whitespace-nowrap">
                         {branch.badge}
                       </span>
                     </div>

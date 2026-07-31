@@ -42,7 +42,7 @@ export const BRANCHES = [
     id: "shastri-nagar",
     name: "Shastri Nagar Branch",
     shortName: "Shastri Nagar",
-    tagline: "New Branch • Behind Khushi Mobile",
+    tagline: "Behind Khushi Mobile",
     badge: "New Branch",
     isPrimary: false,
     rating: {

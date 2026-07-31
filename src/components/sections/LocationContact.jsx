@@ -77,20 +77,16 @@ export const LocationContact = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden"
             >
-              {/* Branch Badge Decorative */}
-              <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold bg-[var(--color-bg-elevated)] border border-[var(--color-border-gold)] text-[var(--color-gold-accent)]">
-                  <Sparkles className="w-3 h-3" /> {branch.badge}
-                </span>
-              </div>
-
               {/* Branch Details Column (Left on Desktop) */}
               <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <h3 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2">
+                    <h3 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] font-normal">
                       {branch.name}
                     </h3>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold bg-[var(--color-bg-elevated)] border border-[var(--color-gold-accent)] text-[var(--color-gold-accent)] shrink-0 shadow-xs">
+                      <Sparkles className="w-3 h-3" /> {branch.badge}
+                    </span>
                   </div>
 
                   <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-accent)] font-semibold mb-3">

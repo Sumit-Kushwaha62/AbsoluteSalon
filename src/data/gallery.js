@@ -179,6 +179,27 @@ export const GALLERY_ITEMS = [
     src: '/gallery/haldi_mendi6.webp',
     caption: 'Luminous natural makeup finish with delicate hair braids.'
   },
+  {
+    id: 'haldi-7',
+    title: 'Traditional Bridal Mehendi Art',
+    category: 'Haldi & Mehendi',
+    src: '/gallery/mendiExtraImage.webp',
+    caption: 'Exquisite bridal mehendi artistry with intricate floral patterns.'
+  },
+  {
+    id: 'haldi-8',
+    title: 'Royal Mehendi Ceremony Look',
+    category: 'Haldi & Mehendi',
+    src: '/gallery/mendiExtraImage2.webp',
+    caption: 'Vibrant pre-wedding ceremony makeover styled for festive rituals.'
+  },
+  {
+    id: 'haldi-9',
+    title: 'Custom Mehendi & Floral Glam',
+    category: 'Haldi & Mehendi',
+    src: '/gallery/mendiExtraImage3.webp',
+    caption: 'Bespoke Mehendi glam with custom accessories and radiant base.'
+  },
 
   // --- PARTY MAKEUP (7 IMAGES) ---
   {
@@ -231,7 +252,7 @@ export const GALLERY_ITEMS = [
     caption: 'Sophisticated party makeover crafted for grand night events.'
   },
 
-  // --- HAIR STYLING & CARE (6 IMAGES) ---
+  // --- HAIR STYLING & CARE (7 IMAGES) ---
   {
     id: 'hair-1',
     title: 'Voluminous Bridal Hair Updo',
@@ -271,7 +292,14 @@ export const GALLERY_ITEMS = [
     id: 'hair-6',
     title: 'Chic Messy Bun',
     category: 'Hair Styling',
-    src: '/gallery/hair_Style6.jpeg',
+    src: '/gallery/hair_Style6.webp',
     caption: 'Effortless textured messy bun for contemporary party looks.'
+  },
+  {
+    id: 'hair-7',
+    title: 'Bespoke Hair Transformation',
+    category: 'Hair Styling',
+    src: '/gallery/hairExtraImage.webp',
+    caption: 'Custom hair styling and volume treatment for special occasions.'
   }
 ];
