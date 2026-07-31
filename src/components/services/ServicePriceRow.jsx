@@ -26,32 +26,37 @@ export const ServicePriceRow = ({
   const showVariant = variant && !isDuplicateVariant;
 
   return (
-    <div className="py-2 px-2.5 sm:px-3 border-b border-[var(--color-border-subtle)] last:border-b-0 group transition-colors hover:bg-[var(--color-bg-elevated)]/40 rounded-md">
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:gap-5">
-        {/* Left Column: Service Title */}
-        <div className="min-w-0 flex flex-col justify-center">
+    <div className="py-2.5 px-2.5 sm:px-3 border-b border-[var(--color-border-subtle)] last:border-b-0 group transition-colors hover:bg-[var(--color-bg-elevated)]/40 rounded-lg">
+      <div className="flex items-start justify-between gap-3 sm:gap-4">
+        {/* Left Column: Service Title + Variant Badge + Description */}
+        <div className="min-w-0 flex-1 flex flex-col justify-start pr-1 [overflow-wrap:anywhere] break-words">
           {context && (
-            <span className="text-[10px] uppercase tracking-wider text-[var(--color-gold-accent)] font-semibold mb-0.5">
+            <span className="text-[10px] uppercase tracking-wider text-[var(--color-gold-accent)] font-semibold mb-0.5 block">
               {context}
             </span>
           )}
-          <span className="text-xs sm:text-sm text-[var(--color-text-primary)] font-normal leading-snug group-hover:text-[var(--color-gold-accent)] transition-colors">
-            {displayTitle}
-          </span>
+          
+          <div className="flex flex-wrap items-center gap-1.5 leading-snug">
+            <span className="text-xs sm:text-sm text-[var(--color-text-primary)] font-normal group-hover:text-[var(--color-gold-accent)] transition-colors break-words">
+              {displayTitle}
+            </span>
+            
+            {showVariant && (
+              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-[var(--color-gold-accent)] bg-[var(--color-bg-elevated)] border border-[var(--color-gold-accent)]/30 rounded-md shrink-0">
+                {variant}
+              </span>
+            )}
+          </div>
+
           {description && (
-            <p className="text-[11px] sm:text-xs text-[var(--color-text-muted)] mt-0.5 leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed break-words">
               {description}
             </p>
           )}
         </div>
 
-        {/* Right Column: Compact Inline Flex Group (Variant + Price as ONE unit) */}
-        <div className="inline-flex items-center justify-end gap-1.5 sm:gap-2 shrink-0 whitespace-nowrap">
-          {showVariant && (
-            <span className="text-xs text-[var(--color-text-muted)] font-medium">
-              {variant}
-            </span>
-          )}
+        {/* Right Column: Price Only (Clean, Isolated, Uncrowded) */}
+        <div className="shrink-0 pt-0.5 text-right whitespace-nowrap">
           <span className="font-mono text-xs sm:text-sm font-semibold text-[var(--color-gold-accent)] tracking-tight">
             {price}
           </span>

@@ -3,7 +3,7 @@ export const SERVICE_CATEGORIES = [
     "id": "bridal-makeup",
     "name": "Bridal & Makeup",
     "description": "Flawless HD & Airbrush bridal transformations customized for your special day.",
-    "featuredImage": "/media/bridal/bridal-main.jpg",
+    "featuredImage": "/media / bridal / bridal-main.jpg",
     "items": [
       {
         "id": "hd-bridal-party-makeup",
@@ -117,7 +117,7 @@ export const SERVICE_CATEGORIES = [
     "id": "hair",
     "name": "Hair Artistry & Care",
     "description": "Precision cutting, vibrant balayage, organic hair botox, and structural treatments.",
-    "featuredImage": "/media/hair/hair-main.jpg",
+    "featuredImage": "/media / hair / hair-main.jpg",
     "items": [
       {
         "id": "hair-cut-styling",
@@ -450,23 +450,23 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹3,500"
               },
               {
-                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Short",
+                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) — Short",
                 "price": "₹2,800"
               },
               {
-                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Medium",
+                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) — Medium",
                 "price": "₹3,100"
               },
               {
-                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Long",
+                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) — Long",
                 "price": "₹3,500"
               },
               {
-                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — Very Long",
+                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) — Very Long",
                 "price": "₹3,900"
               },
               {
-                "label": "Moroccanoil (Hydration/Shine/Smooth/Deep Repair) — XX Long",
+                "label": "Moroccanoil (Hydration / Shine / Smooth / Deep Repair) — XX Long",
                 "price": "₹4,500"
               },
               {
@@ -623,7 +623,7 @@ export const SERVICE_CATEGORIES = [
             "title": "Balayage, Ombre & Highlights",
             "rows": [
               {
-                "label": "1 Layer/Strand (without pre-light)",
+                "label": "1 Layer / Strand (without pre-light)",
                 "price": "₹200"
               },
               {
@@ -639,7 +639,7 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹3,800"
               },
               {
-                "label": "1 Layer/Strand (with pre-light)",
+                "label": "1 Layer / Strand (with pre-light)",
                 "price": "₹300"
               },
               {
@@ -872,7 +872,7 @@ export const SERVICE_CATEGORIES = [
     "id": "skin",
     "name": "Skin Care & Aesthetics",
     "description": "Organic facials, Korean glass skin rituals, D-tan therapies, Richfeel Derma, and Medi-Facial treatments.",
-    "featuredImage": "/media/skin/skin-main.jpg",
+    "featuredImage": "/media / skin / skin-main.jpg",
     "items": [
       {
         "id": "threading",
@@ -962,7 +962,7 @@ export const SERVICE_CATEGORIES = [
       {
         "id": "bleaching",
         "name": "Bleaching & Skin Brightening",
-        "shortDescription": "Fruit and premium Ozone Gold/Diamond skin bleaching for face and body.",
+        "shortDescription": "Fruit and premium Ozone Gold / Diamond skin bleaching for face and body.",
         "startingPrice": "₹80",
         "priceGroups": [
           {
@@ -1787,7 +1787,7 @@ export const SERVICE_CATEGORIES = [
     "id": "nails",
     "name": "Nails & Hand-Foot Care",
     "description": "Gel extensions, acrylic nails, artistic nail combos, and luxury spa manicures & pedicures.",
-    "featuredImage": "/media/nails/nails-main.jpg",
+    "featuredImage": "/media / nails / nails-main.jpg",
     "items": [
       {
         "id": "nail-extensions-art",

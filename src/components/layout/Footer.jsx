@@ -31,10 +31,10 @@ export const Footer = () => {
                 className="h-14 w-14 object-contain"
               />
               <div>
-                <span className="font-serif-display text-2xl font-semibold tracking-wider text-[var(--color-text-primary)] block">
+                <span className="font-serif-display text-2xl font-bold tracking-wider text-[var(--color-text-primary)] block">
                   ABSOLUTE SALON
                 </span>
-                <span className="text-[9px] tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-semibold block">
+                <span className="text-[9px] tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-bold block">
                   Jabalpur • 15+ Years Experience
                 </span>
               </div>

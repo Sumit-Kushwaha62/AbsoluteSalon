@@ -5,11 +5,12 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
 import { FloatingWhatsApp } from '../ui/FloatingWhatsApp';
+import { OfferPopupModal } from '../ui/OfferPopupModal';
 
 /**
  * Layout Component
  * Shared application wrapper including Navbar, ScrollToTop, Footer, Floating WhatsApp,
- * and Framer Motion route transitions.
+ * Offer Popup Modal, and Framer Motion route transitions.
  */
 export const Layout = () => {
   const location = useLocation();
@@ -35,6 +36,7 @@ export const Layout = () => {
 
       <Footer />
       <FloatingWhatsApp />
+      <OfferPopupModal />
     </div>
   );
 };
