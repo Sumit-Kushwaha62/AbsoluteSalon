@@ -11,19 +11,22 @@ export const MEDIA_ASSETS = {
   reels: [
     {
       id: "reel-1",
-      title: "Precision Layered Haircut & Blow Dry",
+      title: "Hair Treatment & Dimensional Colouring",
+      category: "Hair Treatment & Colour",
       video: "/media/instagram/haircut/haircut1.mp4",
       poster: "/media/instagram/haircut/haircut1_poster.webp"
     },
     {
       id: "reel-2",
-      title: "Silk Nanoplastia & Hair Botox",
+      title: "Nanoplastia & Hair Botox Treatment",
+      category: "Hair Treatment",
       video: "/media/instagram/haircut/haircut2.mp4",
       poster: "/media/instagram/haircut/haircut2_poster.webp"
     },
     {
       id: "reel-3",
-      title: "Dimensional Honey Balayage Waves",
+      title: "Precision Hair Cutting & Styling",
+      category: "Hair Cutting",
       video: "/media/instagram/haircut/haircut3.mp4",
       poster: "/media/instagram/haircut/haircut3_poster.webp"
     }
@@ -46,8 +49,8 @@ export const MEDIA_ASSETS = {
     },
     {
       id: "ba-makeup-2",
-      title: "Engagement Dewy Skin & Glam Makeover",
-      category: "Engagement Makeup Artistry",
+      title: "Signature Dewy Bridal Makeover",
+      category: "Bridal Makeup Artistry",
       before: "/media/instagram/beforeafter/ba_makeup_before2.webp",
       after: "/media/instagram/beforeafter/ba_makeup_after2.webp"
     }

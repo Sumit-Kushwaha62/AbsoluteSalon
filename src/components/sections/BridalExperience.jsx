@@ -14,9 +14,9 @@ export const BridalExperience = () => {
       img: MEDIA_ASSETS.bridal.gallery[0].src
     },
     {
-      title: "Engagement Looks",
+      title: "Signature Bridal Look",
       desc: "Sophisticated Elegance & Soft Radiant Skin",
-      tag: "Engagement Glam",
+      tag: "Bridal Collection",
       img: MEDIA_ASSETS.bridal.gallery[1].src
     },
     {

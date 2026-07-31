@@ -93,13 +93,19 @@ export const SocialReels = () => {
                   )}
                 </div>
 
-                {/* Bottom Details (Clean — No Mismatched Title Text) */}
-                <div className="z-10">
+                {/* Bottom Details (Reel Category & Title Text) */}
+                <div className="z-10 space-y-1">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-bold block">
+                    {reel.category}
+                  </span>
+                  <h3 className="font-serif-display text-lg sm:text-xl text-white font-normal leading-snug">
+                    {reel.title}
+                  </h3>
                   <a
                     href={BUSINESS_INFO.socials.instagram.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-gold-accent)] hover:underline uppercase tracking-wider font-semibold"
+                    className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-gold-accent)] hover:underline uppercase tracking-wider font-semibold pt-1"
                   >
                     View on Instagram →
                   </a>

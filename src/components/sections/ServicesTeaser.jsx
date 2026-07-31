@@ -6,18 +6,31 @@ import { SERVICE_CATEGORIES } from '../../data/services';
 
 export const ServicesTeaser = () => {
   const iconsMap = {
-    'hair-care-styling': Scissors,
     'bridal-makeup': Sparkles,
+    'hair': Scissors,
+    'hair-care-styling': Scissors,
+    'skin': Feather,
     'skin-aesthetics': Feather,
+    'nails': Heart,
     'nail-hand-feet': Heart
   };
 
+  const bgMap = {
+    'bridal-makeup': '/services/bridelCard.webp?v=2.0',
+    'hair': '/services/hairCard.webp?v=2.0',
+    'hair-care-styling': '/services/hairCard.webp?v=2.0',
+    'skin': '/services/skincareCard.webp?v=2.0',
+    'skin-aesthetics': '/services/skincareCard.webp?v=2.0',
+    'nails': '/services/nailsCard.webp?v=2.0',
+    'nail-hand-feet': '/services/nailsCard.webp?v=2.0'
+  };
+
   return (
-    <section className="py-24 sm:py-32 bg-[var(--color-bg-base)] relative transition-colors duration-300">
+    <section className="py-20 sm:py-28 bg-[var(--color-bg-base)] relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-14 sm:mb-16">
           <span className="text-[11px] uppercase tracking-[0.25em] text-[var(--color-gold-accent)] font-semibold mb-3">
             OUR EXPERTISE
           </span>
@@ -30,10 +43,11 @@ export const ServicesTeaser = () => {
           <div className="w-12 h-[1px] bg-[var(--color-gold-accent)]/40 mt-6" />
         </div>
 
-        {/* 4 Core Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* 4 Core Pillars Grid with Custom Card Background Images */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 sm:mb-16">
           {SERVICE_CATEGORIES.map((cat, idx) => {
             const Icon = iconsMap[cat.id] || Sparkles;
+            const bgImage = bgMap[cat.id];
 
             return (
               <motion.div
@@ -42,33 +56,46 @@ export const ServicesTeaser = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative flex flex-col justify-between p-8 rounded-[24px] card-editorial bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] shadow-[var(--shadow-editorial)] hover:border-[var(--color-gold-accent)]/50 transition-all duration-500"
+                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-[28px] overflow-hidden min-h-[380px] sm:min-h-[420px] border border-[var(--color-border-medium)] hover:border-[var(--color-gold-accent)] transition-all duration-500 shadow-xl"
               >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] text-[var(--color-gold-accent)] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-[var(--color-gold-accent)] transition-all duration-300">
-                    <Icon className="w-6 h-6" />
+                {/* Custom Card Background Image */}
+                {bgImage && (
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 z-0 pointer-events-none"
+                    style={{ backgroundImage: `url(${bgImage})` }}
+                  />
+                )}
+
+                {/* Dark Gradient Overlay for Maximum Legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 z-10 group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/50 transition-colors duration-500 pointer-events-none" />
+
+                {/* Card Content Top */}
+                <div className="relative z-20 space-y-3">
+                  <div className="w-11 h-11 rounded-2xl bg-black/60 backdrop-blur-md border border-[var(--color-gold-accent)]/50 text-[var(--color-gold-accent)] flex items-center justify-center group-hover:scale-110 group-hover:bg-[var(--color-gold-accent)] group-hover:text-[#070707] transition-all duration-300 shadow-md">
+                    <Icon className="w-5 h-5" />
                   </div>
 
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold block mb-1">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-gold-accent)] font-bold block pt-1">
                     {cat.tagline || 'Pillar'}
                   </span>
 
-                  <h3 className="font-serif-display text-2xl text-[var(--color-text-primary)] mb-3">
+                  <h3 className="font-serif-display text-2xl sm:text-3xl text-white font-normal leading-snug drop-shadow-sm">
                     {cat.name}
                   </h3>
 
-                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-6">
+                  <p className="text-xs text-white/80 leading-relaxed font-sans">
                     {cat.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[var(--color-border-medium)] flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[var(--color-gold-accent)] font-mono">
+                {/* Card Bottom CTA */}
+                <div className="relative z-20 pt-4 border-t border-white/20 flex items-center justify-between mt-auto">
+                  <span className="text-xs font-bold text-[var(--color-gold-accent)] font-mono bg-black/60 px-2.5 py-1 rounded-full border border-[var(--color-gold-accent)]/30 backdrop-blur-sm">
                     From {cat.startingPrice}
                   </span>
                   <Link
                     to={`/services?category=${cat.id}`}
-                    className="text-xs text-[var(--color-text-primary)] group-hover:text-[var(--color-gold-accent)] font-semibold flex items-center gap-1 transition-colors"
+                    className="text-xs text-white group-hover:text-[var(--color-gold-accent)] font-semibold flex items-center gap-1.5 transition-colors"
                   >
                     View Menu <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
