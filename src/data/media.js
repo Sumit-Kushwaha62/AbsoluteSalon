@@ -30,6 +30,7 @@ export const MEDIA_ASSETS = {
   ],
 
   salon: {
+    founders: "/brand/founders.webp",
     interior: "/media/instagram/salon/salon_about1.webp",
     ambiance: "/media/instagram/salon/salon_about1.webp",
     makeupStation: "/media/instagram/salon/salon_about2.webp"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Gift, Phone, Percent } from 'lucide-react';
+import { X, Sparkles, Gift, Phone, Star } from 'lucide-react';
 import { BUSINESS_INFO } from '../../data/business';
 import { BranchCallModal } from './BranchCallModal';
 
@@ -27,7 +27,7 @@ export const OfferPopupModal = () => {
   };
 
   const whatsappOfferUrl = BUSINESS_INFO.whatsapp.getUrl(
-    "Hi Absolute Salon, I would like to claim the Special Discount Offer (Up to 70% Off for 1st Time / Up to 50% Off on ₹5,000+ services)."
+    "Hi Absolute Salon, I am a FIRST TIME CUSTOMER and I want to claim the UP TO 70% DISCOUNT OFFER for my first visit!"
   );
 
   return (
@@ -41,7 +41,7 @@ export const OfferPopupModal = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleClose}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
+              className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity"
             />
 
             {/* Modal Card Container */}
@@ -50,11 +50,11 @@ export const OfferPopupModal = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-lg bg-[var(--color-bg-card)] border border-[var(--color-gold-accent)]/50 rounded-[28px] p-6 sm:p-8 shadow-[0_20px_60px_rgba(214,180,92,0.25)] z-10 overflow-hidden space-y-6 my-auto"
+              className="relative w-full max-w-lg bg-[var(--color-bg-card)] border border-[var(--color-gold-accent)]/60 rounded-[28px] p-6 sm:p-8 shadow-[0_20px_70px_rgba(214,180,92,0.3)] z-10 overflow-hidden space-y-6 my-auto text-center"
             >
               {/* Decorative Background Glow Effect */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[var(--color-gold-accent)]/20 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[var(--color-gold-accent)]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -top-24 -right-24 w-56 h-56 bg-[var(--color-gold-accent)]/25 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-56 h-56 bg-[var(--color-gold-accent)]/20 rounded-full blur-3xl pointer-events-none" />
 
               {/* Close X Button */}
               <button
@@ -66,64 +66,37 @@ export const OfferPopupModal = () => {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Modal Header */}
-              <div className="text-center space-y-2 pt-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-gold-accent)]/15 border border-[var(--color-gold-accent)]/40 text-[var(--color-gold-accent)] text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm">
-                  <Gift className="w-4 h-4 text-[var(--color-gold-accent)]" />
-                  <span>Exclusive Salon Offer</span>
-                </div>
-
-                <h2 className="font-serif-display text-3xl sm:text-4xl text-[var(--color-text-primary)] font-normal leading-tight">
-                  Welcome Discount Offers!
-                </h2>
-                <p className="text-xs text-[var(--color-text-muted)] max-w-sm mx-auto">
-                  Unlock instant savings on hair, skin, bridal & aesthetic treatments at Absolute Salon Jabalpur.
-                </p>
+              {/* Modal Top Tagline Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-gold-accent)]/20 border border-[var(--color-gold-accent)]/50 text-[var(--color-gold-accent)] text-[11px] font-bold uppercase tracking-[0.2em] shadow-md mx-auto">
+                <Gift className="w-4 h-4 text-[var(--color-gold-accent)]" />
+                <span>WELCOME NEW CLIENT OFFER</span>
               </div>
 
-              {/* Dual Offer Highlight Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {/* Offer 1: Up to 70% Off First Visit */}
-                <div className="relative p-4 rounded-2xl bg-gradient-to-br from-[var(--color-bg-elevated)] to-[var(--color-bg-card)] border border-[var(--color-gold-accent)]/40 shadow-sm flex flex-col justify-between space-y-2 group hover:border-[var(--color-gold-accent)] transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-[var(--color-gold-accent)] bg-[var(--color-gold-accent)]/15 px-2 py-0.5 rounded-md border border-[var(--color-gold-accent)]/30">
-                      1st Time Client
-                    </span>
-                    <Sparkles className="w-4 h-4 text-[var(--color-gold-accent)]" />
-                  </div>
-                  <div>
-                    <div className="font-serif-display text-3xl sm:text-4xl font-normal text-[var(--color-gold-accent)] tracking-tight">
-                      UP TO 70% OFF
-                    </div>
-                    <p className="text-[11px] text-[var(--color-text-primary)] font-medium mt-1">
-                      For First Time Customers
-                    </p>
-                  </div>
-                  <span className="text-[10px] text-[var(--color-text-muted)]">
-                    Valid on first appointment visit
-                  </span>
+              {/* HIGH-IMPACT PROMINENT DISCOUNT DISPLAY */}
+              <div className="space-y-2">
+                <div className="font-serif-display text-4xl sm:text-6xl font-normal text-[var(--color-gold-accent)] tracking-tight drop-shadow-[0_4px_15px_rgba(214,180,92,0.3)]">
+                  UP TO 70% OFF
                 </div>
+                <h2 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] font-normal leading-tight">
+                  For All First Time Customers!
+                </h2>
+              </div>
 
-                {/* Offer 2: Up to 50% Off Over 5000 Services */}
-                <div className="relative p-4 rounded-2xl bg-gradient-to-br from-[var(--color-bg-elevated)] to-[var(--color-bg-card)] border border-[var(--color-gold-accent)]/40 shadow-sm flex flex-col justify-between space-y-2 group hover:border-[var(--color-gold-accent)] transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-[var(--color-gold-accent)] bg-[var(--color-gold-accent)]/15 px-2 py-0.5 rounded-md border border-[var(--color-gold-accent)]/30">
-                      Special Bonus
-                    </span>
-                    <Percent className="w-4 h-4 text-[var(--color-gold-accent)]" />
-                  </div>
-                  <div>
-                    <div className="font-serif-display text-3xl sm:text-4xl font-normal text-[var(--color-gold-accent)] tracking-tight">
-                      UP TO 50% OFF
-                    </div>
-                    <p className="text-[11px] text-[var(--color-text-primary)] font-medium mt-1">
-                      On Services Worth ₹5,000+
-                    </p>
-                  </div>
-                  <span className="text-[10px] text-[var(--color-text-muted)]">
-                    Applied on billing above ₹5,000
+              {/* HIGHLY HIGHLIGHTED FIRST-TIME CLIENT BANNER */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[var(--color-gold-accent)]/25 via-[var(--color-gold-accent)]/10 to-[var(--color-gold-accent)]/25 border-2 border-[var(--color-gold-accent)]/70 shadow-lg relative overflow-hidden group">
+                <div className="flex items-center justify-center gap-2 mb-1.5">
+                  <Star className="w-4 h-4 text-[var(--color-gold-accent)] fill-[var(--color-gold-accent)]" />
+                  <span className="text-xs uppercase font-extrabold tracking-[0.18em] text-[var(--color-gold-accent)]">
+                    SPECIAL FIRST VISIT PRIVILEGE
                   </span>
+                  <Star className="w-4 h-4 text-[var(--color-gold-accent)] fill-[var(--color-gold-accent)]" />
                 </div>
+                <p className="text-sm sm:text-base font-bold text-[var(--color-text-primary)] leading-snug">
+                  Visiting Absolute Salon for the first time?
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">
+                  Enjoy up to <span className="text-[var(--color-gold-accent)] font-bold">70% instant discount</span> on haircut, hair spa, botox, dermal facials, and beauty services on your first appointment.
+                </p>
               </div>
 
               {/* Action Buttons */}
@@ -137,7 +110,7 @@ export const OfferPopupModal = () => {
                   className="w-full py-4 px-6 rounded-2xl bg-[var(--color-gold-accent)] text-[#070707] font-bold text-xs uppercase tracking-[0.18em] flex items-center justify-center gap-2 hover:bg-[var(--color-gold-light)] transition-all duration-300 shadow-[0_6px_25px_rgba(214,180,92,0.4)] active:scale-[0.99]"
                 >
                   <Sparkles className="w-4 h-4 fill-[#070707]" />
-                  Claim Offer on WhatsApp
+                  Claim 70% Offer on WhatsApp
                 </a>
 
                 {/* Secondary CTA: Call Salon & Skip Link */}
@@ -163,7 +136,7 @@ export const OfferPopupModal = () => {
 
               {/* Footer Note */}
               <p className="text-[10px] text-center text-[var(--color-text-muted)] pt-1 border-t border-[var(--color-border-subtle)]">
-                Available at Vijay Nagar & Shastri Nagar Branches • Limited time offer
+                Vijay Nagar & Shastri Nagar Branches • Jabalpur
               </p>
             </motion.div>
           </div>

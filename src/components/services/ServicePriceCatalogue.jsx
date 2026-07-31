@@ -5,18 +5,20 @@ import { sanitizePricingLabel } from '../../utils/pricingFormatter';
 
 /**
  * ServicePriceCatalogue Component
- * Premium salon menu catalogue rendering visual package groups, static headings,
- * package descriptions, and clean direct pricing rows.
+ * Clean, structured salon menu catalogue inspired by premium salon directory UIs.
+ * Renders unified service cards with prominent top header banners, clear section tags,
+ * and edge-to-edge pricing rows.
  */
 export const ServicePriceCatalogue = ({
   category,
   searchResults,
-  searchQuery
+  searchQuery,
+  activeSubCategory = 'all'
 }) => {
   // 1. Search Mode: Render matching price rows directly
   if (searchQuery && searchQuery.trim() !== '') {
     return (
-      <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-colors duration-300 max-w-[820px] mx-auto">
+      <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-colors duration-300 max-w-[820px] mx-auto shadow-sm">
         <div className="pb-4 sm:pb-6 border-b border-[var(--color-border-medium)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold">
@@ -60,13 +62,16 @@ export const ServicePriceCatalogue = ({
 
   if (!category) return null;
 
-  // 2. Normal Category Mode: Package headers & clean price rows
+  const displayedItems = activeSubCategory === 'all'
+    ? category.items
+    : category.items.filter((item) => item.id === activeSubCategory);
+
   return (
-    <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-colors duration-300 max-w-[820px] mx-auto">
-      {/* Category Header */}
-      <div className="pb-6 sm:pb-8 border-b border-[var(--color-border-medium)]">
-        <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold block mb-1">
-          CATALOGUE MENU
+    <div className="max-w-[820px] mx-auto space-y-6 sm:space-y-8">
+      {/* Category Overview Header */}
+      <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl p-5 sm:p-8 transition-colors duration-300 shadow-xs">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-bold block mb-1">
+          SALON MENU & PRICE LIST
         </span>
         <h2 className="font-serif-display text-2xl sm:text-4xl text-[var(--color-text-primary)] font-normal leading-tight">
           {category.name}
@@ -78,66 +83,79 @@ export const ServicePriceCatalogue = ({
         )}
       </div>
 
-      {/* Services List with Static Section Headings and Package Cards */}
+      {/* Services Directory: Unified Cards Per Sub-Category */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={category.id}
+          key={`${category.id}-${activeSubCategory}`}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="mt-6 sm:mt-8 space-y-8 sm:space-y-10"
+          className="space-y-6 sm:space-y-8"
         >
-          {category.items.map((item) => (
-            <div key={item.id || item.name} className="space-y-4">
-              {/* Item Heading */}
-              <div className="pt-2 pb-1 border-b border-[var(--color-gold-accent)]/25 mb-4">
-                <h3 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)] font-normal tracking-wide">
-                  {sanitizePricingLabel(item.name)}
-                </h3>
-                {item.shortDescription && (
-                  <p className="text-xs text-[var(--color-text-muted)] mt-1">
-                    {sanitizePricingLabel(item.shortDescription)}
-                  </p>
+          {displayedItems.map((item) => (
+            <div
+              key={item.id || item.name}
+              className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm transition-all hover:border-[var(--color-gold-accent)]/50"
+            >
+              {/* Clean Top Header Banner Bar */}
+              <div className="bg-[var(--color-bg-elevated)]/70 border-b border-[var(--color-border-medium)] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="space-y-0.5 min-w-0 flex-1">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-bold block">
+                    {category.name}
+                  </span>
+                  <h3 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)] font-normal leading-snug">
+                    {sanitizePricingLabel(item.name)}
+                  </h3>
+                  {item.shortDescription && (
+                    <p className="text-xs text-[var(--color-text-muted)] leading-relaxed pt-0.5">
+                      {sanitizePricingLabel(item.shortDescription)}
+                    </p>
+                  )}
+                </div>
+
+                {item.startingPrice && (
+                  <span className="text-[11px] font-mono text-[var(--color-gold-accent)] font-semibold px-3 py-1 rounded-full bg-[var(--color-gold-accent)]/15 border border-[var(--color-gold-accent)]/30 shrink-0 self-start sm:self-center">
+                    From {item.startingPrice}
+                  </span>
                 )}
               </div>
 
-              {/* Package Groups */}
-              {item.priceGroups && item.priceGroups.length > 0 ? (
-                item.priceGroups.map((group, gIdx) => (
-                  <div
-                    key={group.title || gIdx}
-                    className="bg-[var(--color-bg-elevated)]/50 border border-[var(--color-border-subtle)] rounded-xl p-4 sm:p-5 mb-5 last:mb-0 shadow-xs"
-                  >
-                    {/* Group/Package Header */}
-                    <div className="pb-2.5 mb-2.5 border-b border-[var(--color-border-subtle)]">
-                      <h4 className="font-medium text-sm sm:text-base text-[var(--color-text-primary)]">
-                        {sanitizePricingLabel(group.title)}
-                      </h4>
-                      {group.description && (
-                        <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-                          {sanitizePricingLabel(group.description)}
-                        </p>
-                      )}
-                    </div>
+              {/* Card Content Body: Groups or Flat Price Rows */}
+              <div className="p-3 sm:p-5">
+                {item.priceGroups && item.priceGroups.length > 0 ? (
+                  <div className="space-y-5">
+                    {item.priceGroups.map((group, gIdx) => (
+                      <div key={group.title || gIdx} className="space-y-1">
+                        {/* Sub-Group Header Bar */}
+                        <div className="px-2 py-1.5 bg-[var(--color-bg-elevated)]/40 rounded-lg border-l-2 border-[var(--color-gold-accent)] mb-2 flex flex-col sm:flex-row sm:items-center justify-between">
+                          <h4 className="font-semibold text-xs sm:text-sm text-[var(--color-text-primary)] tracking-wide">
+                            {sanitizePricingLabel(group.title)}
+                          </h4>
+                          {group.description && (
+                            <span className="text-[11px] text-[var(--color-text-muted)] font-normal">
+                              {sanitizePricingLabel(group.description)}
+                            </span>
+                          )}
+                        </div>
 
-                    {/* Group Price Rows */}
-                    <div className="divide-y divide-[var(--color-border-subtle)]">
-                      {group.rows.map((row, rIdx) => (
-                        <ServicePriceRow
-                          key={`${group.title}-${rIdx}`}
-                          label={row.label}
-                          price={row.price}
-                          variant={row.variant}
-                          description={row.description || ''}
-                        />
-                      ))}
-                    </div>
+                        {/* Sub-Group Price Rows */}
+                        <div className="divide-y divide-[var(--color-border-subtle)]">
+                          {group.rows.map((row, rIdx) => (
+                            <ServicePriceRow
+                              key={`${group.title}-${rIdx}`}
+                              label={row.label}
+                              price={row.price}
+                              variant={row.variant}
+                              description={row.description || ''}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))
-              ) : item.priceRows && item.priceRows.length > 0 ? (
-                /* Flat Price Rows Container */
-                <div className="bg-[var(--color-bg-elevated)]/30 border border-[var(--color-border-subtle)] rounded-xl p-4 sm:p-5 mb-5">
+                ) : item.priceRows && item.priceRows.length > 0 ? (
+                  /* Flat Price Rows Container */
                   <div className="divide-y divide-[var(--color-border-subtle)]">
                     {item.priceRows.map((row, rIdx) => (
                       <ServicePriceRow
@@ -152,8 +170,8 @@ export const ServicePriceCatalogue = ({
                       />
                     ))}
                   </div>
-                </div>
-              ) : null}
+                ) : null}
+              </div>
             </div>
           ))}
         </motion.div>
@@ -161,5 +179,3 @@ export const ServicePriceCatalogue = ({
     </div>
   );
 };
-
-

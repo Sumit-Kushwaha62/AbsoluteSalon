@@ -4,6 +4,7 @@ import { SERVICE_CATEGORIES } from '../../data/services';
 import { BUSINESS_INFO } from '../../data/business';
 import { LuxuryButton } from '../ui/LuxuryButton';
 import { ServiceCategoryTabs } from '../services/ServiceCategoryTabs';
+import { SubCategoryTabs } from '../services/SubCategoryTabs';
 import { ServiceSearch } from '../services/ServiceSearch';
 import { ServicePriceCatalogue } from '../services/ServicePriceCatalogue';
 import { sanitizePricingLabel } from '../../utils/pricingFormatter';
@@ -11,6 +12,7 @@ import { sanitizePricingLabel } from '../../utils/pricingFormatter';
 export const Services = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeSubCategory, setActiveSubCategory] = useState('all');
 
   // Read selected category from URL parameter ?category=... (default to 'skin' / Skin Care & Aesthetics)
   const activeCategoryId = useMemo(() => {
@@ -21,9 +23,10 @@ export const Services = () => {
     return 'skin';
   }, [searchParams]);
 
-  // Handler to update category in URL
+  // Handler to update category in URL & reset subcategory
   const handleSelectCategory = (catId) => {
     setSearchQuery('');
+    setActiveSubCategory('all');
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
       next.set('category', catId);
@@ -148,16 +151,28 @@ export const Services = () => {
       {/* Lightweight Service Search Bar */}
       <ServiceSearch
         searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
+        onSearchChange={(q) => {
+          setSearchQuery(q);
+          if (q) setActiveSubCategory('all');
+        }}
         onClearSearch={() => setSearchQuery('')}
       />
 
-      {/* Category Navigation Tabs (Single Row) */}
+      {/* Level-1 Category Navigation Tabs */}
       {!searchQuery && (
         <ServiceCategoryTabs
           categories={SERVICE_CATEGORIES}
           activeCategory={activeCategoryId}
           onSelectCategory={handleSelectCategory}
+        />
+      )}
+
+      {/* Level-2 Sub-Category Filter Chips (Clean Text Pills Only) */}
+      {!searchQuery && selectedCategory && selectedCategory.items && (
+        <SubCategoryTabs
+          items={selectedCategory.items}
+          activeSubCategory={activeSubCategory}
+          onSelectSubCategory={setActiveSubCategory}
         />
       )}
 
@@ -167,6 +182,7 @@ export const Services = () => {
           category={selectedCategory}
           searchResults={searchResults}
           searchQuery={searchQuery}
+          activeSubCategory={activeSubCategory}
         />
 
         {/* Bespoke Consultation Action Bar */}

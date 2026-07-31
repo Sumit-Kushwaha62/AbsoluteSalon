@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Sparkles, Navigation, Clock, Star, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Sparkles, Navigation, Clock, Star, ExternalLink } from 'lucide-react';
 import { BRANCHES, BUSINESS_INFO } from '../../data/business';
 import { SocialLinks } from '../ui/SocialLinks';
 import { useTheme } from '../../context/ThemeContext';
@@ -153,26 +153,6 @@ export const LocationContact = () => {
                         </p>
                       </div>
                     </div>
-
-                    {/* Popular Services Highlights */}
-                    {branch.popularServices && (
-                      <div className="pt-2">
-                        <h4 className="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium mb-2">
-                          Available Services & Specialties
-                        </h4>
-                        <div className="flex flex-wrap gap-1.5">
-                          {branch.popularServices.map((srv) => (
-                            <span
-                              key={srv}
-                              className="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border-medium)] text-[var(--color-text-muted)]"
-                            >
-                              <CheckCircle2 className="w-3 h-3 text-[var(--color-gold-accent)]" />
-                              {srv}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 

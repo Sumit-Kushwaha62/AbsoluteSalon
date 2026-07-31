@@ -535,15 +535,15 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹500"
               },
               {
-                "label": "1\" Root Touch Up",
+                "label": "1 Inch Root Touch Up",
                 "price": "₹600"
               },
               {
-                "label": "2\" Root Touch Up",
+                "label": "2 Inch Root Touch Up",
                 "price": "₹800"
               },
               {
-                "label": "4\" Root Touch Up",
+                "label": "4 Inch Root Touch Up",
                 "price": "₹1,600"
               }
             ]
@@ -556,15 +556,15 @@ export const SERVICE_CATEGORIES = [
                 "price": "₹600"
               },
               {
-                "label": "1\" Root Touch Up",
+                "label": "1 Inch Root Touch Up",
                 "price": "₹700"
               },
               {
-                "label": "2\" Root Touch Up",
+                "label": "2 Inch Root Touch Up",
                 "price": "₹950"
               },
               {
-                "label": "4\" Root Touch Up",
+                "label": "4 Inch Root Touch Up",
                 "price": "₹1,750"
               }
             ]

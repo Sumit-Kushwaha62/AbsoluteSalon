@@ -19,17 +19,24 @@ export const About = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative aspect-[4/5] border border-[var(--color-border-gold)] p-3 bg-[var(--color-bg-card)]">
+            <div className="relative aspect-[4/5] border border-[var(--color-border-gold)] p-3 bg-[var(--color-bg-card)] rounded-2xl shadow-xl">
               <SmartImage
-                src={MEDIA_ASSETS.salon.interior}
-                alt="Absolute Salon Ambiance"
-                _category="Salon Interior"
-                title="Absolute Salon Studio"
+                src={MEDIA_ASSETS.salon.founders}
+                alt="Absolute Salon Founders & Master Beauty Artists"
+                _category="Founders & Team"
+                title="Absolute Salon Founders"
+                className="w-full h-full object-cover rounded-xl"
               />
-              <div className="absolute -bottom-6 -right-6 hidden sm:flex flex-col justify-center p-6 bg-[var(--color-bg-card)] border border-[var(--color-gold-accent)] max-w-[200px] shadow-2xl">
-                <span className="font-serif-display text-4xl text-[var(--color-gold-accent)] font-semibold">15+</span>
-                <span className="text-[10px] uppercase tracking-widest text-[var(--color-text-primary)] font-medium mt-1">
-                  Years of Unmatched Artistry
+              {/* Floating Founders & Experience Badge Card */}
+              <div className="absolute -bottom-6 -right-2 sm:-right-6 flex flex-col justify-center p-4 sm:p-5 bg-[var(--color-bg-card)] border border-[var(--color-gold-accent)] rounded-xl max-w-[210px] sm:max-w-[240px] shadow-2xl z-20 backdrop-blur-md">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[var(--color-gold-accent)] font-extrabold block mb-0.5">
+                  FOUNDERS OF ABSOLUTE SALON
+                </span>
+                <span className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] font-bold leading-none">
+                  15+ YRS
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-[var(--color-text-primary)] font-semibold mt-1.5 leading-tight block border-t border-[var(--color-border-subtle)] pt-1.5">
+                  Ex-L'Oréal & Lakmé Salon Mumbai Experience
                 </span>
               </div>
             </div>
@@ -44,7 +51,7 @@ export const About = () => {
             className="lg:col-span-6 space-y-6"
           >
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--color-gold-accent)] font-semibold flex items-center gap-2">
-              <Sparkles className="w-4 h-4" /> BEAUTY WITH EXPERIENCE
+              <Sparkles className="w-4 h-4" /> FOUNDERS & MASTER ARTISTRY
             </span>
             
             <h2 className="font-serif-display text-4xl sm:text-5xl md:text-6xl text-[var(--color-text-primary)] font-normal leading-tight">
@@ -54,20 +61,20 @@ export const About = () => {
             <div className="w-16 h-[1px] bg-[var(--color-gold-accent)]" />
 
             <p className="text-sm text-[var(--color-text-muted)] leading-relaxed font-sans">
-              Absolute Salon combines professional makeup, hair artistry, beauty care, and bridal transformations with a personalized approach for every client. Located in the heart of Vijay Nagar, Jabalpur, we provide an oasis of elegance and precision.
+              Absolute Salon was founded by senior beauty experts with over 15 years of prestigious experience at <strong className="text-[var(--color-text-primary)] font-semibold">L'Oréal & Lakmé Salon Mumbai</strong>. Located in Vijay Nagar & Shastri Nagar, Jabalpur, we bring top-tier Mumbai salon craftsmanship, HD bridal transformations, and dermal skin care to every client.
             </p>
 
             <p className="text-sm text-[var(--color-text-muted)] leading-relaxed font-sans">
-              Our signature philosophy balances contemporary beauty techniques with timeless craftsmanship, ensuring every bride and client steps out feeling radiant, polished, and confident.
+              Our signature philosophy balances high-fashion contemporary techniques with personalized care, ensuring every bride and client steps out feeling radiant, polished, and confident.
             </p>
 
             {/* Highlights List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               {[
-                "Professional Makeup Artist",
-                "High-Definition & Airbrush Makeup",
-                "Precision Hair Styling & Balayage",
-                "Luxury Dermal Skin Therapies"
+                "Founders & Master Artists",
+                "Ex-L'Oréal & Lakmé Salon Mumbai",
+                "High-Definition & Airbrush Bridal Glam",
+                "Precision Hair Styling, Balayage & Botox"
               ].map((feat, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <CheckCircle2 className="w-4 h-4 text-[var(--color-gold-accent)] flex-shrink-0" />

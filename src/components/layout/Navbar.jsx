@@ -83,10 +83,10 @@ export const Navbar = () => {
               className="h-8 w-8 xs:h-9 xs:w-9 sm:h-11 sm:w-11 object-contain shrink-0 bg-transparent"
             />
             <div className="flex flex-col min-w-0">
-              <span className="font-serif-display text-xs xs:text-sm sm:text-base md:text-lg font-bold tracking-wide text-[var(--color-text-primary)] whitespace-nowrap">
+              <span className="font-serif-display text-sm xs:text-base sm:text-lg md:text-xl font-bold tracking-wide text-[var(--color-text-primary)] whitespace-nowrap">
                 ABSOLUTE SALON
               </span>
-              <span className="text-[7px] xs:text-[8px] sm:text-[9px] tracking-[0.14em] sm:tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-bold whitespace-nowrap">
+              <span className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.14em] sm:tracking-[0.2em] uppercase text-[var(--color-gold-accent)] font-bold whitespace-nowrap">
                 JABALPUR • EST. 15+ YRS
               </span>
             </div>
