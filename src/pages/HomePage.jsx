@@ -7,6 +7,7 @@ import { BridalExperience } from '../components/sections/BridalExperience';
 import { Transformations } from '../components/sections/Transformations';
 import { GalleryTeaser } from '../components/sections/GalleryTeaser';
 import { About } from '../components/sections/About';
+import { SocialReels } from '../components/sections/SocialReels';
 import { Reviews } from '../components/sections/Reviews';
 import { SalonExperience } from '../components/sections/SalonExperience';
 import { LocationContact } from '../components/sections/LocationContact';
@@ -26,6 +27,7 @@ export const HomePage = () => {
       <BridalExperience />
       <Transformations />
       <GalleryTeaser />
+      <SocialReels />
       <Reviews />
       <SalonExperience />
       <LocationContact />
