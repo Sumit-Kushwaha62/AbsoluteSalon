@@ -67,7 +67,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.65 }}
           className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#9C978F] font-sans mb-8 sm:mb-10 max-w-lg"
         >
-          HAIR • SKIN • BEAUTY • NAILS
+          HAIR • BEAUTY • MAKEUP • NAILS
         </motion.p>
 
         {/* CTA Button Group */}
