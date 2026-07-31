@@ -99,41 +99,41 @@ export const ServicePriceCatalogue = ({
               className="bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm transition-all hover:border-[var(--color-gold-accent)]/50"
             >
               {/* Clean Top Header Banner Bar */}
-              <div className="bg-[var(--color-bg-elevated)]/70 border-b border-[var(--color-border-medium)] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="space-y-0.5 min-w-0 flex-1">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-bold block">
+              <div className="bg-[var(--color-bg-elevated)]/80 border-b border-[var(--color-border-medium)] p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="space-y-1 min-w-0 flex-1">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-gold-accent)] font-extrabold block">
                     {category.name}
                   </span>
-                  <h3 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)] font-normal leading-snug">
+                  <h3 className="font-serif-display text-2xl sm:text-3xl md:text-4xl text-[var(--color-text-primary)] font-medium leading-snug tracking-wide">
                     {sanitizePricingLabel(item.name)}
                   </h3>
                   {item.shortDescription && (
-                    <p className="text-xs text-[var(--color-text-muted)] leading-relaxed pt-0.5">
+                    <p className="text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed pt-0.5">
                       {sanitizePricingLabel(item.shortDescription)}
                     </p>
                   )}
                 </div>
 
                 {item.startingPrice && (
-                  <span className="text-[11px] font-mono text-[var(--color-gold-accent)] font-semibold px-3 py-1 rounded-full bg-[var(--color-gold-accent)]/15 border border-[var(--color-gold-accent)]/30 shrink-0 self-start sm:self-center">
+                  <span className="text-xs sm:text-sm font-mono text-[var(--color-gold-accent)] font-bold px-3.5 py-1.5 rounded-full bg-[var(--color-gold-accent)]/15 border border-[var(--color-gold-accent)]/35 shrink-0 self-start sm:self-center shadow-xs">
                     From {item.startingPrice}
                   </span>
                 )}
               </div>
 
               {/* Card Content Body: Groups or Flat Price Rows */}
-              <div className="p-3 sm:p-5">
+              <div className="p-4 sm:p-6">
                 {item.priceGroups && item.priceGroups.length > 0 ? (
-                  <div className="space-y-5">
+                  <div className="space-y-6">
                     {item.priceGroups.map((group, gIdx) => (
-                      <div key={group.title || gIdx} className="space-y-1">
-                        {/* Sub-Group Header Bar */}
-                        <div className="px-2 py-1.5 bg-[var(--color-bg-elevated)]/40 rounded-lg border-l-2 border-[var(--color-gold-accent)] mb-2 flex flex-col sm:flex-row sm:items-center justify-between">
-                          <h4 className="font-semibold text-xs sm:text-sm text-[var(--color-text-primary)] tracking-wide">
+                      <div key={group.title || gIdx} className="space-y-2">
+                        {/* Sub-Group Header Bar - Prominent & Larger Font Size */}
+                        <div className="px-3.5 py-2.5 bg-[var(--color-bg-elevated)]/80 rounded-xl border-l-4 border-[var(--color-gold-accent)] mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1 shadow-xs">
+                          <h4 className="font-serif-display text-base sm:text-lg md:text-xl text-[var(--color-gold-accent)] font-semibold tracking-wide">
                             {sanitizePricingLabel(group.title)}
                           </h4>
                           {group.description && (
-                            <span className="text-[11px] text-[var(--color-text-muted)] font-normal">
+                            <span className="text-xs text-[var(--color-text-muted)] font-medium">
                               {sanitizePricingLabel(group.description)}
                             </span>
                           )}
