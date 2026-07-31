@@ -10,6 +10,20 @@ export const MEDIA_ASSETS = {
 
   reels: [
     {
+      id: "reel-motion-1",
+      title: "Signature Salon Transformation Reel",
+      category: "Beauty In Motion",
+      video: "/media/instagram/reels/motionVideo1.mp4",
+      poster: "/media/instagram/haircut/haircut1_poster.webp"
+    },
+    {
+      id: "reel-motion-2",
+      title: "Hair & Beauty Styling Reel",
+      category: "Beauty In Motion",
+      video: "/media/instagram/reels/motionVideo2.mp4",
+      poster: "/media/instagram/haircut/haircut2_poster.webp"
+    },
+    {
       id: "reel-1",
       title: "Hair Treatment & Dimensional Colouring",
       category: "Hair Treatment & Colour",

@@ -1,7 +1,7 @@
 export const SERVICE_CATEGORIES = [
   {
     "id": "bridal-makeup",
-    "name": "Bridal & Makeup",
+    "name": "Bridal & Party Makeup",
     "description": "Flawless HD & Airbrush bridal transformations customized for your special day.",
     "featuredImage": "/media / bridal / bridal-main.jpg",
     "items": [
@@ -115,7 +115,7 @@ export const SERVICE_CATEGORIES = [
   },
   {
     "id": "hair",
-    "name": "Hair Artistry & Care",
+    "name": "Hair Artistry & Scalp Care",
     "description": "Precision cutting, vibrant balayage, organic hair botox, and structural treatments.",
     "featuredImage": "/media / hair / hair-main.jpg",
     "items": [
@@ -870,7 +870,7 @@ export const SERVICE_CATEGORIES = [
   },
   {
     "id": "skin",
-    "name": "Skin Care & Aesthetics",
+    "name": "Beauty & Skin Care",
     "description": "Organic facials, Korean glass skin rituals, D-tan therapies, Richfeel Derma, and Medi-Facial treatments.",
     "featuredImage": "/media / skin / skin-main.jpg",
     "items": [

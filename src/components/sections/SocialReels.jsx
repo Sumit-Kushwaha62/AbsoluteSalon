@@ -40,7 +40,7 @@ export const SocialReels = () => {
         </div>
 
         {/* Reels Responsive Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:grid-cols-3 gap-4 sm:gap-6 pb-5 md:pb-0 scrollbar-none mb-10 sm:mb-12 scroll-px-4">
+        <div className="flex xl:grid overflow-x-auto xl:overflow-x-visible snap-x snap-mandatory grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 pb-5 xl:pb-0 scrollbar-none mb-10 sm:mb-12 scroll-px-4">
           {MEDIA_ASSETS.reels.map((reel, idx) => (
             <motion.div
               key={reel.id}

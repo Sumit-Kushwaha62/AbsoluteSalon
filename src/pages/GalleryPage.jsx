@@ -18,8 +18,8 @@ export const GalleryPage = () => {
         title="Visual Showcase & Transformations"
         description="Explore real client transformations, high-definition bridal finishes, balayage hair art, and aesthetic details."
       />
-      <Gallery />
       <Transformations />
+      <Gallery />
       <SocialReels />
       <BookingCTA />
     </>
