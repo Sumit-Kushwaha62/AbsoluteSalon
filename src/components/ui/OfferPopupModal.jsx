@@ -84,7 +84,7 @@ export const OfferPopupModal = () => {
 
               {/* Dual Offer Highlight Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {/* Offer 1: Up to 70% Off First Visit (Highlighted) */}
+                {/* Offer 1: Up to 70% Off First Visit */}
                 <div className="relative p-4 rounded-2xl bg-gradient-to-br from-[var(--color-gold-accent)]/25 via-[var(--color-bg-elevated)] to-[var(--color-bg-card)] border-2 border-[var(--color-gold-accent)]/70 shadow-md flex flex-col justify-between space-y-2 text-left group">
                   <div className="flex items-center justify-between">
                     <span className="text-[9px] uppercase tracking-wider font-extrabold text-[var(--color-gold-accent)] bg-[var(--color-gold-accent)]/20 px-2 py-0.5 rounded-md border border-[var(--color-gold-accent)]/40">
@@ -100,9 +100,9 @@ export const OfferPopupModal = () => {
                       For First Time Customers
                     </p>
                   </div>
-                  <span className="text-[10px] text-[var(--color-text-muted)]">
-                    Valid on your first appointment visit
-                  </span>
+                  <p className="text-[11px] text-[var(--color-text-muted)] leading-relaxed pt-1 border-t border-[var(--color-border-subtle)]">
+                    Valid on <span className="text-[var(--color-gold-accent)] font-semibold">haircut, hair spa, botox, dermal facials & beauty services</span> for first visit.
+                  </p>
                 </div>
 
                 {/* Offer 2: Up to 50% Off Over ₹5,000 Services */}
@@ -121,9 +121,9 @@ export const OfferPopupModal = () => {
                       On Services Worth ₹5,000+
                     </p>
                   </div>
-                  <span className="text-[10px] text-[var(--color-text-muted)]">
-                    Applied on billing above ₹5,000
-                  </span>
+                  <p className="text-[11px] text-[var(--color-text-muted)] leading-relaxed pt-1 border-t border-[var(--color-border-subtle)]">
+                    Valid on <span className="text-[var(--color-gold-accent)] font-semibold">haircut, hair spa, botox, dermal facials & beauty services</span> on billing above ₹5,000.
+                  </p>
                 </div>
               </div>
 
