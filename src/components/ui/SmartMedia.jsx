@@ -43,7 +43,7 @@ export const SmartMedia = ({
           loop
           playsInline
           poster={poster}
-          preload="metadata"
+          preload="none"
           onError={() => setHasError(true)}
           onLoadedData={() => setIsLoaded(true)}
           className="w-full h-full object-cover"
@@ -59,6 +59,8 @@ export const SmartMedia = ({
       <img
         src={src}
         alt={alt}
+        width="1200"
+        height="800"
         loading="lazy"
         decoding="async"
         onError={() => setHasError(true)}

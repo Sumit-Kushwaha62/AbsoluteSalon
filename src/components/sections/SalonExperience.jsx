@@ -45,9 +45,9 @@ export const SalonExperience = () => {
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-serif-display text-xl text-[var(--color-text-primary)]">
+                      <h3 className="font-serif-display text-xl text-[var(--color-text-primary)]">
                         {item.title}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-[var(--color-text-muted)] mt-1">
                         {item.desc}
                       </p>

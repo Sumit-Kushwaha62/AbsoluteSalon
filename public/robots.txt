@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://absolutesalonjabalpur.com/sitemap.xml

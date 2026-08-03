@@ -9,10 +9,21 @@ export const SmartVideo = ({
   controls = false,
   className = '',
   onError,
+  ariaLabel,
 }) => {
   const videoRef = useRef(null);
   const [isNearViewport, setIsNearViewport] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener?.('change', updatePreference);
+    return () => mediaQuery.removeEventListener?.('change', updatePreference);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -36,26 +47,27 @@ export const SmartVideo = ({
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !isNearViewport || !autoPlay) return;
+    if (!video || !isNearViewport || !autoPlay || prefersReducedMotion) return;
 
     if (isVisible) {
       video.play().catch(() => {});
     } else {
       video.pause();
     }
-  }, [autoPlay, isNearViewport, isVisible]);
+  }, [autoPlay, isNearViewport, isVisible, prefersReducedMotion]);
 
   return (
     <video
       ref={videoRef}
-      autoPlay={autoPlay}
+      autoPlay={autoPlay && !prefersReducedMotion}
       muted={muted}
       loop={loop}
-      controls={controls}
+      controls={controls || prefersReducedMotion}
       playsInline
       poster={poster}
       preload={isNearViewport ? 'metadata' : 'none'}
       onError={onError}
+      aria-label={ariaLabel}
       className={className}
     >
       {isNearViewport && <source src={src} type="video/mp4" />}

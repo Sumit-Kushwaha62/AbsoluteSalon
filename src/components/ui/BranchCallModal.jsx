@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, X, MapPin, Star, Sparkles } from 'lucide-react';
+import { Phone, X, MapPin, Sparkles } from 'lucide-react';
 import { BRANCHES } from '../../data/business';
 
 export const BranchCallModal = ({ isOpen, onClose }) => {
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previouslyFocused = document.activeElement;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    closeButtonRef.current?.focus();
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus?.();
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -24,6 +41,9 @@ export const BranchCallModal = ({ isOpen, onClose }) => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: '100%', opacity: 0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 280 }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="branch-call-title"
           className="relative w-full max-w-lg bg-[var(--color-bg-card)] border-t sm:border border-[var(--color-border-medium)] rounded-t-[28px] sm:rounded-[28px] p-6 sm:p-8 shadow-2xl z-10 space-y-6 overflow-hidden max-h-[90vh] overflow-y-auto"
         >
           {/* Header */}
@@ -32,12 +52,13 @@ export const BranchCallModal = ({ isOpen, onClose }) => {
               <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold-accent)] font-semibold flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" /> Direct Call
               </span>
-              <h3 className="font-serif-display text-2xl text-[var(--color-text-primary)] font-normal mt-0.5">
+              <h2 id="branch-call-title" className="font-serif-display text-2xl text-[var(--color-text-primary)] font-normal mt-0.5">
                 Select Branch to Call
-              </h3>
+              </h2>
             </div>
             <button
               type="button"
+              ref={closeButtonRef}
               onClick={onClose}
               className="p-2 rounded-full bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors border border-[var(--color-border-medium)]"
               aria-label="Close branch selector modal"
@@ -96,7 +117,7 @@ export const BranchCallModal = ({ isOpen, onClose }) => {
           {/* Footer note */}
           <div className="pt-2 text-center border-t border-[var(--color-border-subtle)]">
             <span className="text-[10px] text-[var(--color-text-muted)]">
-              Appointments open daily • Walk-ins & bookings welcome
+              Walk-ins and advance bookings are welcome
             </span>
           </div>
         </motion.div>

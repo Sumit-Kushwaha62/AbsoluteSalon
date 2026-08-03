@@ -76,7 +76,7 @@ export const Navbar = () => {
           >
             <img
               src="/brand/absolute-salon-logo.webp?v=2.0"
-              alt="Absolute Salon Logo"
+              alt=""
               width="512"
               height="512"
               decoding="async"

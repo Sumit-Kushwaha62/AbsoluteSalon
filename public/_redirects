@@ -1,1 +1,10 @@
-/* /index.html 200
+http://absolutesalonjabalpur.com/* https://absolutesalonjabalpur.com/:splat 301!
+http://www.absolutesalonjabalpur.com/* https://absolutesalonjabalpur.com/:splat 301!
+https://www.absolutesalonjabalpur.com/* https://absolutesalonjabalpur.com/:splat 301!
+
+/about /about/index.html 200
+/services /services/index.html 200
+/gallery /gallery/index.html 200
+/contact /contact/index.html 200
+
+/* /404.html 404

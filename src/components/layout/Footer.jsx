@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/business';
+import { BRANCHES, BUSINESS_INFO } from '../../data/business';
 import { SocialLinks } from '../ui/SocialLinks';
 
 export const Footer = () => {
@@ -23,7 +23,7 @@ export const Footer = () => {
             <Link to="/" className="flex items-center gap-3">
               <img
                 src="/brand/absolute-salon-logo.webp?v=2.0"
-                alt="Absolute Salon Logo"
+                alt=""
                 width="512"
                 height="512"
                 loading="lazy"
@@ -50,9 +50,9 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-semibold mb-4">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-semibold mb-4">
               Explore
-            </h4>
+            </h2>
             <ul className="space-y-2 text-xs">
               {footerLinks.map((item) => (
                 <li key={item.name}>
@@ -69,34 +69,24 @@ export const Footer = () => {
 
           {/* Address, Phone & Email */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-semibold mb-4">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-semibold mb-4">
               Our Locations & Contact
-            </h4>
+            </h2>
             
             <div className="space-y-3 border-b border-[var(--color-border-subtle)] pb-3">
-              <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-gold-accent)] block">
-                  Vijay Nagar Branch (Main)
-                </span>
-                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
-                  Ekta Chowk, Plot No. 53, Opp. Mahalaxmi Jewellers, Jabalpur 482002
-                </p>
-                <a href="tel:+917000420649" className="text-xs text-[var(--color-gold-accent)] font-semibold hover:underline">
-                  Ph: +91 70004 20649
-                </a>
-              </div>
-
-              <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-gold-accent)] block">
-                  Shastri Nagar Branch (New)
-                </span>
-                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
-                  Plot No. 32/2, Behind Khushi Mobile, New Shastri Nagar, Jabalpur 482003
-                </p>
-                <a href="tel:+919111310012" className="text-xs text-[var(--color-gold-accent)] font-semibold hover:underline">
-                  Ph: +91 91113 10012
-                </a>
-              </div>
+              {BRANCHES.map((branch) => (
+                <div key={branch.id}>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-gold-accent)] block">
+                    {branch.name} ({branch.badge})
+                  </span>
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                    {branch.address.fullAddress}
+                  </p>
+                  <a href={`tel:${branch.phone.raw}`} className="text-xs text-[var(--color-gold-accent)] font-semibold hover:underline">
+                    Ph: {branch.phone.display}
+                  </a>
+                </div>
+              ))}
             </div>
 
             <p className="text-xs text-[var(--color-text-primary)] break-all">
@@ -113,8 +103,16 @@ export const Footer = () => {
         {/* Bottom Legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[var(--color-text-muted)] gap-4">
           <p>© {new Date().getFullYear()} Absolute Salon Jabalpur. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Crafted for <span className="text-[var(--color-text-primary)] font-semibold">Absolute Salon</span>
+          <p>
+            Developed by{' '}
+            <a
+              href="https://www.xanvoraa.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-gold-accent)] transition-colors"
+            >
+              Xanvoraa Technologies
+            </a>
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import React, { useState } from 'react';
  */
 export const SmartImage = ({
   src,
-  alt = 'Absolute Salon',
+  alt = '',
   _category = 'Beauty',
   title = '',
   width = 1200,
@@ -40,12 +40,12 @@ export const SmartImage = ({
   return (
     <img
       src={src}
-      alt={alt || title || "Absolute Salon Jabalpur"}
+      alt={alt || title}
       width={width}
       height={height}
       sizes={sizes}
       loading={priority ? "eager" : "lazy"}
-      decoding="async"
+      decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : "auto"}
       draggable="false"
       onError={() => setHasError(true)}

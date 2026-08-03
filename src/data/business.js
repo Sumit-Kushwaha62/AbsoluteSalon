@@ -31,7 +31,7 @@ export const BRANCHES = [
     },
     googleMaps: {
       url: "https://share.google/ltbqdVZ5acpj1MG0q",
-      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.653456789012!2d79.8987654!3d23.1765432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981ae1234567890%3A0x1234567890abcdef!2sVijay%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482002!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+      embedUrl: "https://maps.google.com/maps?q=Ekta+Chowk,+Plot+No.+53,+Opp.+Mahalaxmi+Jewellers,+Vijay+Nagar,+Jabalpur,+Madhya+Pradesh+482002&z=15&output=embed"
     },
     hours: "10:00 AM - 8:30 PM",
     popularServices: [
@@ -90,7 +90,7 @@ export const BUSINESS_INFO = {
   rating: {
     score: 4.9,
     reviewsCount: 532,
-    displayText: "4.9 ★ Google Rating (530+ Total Reviews)"
+    displayText: "4.9 ★ Google Rating (532 Total Reviews)"
   },
   
   // Primary Address for backward compatibility
@@ -151,4 +151,3 @@ export const BUSINESS_INFO = {
     }
   }
 };
-

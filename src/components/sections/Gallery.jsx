@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Sparkles, Eye } from 'lucide-react';
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '../../data/gallery';
@@ -9,6 +9,7 @@ import { BUSINESS_INFO } from '../../data/business';
 export const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All Work');
   const [activeLightboxIndex, setActiveLightboxIndex] = useState(null);
+  const closeButtonRef = useRef(null);
 
   // Filter gallery items based on active tab
   const filteredItems = activeCategory === 'All Work'
@@ -44,8 +45,15 @@ export const Gallery = () => {
     };
 
     if (activeLightboxIndex !== null) {
+      const previouslyFocused = document.activeElement;
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+      closeButtonRef.current?.focus();
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+        previouslyFocused?.focus?.();
+      };
     } else {
       document.body.style.overflow = '';
     }
@@ -120,12 +128,14 @@ export const Gallery = () => {
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6"
           >
             {filteredItems.map((item, index) => (
-              <motion.div
+              <motion.button
+                type="button"
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: Math.min(index * 0.03, 0.3) }}
                 onClick={() => openLightbox(index)}
+                aria-label={`Open ${item.title}`}
                 className="group relative cursor-pointer overflow-hidden rounded-[18px] sm:rounded-[24px] card-editorial aspect-[3/4] shadow-[var(--shadow-editorial)] bg-[var(--color-bg-card)] border border-[var(--color-border-medium)]"
               >
                 <SmartImage
@@ -145,7 +155,7 @@ export const Gallery = () => {
                     <Eye className="w-3.5 h-3.5" /> View Photo
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -171,11 +181,15 @@ export const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeItem.title}
             className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-8"
           >
             {/* Close Button */}
             <button
               type="button"
+              ref={closeButtonRef}
               onClick={closeLightbox}
               className="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 text-white hover:text-[var(--color-gold-accent)] focus:outline-none z-50 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               aria-label="Close Lightbox"
@@ -208,7 +222,7 @@ export const Gallery = () => {
               <div className="relative max-h-[75vh] w-full flex items-center justify-center overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 shadow-2xl bg-black">
                 <SmartImage
                   src={activeItem.src}
-                  alt={activeItem.category}
+                  alt={activeItem.title}
                   _category={activeItem.category}
                   className="max-h-[75vh] w-auto max-w-full object-contain"
                 />
@@ -237,4 +251,3 @@ export const Gallery = () => {
     </section>
   );
 };
-

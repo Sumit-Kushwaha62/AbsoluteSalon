@@ -57,9 +57,9 @@ export const SocialLinks = ({ variant = 'inline', className = '' }) => {
                   <Icon className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-serif-display text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-gold-accent)] transition-colors leading-tight">
+                  <h3 className="font-serif-display text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-gold-accent)] transition-colors leading-tight">
                     {item.name}
-                  </h4>
+                  </h3>
                   <span className="text-[10px] text-[var(--color-text-muted)] block mt-0.5">
                     {item.sub}
                   </span>

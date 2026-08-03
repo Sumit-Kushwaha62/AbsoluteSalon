@@ -12,7 +12,7 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <SmartImage
           src="/media/hero/hero-poster.jpg"
-          alt="Absolute Salon Luxury Hero Background"
+          alt=""
           priority
           className="w-full h-full object-cover filter brightness-[0.7] scale-105"
         />
@@ -37,7 +37,7 @@ export const Hero = () => {
           <span className="text-white/20">•</span>
           <span className="text-[#9C978F]">{BUSINESS_INFO.rating.reviewsCount}+ Reviews</span>
           <span className="text-white/20 hidden sm:inline">•</span>
-          <span className="text-[#D6B45C] w-full sm:w-auto">Vijay Nagar, Jabalpur</span>
+          <span className="text-[#D6B45C] w-full sm:w-auto">Vijay Nagar &amp; Shastri Nagar, Jabalpur</span>
         </motion.div>
 
         {/* Responsive Clamp Hero Title */}

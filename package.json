@@ -1,12 +1,17 @@
 {
   "name": "absolutesalon",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir .prerender --emptyOutDir",
+    "prerender": "node scripts/prerender.mjs",
     "lint": "oxlint src",
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "validate:assets": "node scripts/validate-assets.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

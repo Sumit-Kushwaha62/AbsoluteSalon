@@ -60,6 +60,11 @@ export const BeforeAfterSlider = ({ beforeImage, afterImage, title }) => {
       onTouchEnd={() => setIsDragging(false)}
       onTouchMove={handleTouchMove}
       aria-label={`Before and after image comparison slider for ${title || 'transformation'}`}
+      role="slider"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow={Math.round(sliderPosition)}
+      aria-valuetext={`${Math.round(sliderPosition)} percent before image visible`}
       className="relative w-full max-w-md mx-auto aspect-[9/16] sm:aspect-[4/5] overflow-hidden select-none rounded-[24px] card-editorial border border-[var(--color-border-medium)] focus:outline-none focus:ring-2 focus:ring-[#CDA647] shadow-[var(--shadow-editorial)]"
     >
       {/* 1. After Image (Base Full Width) */}

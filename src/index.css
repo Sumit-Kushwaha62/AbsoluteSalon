@@ -123,6 +123,15 @@
   @media (prefers-reduced-motion: reduce) {
     html {
       transition: none !important;
+      scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 
@@ -138,6 +147,19 @@
   h1, h2, h3, h4, .font-serif-display {
     font-family: 'Cormorant Garamond', 'Playfair Display', serif;
   }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-accent);
+  outline-offset: 3px;
+}
+
+[data-theme="dark"] .salon-map {
+  filter: grayscale(0.8) contrast(1.2) invert(0.9);
+}
+
+[data-theme="light"] .salon-map {
+  filter: grayscale(0.2) contrast(1.05);
 }
 
 /* Luxury Champagne Text Gradient */

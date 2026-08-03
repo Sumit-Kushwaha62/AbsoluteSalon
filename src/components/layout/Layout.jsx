@@ -6,6 +6,7 @@ import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
 import { FloatingWhatsApp } from '../ui/FloatingWhatsApp';
 import { OfferPopupModal } from '../ui/OfferPopupModal';
+import { PageMeta } from '../ui/PageMeta';
 
 /**
  * Layout Component
@@ -17,10 +18,17 @@ export const Layout = () => {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-base)] text-[var(--color-text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-hidden max-w-full relative">
+      <PageMeta />
       <ScrollToTop />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only fixed top-3 left-3 z-[100] rounded-lg bg-[var(--color-gold-accent)] px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#070707]"
+      >
+        Skip to main content
+      </a>
       <Navbar />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1" tabIndex="-1">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={location.pathname}
@@ -40,5 +48,3 @@ export const Layout = () => {
     </div>
   );
 };
-
-export default Layout;

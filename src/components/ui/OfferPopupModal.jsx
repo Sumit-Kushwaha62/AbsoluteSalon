@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Gift, Phone, Star, Percent } from 'lucide-react';
 import { BUSINESS_INFO } from '../../data/business';
@@ -7,19 +7,47 @@ import { BranchCallModal } from './BranchCallModal';
 export const OfferPopupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+  const closeButtonRef = useRef(null);
 
   useEffect(() => {
-    // Open offer pop-up after a short 1.2-second delay on page load
+    try {
+      if (sessionStorage.getItem('absolute-salon-offer-seen') === 'true') return undefined;
+    } catch {
+      // Continue without session persistence when storage is unavailable.
+    }
+
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 1200);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
+    try {
+      sessionStorage.setItem('absolute-salon-offer-seen', 'true');
+    } catch {
+      // Closing the modal must still work when storage is unavailable.
+    }
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previouslyFocused = document.activeElement;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') handleClose();
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+    closeButtonRef.current?.focus();
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus?.();
+    };
+  }, [isOpen]);
 
   const handleOpenCallModal = () => {
     setIsOpen(false);
@@ -50,6 +78,9 @@ export const OfferPopupModal = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="special-offer-title"
               className="relative w-full max-w-lg bg-[var(--color-bg-card)] border border-[var(--color-gold-accent)]/60 rounded-[28px] p-5 sm:p-8 shadow-[0_20px_70px_rgba(214,180,92,0.3)] z-10 overflow-hidden space-y-5 my-auto text-center"
             >
               {/* Decorative Background Glow Effect */}
@@ -59,6 +90,7 @@ export const OfferPopupModal = () => {
               {/* Close X Button */}
               <button
                 type="button"
+                ref={closeButtonRef}
                 onClick={handleClose}
                 className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2.5 rounded-full bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] hover:text-white border border-[var(--color-border-medium)] transition-colors z-20"
                 aria-label="Close Special Offer Modal"
@@ -74,7 +106,7 @@ export const OfferPopupModal = () => {
 
               {/* Header Title */}
               <div className="space-y-1">
-                <h2 className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] font-normal leading-snug">
+                <h2 id="special-offer-title" className="font-serif-display text-2xl sm:text-3xl text-[var(--color-text-primary)] font-normal leading-snug">
                   Special Discount Offers!
                 </h2>
                 <p className="text-xs text-[var(--color-text-muted)] max-w-sm mx-auto">

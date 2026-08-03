@@ -53,6 +53,8 @@ export const GalleryTeaser = () => {
                     loop
                     playsInline
                     poster={item.poster}
+                    preload="none"
+                    aria-label={item.title}
                     className="w-full h-full object-cover"
                   >
                     <source src={item.src} type="video/mp4" />

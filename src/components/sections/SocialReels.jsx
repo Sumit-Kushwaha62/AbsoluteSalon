@@ -55,6 +55,7 @@ export const SocialReels = () => {
                   src={reel.video}
                   poster={reel.poster}
                   muted={mutedStates[reel.id]}
+                  ariaLabel={reel.title}
                   onError={() => handleVideoError(reel.id)}
                   className="w-full h-full object-cover object-center scale-[1.08] sm:scale-105 md:scale-100 transition-transform duration-500"
                 />

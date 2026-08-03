@@ -115,39 +115,8 @@ export const Services = () => {
     return rowsMatch;
   }, [searchQuery]);
 
-  // Structured Data JSON-LD for SEO
-  const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    "name": "Absolute Salon Jabalpur — Signature Services & Prices",
-    "url": "https://absolutesalon.in/services",
-    "numberOfItems": SERVICE_CATEGORIES.reduce((acc, cat) => acc + cat.items.length, 0),
-    "itemListElement": SERVICE_CATEGORIES.map((cat, cIdx) => ({
-      "@type": "OfferCatalog",
-      "name": cat.name,
-      "position": cIdx + 1,
-      "itemListElement": cat.items.map((item, iIdx) => ({
-        "@type": "Offer",
-        "name": item.name,
-        "position": iIdx + 1,
-        "description": item.shortDescription || cat.description,
-        "priceSpecification": item.startingPrice ? {
-          "@type": "UnitPriceSpecification",
-          "price": item.startingPrice.replace(/[^0-9]/g, ''),
-          "priceCurrency": "INR"
-        } : undefined
-      }))
-    }))
-  };
-
   return (
     <section id="services" className="py-8 sm:py-12 bg-[var(--color-bg-base)] relative min-h-screen transition-colors duration-300">
-      {/* Structured Data Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
-      />
-
       {/* Lightweight Service Search Bar */}
       <ServiceSearch
         searchQuery={searchQuery}
@@ -188,11 +157,11 @@ export const Services = () => {
         {/* Bespoke Consultation Action Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between p-6 sm:p-8 bg-[var(--color-bg-card)] border border-[var(--color-border-medium)] rounded-2xl sm:rounded-3xl gap-4 mt-8 shadow-sm">
           <div>
-            <h5 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)]">
+            <h2 className="font-serif-display text-xl sm:text-2xl text-[var(--color-text-primary)]">
               Bespoke Beauty Consultations
-            </h5>
+            </h2>
             <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              Book an exclusive appointment with our senior beauty artists in Vijay Nagar, Jabalpur.
+              Book an appointment with our senior beauty artists at Vijay Nagar or Shastri Nagar, Jabalpur.
             </p>
           </div>
           <LuxuryButton
@@ -209,4 +178,3 @@ export const Services = () => {
     </section>
   );
 };
-

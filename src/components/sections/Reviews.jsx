@@ -79,9 +79,9 @@ export const Reviews = () => {
 
               <div className="border-t border-[var(--color-border-subtle)] pt-4 flex justify-between items-center">
                 <div>
-                  <h4 className="font-serif-display text-xl text-[var(--color-text-primary)]">
+                  <h3 className="font-serif-display text-xl text-[var(--color-text-primary)]">
                     {rev.author}
-                  </h4>
+                  </h3>
                   <span className="text-[10px] text-[var(--color-gold-accent)] uppercase tracking-wider">
                     {rev.service}
                   </span>

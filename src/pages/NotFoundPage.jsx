@@ -1,16 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PageMeta } from '../components/ui/PageMeta';
 import { LuxuryButton } from '../components/ui/LuxuryButton';
 
 export const NotFoundPage = () => {
   return (
     <>
-      <PageMeta
-        title="Page Not Found | Absolute Salon Jabalpur"
-        description="The page you requested could not be found. Explore Absolute Salon's signature services, gallery, or contact our team in Jabalpur."
-      />
-
       <section className="min-h-[75vh] flex items-center justify-center bg-[var(--color-bg-base)] bg-noise-overlay px-6 py-32 relative transition-colors duration-300">
         <div className="max-w-xl mx-auto text-center relative z-10 flex flex-col items-center">
           <motion.div

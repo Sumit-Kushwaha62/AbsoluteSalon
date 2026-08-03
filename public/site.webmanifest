@@ -1,8 +1,10 @@
 {
   "name": "Absolute Salon Jabalpur",
   "short_name": "Absolute Salon",
-  "description": "Luxury hair, beauty and bridal salon in Vijay Nagar, Jabalpur.",
+  "description": "Hair, beauty and bridal salon with branches in Vijay Nagar and Shastri Nagar, Jabalpur.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#070707",
   "theme_color": "#070707",

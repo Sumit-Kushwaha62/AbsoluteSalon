@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Sparkles, Navigation, Clock, Star, ExternalLink } from 'lucide-react';
-import { BRANCHES, BUSINESS_INFO } from '../../data/business';
+import { MapPin, Phone, Sparkles, Navigation, Clock, Star, ExternalLink } from 'lucide-react';
+import { BRANCHES } from '../../data/business';
 import { SocialLinks } from '../ui/SocialLinks';
-import { useTheme } from '../../context/ThemeContext';
 
 export const LocationContact = () => {
-  const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'vijay-nagar', or 'shastri-nagar'
 
   const displayedBranches = activeTab === 'all' 
@@ -182,10 +180,7 @@ export const LocationContact = () => {
                   src={branch.googleMaps.embedUrl}
                   width="100%"
                   height="100%"
-                  className="w-full h-full border-0 min-h-[300px]"
-                  style={{
-                    filter: theme === 'dark' ? 'grayscale(0.8) contrast(1.2) invert(0.9)' : 'grayscale(0.2) contrast(1.05)'
-                  }}
+                  className="salon-map w-full h-full border-0 min-h-[300px]"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -198,4 +193,3 @@ export const LocationContact = () => {
     </section>
   );
 };
-

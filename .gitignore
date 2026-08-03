@@ -28,6 +28,32 @@ source-assets/
 instagram-data/
 engagmentimage.jpg
 *_AUDIT.md
+!SEO_AUDIT.md
 *_REPORT.md
 ROUTING_SETUP.md
+
+# Root-level loose source media (not part of app)
+bridal_royal_image.png
+bridelCard.jpg
+hairCard.jpg
+nailsCard.jpg
+skincareCard.jpg
+founders.png
+motionVideo1.mp4
+motionVideo2.mp4
+hairExtraImage.webp
+mendiExtraImage.webp
+mendiExtraImage2.webp
+mendiExtraImage3.webp
+
+# Legacy data folders
+New Gallary data/
+OldData/
+
+# Duplicate large PNGs (WebP versions exist in public/)
+public/brand/founders.png
+public/media/bridal/bridal-royal-image.png
+
+# Prerender SSR temp output
+.prerender/
 

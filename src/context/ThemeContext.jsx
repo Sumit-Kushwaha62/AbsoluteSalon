@@ -9,24 +9,15 @@ const ThemeContext = createContext({
 });
 
 export const ThemeProvider = ({ children }) => {
-  // Resolve initial theme
-  const [theme, setThemeState] = useState(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored === 'light' || stored === 'dark') {
-          return stored;
-        }
-        // Fallback to system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-          return 'light';
-        }
-      } catch {
-        // Fallback to dark if localStorage fails
-      }
+  // A deterministic initial value keeps server markup and hydration aligned.
+  const [theme, setThemeState] = useState('dark');
+
+  useEffect(() => {
+    const bootstrappedTheme = document.documentElement.getAttribute('data-theme');
+    if (bootstrappedTheme === 'light' || bootstrappedTheme === 'dark') {
+      setThemeState(bootstrappedTheme);
     }
-    return 'dark';
-  });
+  }, []);
 
   // Apply theme to <html> documentElement
   const applyTheme = useCallback((newTheme) => {
